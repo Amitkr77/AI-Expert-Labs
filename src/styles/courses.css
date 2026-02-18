@@ -1,0 +1,19 @@
+.courses {
+  padding: 80px;
+  text-align: center;
+}
+
+.course-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  padding: 40px;
+  background: #f9fafb;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
