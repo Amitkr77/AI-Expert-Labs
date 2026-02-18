@@ -1,0 +1,90 @@
+/* ========== BASE BUTTON ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== VARIANTS ========== */
+
+/* Primary */
+.btn-primary {
+  background: var(--gradient-blue);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  color: var(--primary-400);
+  border-color: var(--primary-500);
+}
+
+.btn-outline:hover {
+  background: var(--primary-500);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Ghost */
+.btn-ghost {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-400);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.btn-ghost:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========== SIZES ========== */
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: var(--text-sm);
+}
+
+.btn-md {
+  padding: 12px 28px;
+  font-size: var(--text-base);
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: var(--text-lg);
+}
+
+/* ========== STATES ========== */
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
