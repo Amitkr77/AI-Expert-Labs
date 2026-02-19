@@ -24,13 +24,13 @@ const Navbar = () => {
             <span className="logo-icon">⚡</span>
           </div>
           <div className="logo-text-wrap">
-            <span className="logo-main">AI Experts <span className="logo-accent">Labs</span></span>
-            <span className="logo-sub">Noida, India</span>
+            <span className="logo-main">AIXperts<span className="logo-accent">Labs</span></span>
+            <span className="logo-sub">Expert-Led AI Education & Workshops</span>
           </div>
         </Link>
 
         {/* Desktop Links */}
-        <ul className="nav-links">
+        {/* <ul className="nav-links">
           {navLinks.map(link => (
             <li key={link.id}>
               <Link
@@ -41,7 +41,43 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
+        </ul> */}
+        <ul className="nav-links">
+          {navLinks.map(link => (
+            <li key={link.id} className="nav-item">
+
+              {/* Normal Link */}
+              {!link.dropdown && (
+                <Link to={link.path} className="nav-link">
+                  {link.label}
+                </Link>
+              )}
+
+              {/* Dropdown Link */}
+              {link.dropdown && (
+                <div className="dropdown">
+                  <span className="nav-link">
+                    {link.label} ▾
+                  </span>
+
+                  <div className="dropdown-menu">
+                    {link.dropdown.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.path}
+                        className="dropdown-item"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </li>
+          ))}
         </ul>
+
 
 
         {/* Right CTAs */}
