@@ -1,0 +1,19 @@
+.features {
+  background: #111827;
+  color: white;
+  padding: 80px;
+  text-align: center;
+}
+
+.feature-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature-grid div {
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 10px;
+}
