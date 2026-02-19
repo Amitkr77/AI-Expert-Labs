@@ -1,6 +1,15 @@
 {
   "name": "ai-experts-labs",
+  "private": true,
   "version": "1.0.0",
+  "type": "module",
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -11,6 +20,7 @@
     "react-hook-form": "^7.0.0",
     "aos": "^2.3.4"
   },
+
   "devDependencies": {
     "vite": "^4.0.0",
     "@vitejs/plugin-react": "^4.0.0",

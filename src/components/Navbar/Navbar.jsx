@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
+import { Link } from 'react-router-dom'
 import { navLinks } from '../../data/siteData'
 import './Navbar.css'
 
@@ -34,16 +34,15 @@ const Navbar = () => {
           {navLinks.map(link => (
             <li key={link.id}>
               <Link
-                to={link.to}
-                spy smooth offset={-80} duration={500}
-                onSetActive={() => setActive(link.to)}
-                className={`nav-link ${active === link.to ? 'active' : ''}`}
+                to={link.path}
+                className="nav-link"
               >
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
+
 
         {/* Right CTAs */}
         <div className="nav-actions">
@@ -71,14 +70,14 @@ const Navbar = () => {
           {navLinks.map(link => (
             <Link
               key={link.id}
-              to={link.to}
-              smooth offset={-80} duration={500}
+              to={link.path}
               className="mobile-nav-link"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
+
           <Link
             to="contact" smooth duration={500} offset={-80}
             className="mobile-nav-cta"

@@ -15,15 +15,18 @@ export const siteConfig = {
   },
 };
 
+
 export const navLinks = [
-  { id: 1, label: "Home",      to: "hero"      },
-  { id: 2, label: "About",     to: "about"     },
-  { id: 3, label: "Services",  to: "services"  },
-  { id: 4, label: "Courses",   to: "courses"   },
-  { id: 5, label: "Portfolio", to: "portfolio" },
-  { id: 6, label: "Team",      to: "team"      },
-  { id: 7, label: "Contact",   to: "contact"   },
+  { id: 1, label: "Home", path: "/" },
+  { id: 2, label: "About", path: "/about" },
+  { id: 3, label: "Services", path: "/services" },
+  { id: 4, label: "Courses", path: "/courses" },
+  { id: 5, label: "Portfolio", path: "/portfolio" },
+  { id: 6, label: "Contact", path: "/contact" },
 ];
+
+
+
 
 export const statsData = [
   { id: 1, number: "10,000+", label: "Students Trained",    icon: "🎓" },
