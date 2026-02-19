@@ -1,7 +1,7 @@
 import pradeepImg from "../assets/team/pradeep_kumar.jpeg"
 import pawanImg from "../assets/team/pawan.jpeg"
 import deepakImg from "../assets/team/Deepak.jpeg"
-// import priyaImg from "../assets/team/priya.jpg"
+import ayushImg from "../assets/team/Ayush.jpeg"
 
 
 export const siteConfig = {
@@ -767,10 +767,10 @@ export const teamData = [
   },
   {
     id: 4,
-    name: "Priya Nair",
+    name: "Ayush Kumar",
     role: "Data Science Lead",
     bio: "Specialist in big data, analytics, and business intelligence solutions.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    image: ayushImg,
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
