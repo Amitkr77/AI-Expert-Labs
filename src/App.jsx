@@ -5,12 +5,12 @@ import 'aos/dist/aos.css'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
-
+import Courses from "./pages/Courses/Courses"
 import Home from "./pages/Home/Home"
 import About from "./pages/About/About"
 import Services from "./pages/Services/Services"
 import Portfolio from "./pages/Portfolio/Portfolio"
-import Contact from "./components/Contact/Contact"
+import Contact from "./pages/Contact/Contact"
 
 
 import './styles/globals.css'
@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/courses" element={<Courses />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
