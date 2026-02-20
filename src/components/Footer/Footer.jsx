@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="footer-logo">
               <div className="footer-logo-box">⚡</div>
               <div>
-                <p className="footer-logo-name">AI Experts Labs</p>
+                <p className="footer-logo-name">AIXpertsLabs</p>
                 <p className="footer-logo-sub">Noida, India</p>
               </div>
             </div>
@@ -88,7 +88,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="footer-bottom">
-          <p>© {year} AI Experts Labs | Founded by <strong>Pradeep Kumar</strong> | Noida, India</p>
+          {/* <p>© {year} AI Experts Labs | Founded by <strong>Pradeep Kumar</strong> | Noida, India</p> */}
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

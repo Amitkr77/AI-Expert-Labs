@@ -30,7 +30,7 @@ const Home = () => {
         <Portfolio />
         <Contact />
       </main>
-      <Footer />
+
     </>
   )
 }

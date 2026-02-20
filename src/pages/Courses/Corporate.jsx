@@ -171,15 +171,15 @@ const Corporate = () => {
       {/* CTA */}
       <section className="corp-cta-section">
         <div className="container">
-          <div className="corp-cta-box" data-aos="fade-up">
+          <div className="corp-cta-box" data-aos="fade-up"> 
             <h2>Get a Custom Training Proposal</h2>
-            <p>Talk to <strong>Pradeep Kumar</strong> — Founder & CEO, AI Experts Labs</p>
+            <p>Talk to <strong>Our Team  </strong> AIXperts Labs</p>
             <p className="corp-cta-addr">📍 Logix Cyber Park, Tower C, 9th Floor, Sec 62, Noida</p>
-            <div className="corp-cta-btns">
+            {/* <div className="corp-cta-btns">
               <a href="tel:+919811263046" className="cta-call-c">📞 +91 98112 63046</a>
               <a href="https://wa.me/919811263046" target="_blank" rel="noreferrer" className="cta-wa-c">💬 WhatsApp</a>
               <a href="mailto:pradeep@aixpertslabs.com" className="cta-email-c">✉️ Email Us</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

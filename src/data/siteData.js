@@ -9,7 +9,7 @@ export const siteConfig = {
   tagline: "India's Leading AI Training & Solutions Hub",
   description: "Master Artificial Intelligence with India's top AI experts. Learn, Build & Deploy real-world AI solutions.",
   email: "pradeep@aixpertslabs.com",
-  phone: "+91 98112 63046",
+  phone: " ",
   address: "Logix Cyber Park, Tower C, 9th Floor, Sec 62, Noida 201309",
   founder: "Pradeep Kumar",
   social: {

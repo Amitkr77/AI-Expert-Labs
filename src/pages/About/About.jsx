@@ -65,13 +65,13 @@ const About = () => {
                   <p>Logix Cyber Park, Tower C, 9th Floor, Sector 62, Noida 201309</p>
                 </div>
               </div>
-              <div className="ab-info-item">
+              {/* <div className="ab-info-item">
                 <span>👤</span>
                 <div>
                   <strong>Founder & CEO</strong>
-                  <p>Pradeep Kumar — +91 98112 63046</p>
+                  <p>Pradeep Kumar </p>
                 </div>
-              </div>
+              </div> */}
               <div className="ab-info-item">
                 <span>✉️</span>
                 <div>

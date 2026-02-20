@@ -30,14 +30,14 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="services-contact-banner" data-aos="fade-up">
+        {/* <div className="services-contact-banner" data-aos="fade-up">
           <h2>Ready to Build Your AI Solution?</h2>
-          <p>Contact <strong>Pradeep Kumar</strong> at +91 98112 63046</p>
+          <p>Contact us  <strong>Our Team</strong></p>
           <div style={{ display:'flex', gap:'14px', justifyContent:'center', flexWrap:'wrap', marginTop:'20px' }}>
             <a href="tel:+919811263046"                           className="btn-primary">📞 Call Now</a>
             <a href="https://wa.me/919811263046" target="_blank" rel="noreferrer" className="btn-wa">💬 WhatsApp</a>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   )

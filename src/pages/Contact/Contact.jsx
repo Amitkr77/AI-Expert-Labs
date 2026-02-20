@@ -19,7 +19,7 @@ const Contact = () => {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    phone: '',
+   // phone: '',
     subject: '',
     message: '',
   })
@@ -60,7 +60,7 @@ const Contact = () => {
     setTimeout(() => {
       setLoading(false)
       setSent(true)
-      setForm({ name: '', email: '', phone: '', subject: '', message: '' })
+      setForm({ name: '', email: '', subject: '', message: '' })
     }, 2000)
   }
 
@@ -88,7 +88,7 @@ const Contact = () => {
       color: '#f59e0b',
       bg: 'rgba(245,158,11,0.08)',
       title: 'Call / WhatsApp',
-      lines: ['+91 98112 63046'],
+      lines: [''],
       link: 'tel:+919811263046',
     },
     {
@@ -147,16 +147,16 @@ const Contact = () => {
               </h1>
               <p className="ch-p">
                 Ready to start your AI journey or need a custom AI solution?
-                Talk to <strong>Pradeep Kumar</strong> — our Founder & CEO —
-                and our expert team today.
+                Talk to <strong>Our expert team today.</strong>
+            
               </p>
 
               {/* Quick Contact Chips */}
               <div className="ch-chips">
-                <a href="tel:+919811263046" className="ch-chip">
+                {/* <a href="tel:+919811263046" className="ch-chip">
                   <FaPhoneAlt />
                   <span>+91 98112 63046</span>
-                </a>
+                </a> */}
                 <a
                   href="https://wa.me/919811263046"
                   target="_blank"
@@ -291,11 +291,11 @@ const Contact = () => {
                   </div>
                   <h2 className="success-h2">Message Sent! 🎉</h2>
                   <p className="success-p">
-                    Thank you for reaching out! <strong>Pradeep Kumar</strong> or
+                    Thank you for reaching out! <strong></strong>
                     our team will get back to you within <strong>24 hours</strong>.
                   </p>
                   <div className="success-info">
-                    <p>📞 For urgent queries: <a href="tel:+919811263046">+91 98112 63046</a></p>
+                    {/* <p>📞 For urgent queries: <a href="tel:+919811263046">+91 98112 63046</a></p> */}
                     <p>💬 Or <a href="https://wa.me/919811263046" target="_blank" rel="noreferrer">WhatsApp Us</a></p>
                   </div>
                   <button
@@ -477,10 +477,10 @@ const Contact = () => {
                 <div className="call-icon">📞</div>
                 <div className="call-content">
                   <p className="call-label">Call Directly</p>
-                  <a href="tel:+919811263046" className="call-number">
+                  {/* <a href="tel:+919811263046" className="call-number">
                     +91 98112 63046
-                  </a>
-                  <p className="call-name">Pradeep Kumar — Founder & CEO</p>
+                  </a> */}
+                  <p className="call-name">Our team</p>
                 </div>
               </div>
 
@@ -576,13 +576,13 @@ const Contact = () => {
               Still Have Questions?
             </h2>
             <p className="cta-p">
-              Reach out to <strong>Pradeep Kumar</strong> directly —
+              Reach out to <strong>Our Team</strong> directly —
               we're always happy to help!
             </p>
             <div className="cta-action-btns">
-              <a href="tel:+919811263046" className="cta-btn-primary">
+              {/* <a href="tel:+919811263046" className="cta-btn-primary">
                 📞 Call Now
-              </a>
+              </a> */}
               <a
                 href="https://wa.me/919811263046"
                 target="_blank"

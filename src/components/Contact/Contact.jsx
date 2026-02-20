@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent]   = useState(false)
   const [load, setLoad]   = useState(false)
 
@@ -30,7 +30,7 @@ const Contact = () => {
       icon: <FaPhoneAlt />,
       color: "#f59e0b",
       title: "Call / WhatsApp",
-      lines: ["+91 98112 63046"]
+      lines: [" "]
     },
     {
       icon: <FaEnvelope />,

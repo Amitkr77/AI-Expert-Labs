@@ -164,11 +164,11 @@ const Institute = () => {
         <div className="container">
           <div className="inst-cta-box" data-aos="fade-up">
             <h2>Start Your AI Journey Today!</h2>
-            <p>Talk to <strong>Pradeep Kumar</strong> for FREE counseling</p>
-            <div className="inst-cta-btns">
+            <p>Talk to <strong>Our Team</strong> for FREE counseling</p>
+            {/* <div className="inst-cta-btns">
               <a href="tel:+919811263046" className="cta-call">📞 +91 98112 63046</a>
               <a href="https://wa.me/919811263046" target="_blank" rel="noreferrer" className="cta-wa">💬 WhatsApp</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
