@@ -52,7 +52,7 @@ const About = () => {
               professional in India and beyond.
             </p>
             <p className="ab-p">
-              Under the leadership of <strong>Pradeep Kumar</strong>, we have grown
+              Under the leadership, we have grown
               from a small AI consulting firm to India's leading AI training
               and solutions company with 10,000+ students trained and
               150+ enterprise projects delivered.
