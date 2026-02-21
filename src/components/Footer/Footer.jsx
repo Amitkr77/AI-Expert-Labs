@@ -3,6 +3,7 @@ import { Link } from 'react-scroll'
 import { siteConfig, navLinks, servicesData } from '../../data/siteData'
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 import './Footer.css'
+import logo from "../../assets/logo4.png";
 
 const Footer = () => {
   const year = new Date().getFullYear()
@@ -16,16 +17,25 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="footer-logo-box">⚡</div>
-              <div>
-                <p className="footer-logo-name">AIXpertsLabs</p>
-                <p className="footer-logo-sub">Noida, India</p>
-              </div>
+              <Link 
+                to="hero" 
+                smooth 
+                duration={500} 
+                offset={-80}
+                className="nav-logo"
+              >
+                <img
+                  src={logo}
+                  alt="AIXperts Labs"
+                  className="logo-img"
+                  draggable="false"
+                />
+              </Link>
             </div>
-            <p className="footer-desc">
+            {/* <p className="footer-desc">
               India's leading AI training and solutions company.
               Empowering businesses and professionals with cutting-edge AI technology.
-            </p>
+            </p> */}
             <div className="footer-contact-list">
               <div className="footer-citem"><FaMapMarkerAlt /><span>Logix Cyber Park, Tower C, 9th Floor, Sec 62, Noida 201309</span></div>
               <div className="footer-citem"><FaPhoneAlt /><a href="tel:+919811263046">+91 98112 63046</a></div>

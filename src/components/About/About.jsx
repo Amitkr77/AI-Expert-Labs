@@ -27,7 +27,7 @@ const About = () => {
 
           {/* Content */}
           <div className="about-content" data-aos="fade-left">
-            <span className="tag-pill">About Us</span>
+            {/* <span className="tag-pill">About Us</span> */}
 
             <h2 className="about-h2">
               India's Most Trusted

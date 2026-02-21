@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { navLinks } from '../../data/siteData'
 import './Navbar.css'
+import logo from "../../assets/logo3.png"
 
 const Navbar = () => {
-  const [scrolled,  setScrolled]  = useState(false)
-  const [menuOpen,  setMenuOpen]  = useState(false)
-  const [active,    setActive]    = useState('hero')
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null) // For mobile dropdowns
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -14,41 +16,60 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+    setOpenDropdown(null)
+  }, [location])
+
+  // Handle scroll to top for home link
+  const handleLogoClick = () => {
+    setMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // Handle scroll to contact section
+  const scrollToContact = (e) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      const offset = 80
+      const elementPosition = contactSection.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+    }
+  }
+
+  // Toggle mobile dropdown
+  const toggleMobileDropdown = (id) => {
+    setOpenDropdown(openDropdown === id ? null : id)
+  }
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
 
         {/* Logo */}
-        <Link to="hero" smooth duration={500} className="nav-logo">
-          <div className="logo-box">
-            <span className="logo-icon">⚡</span>
-          </div>
-          <div className="logo-text-wrap">
-            <span className="logo-main">AIXperts<span className="logo-accent">Labs</span></span>
-            <span className="logo-sub">Expert-Led AI Education & Workshops</span>
-          </div>
+        <Link to="/" className="nav-logo" onClick={handleLogoClick}>
+          <img 
+            src={logo}
+            alt="AIXperts Labs - Expert-Led AI Education & Workshops"
+            className="logo-img"
+          />
         </Link>
 
         {/* Desktop Links */}
-        {/* <ul className="nav-links">
-          {navLinks.map(link => (
-            <li key={link.id}>
-              <Link
-                to={link.path}
-                className="nav-link"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul> */}
         <ul className="nav-links">
           {navLinks.map(link => (
             <li key={link.id} className="nav-item">
 
               {/* Normal Link */}
               {!link.dropdown && (
-                <Link to={link.path} className="nav-link">
+                <Link 
+                  to={link.path} 
+                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                >
                   {link.label}
                 </Link>
               )}
@@ -56,8 +77,11 @@ const Navbar = () => {
               {/* Dropdown Link */}
               {link.dropdown && (
                 <div className="dropdown">
-                  <span className="nav-link">
-                    {link.label} ▾
+                  <span className="nav-link dropdown-trigger">
+                    {link.label} 
+                    <svg className="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                    </svg>
                   </span>
 
                   <div className="dropdown-menu">
@@ -78,16 +102,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-
-
         {/* Right CTAs */}
         <div className="nav-actions">
           <a href="tel:+919811263046" className="nav-phone">
             📞 +91 98112 63046
           </a>
-          <Link to="contact" smooth duration={500} offset={-80} className="nav-cta">
+          <button onClick={scrollToContact} className="nav-cta">
             Free Consultation
-          </Link>
+          </button>
         </div>
 
         {/* Hamburger */}
@@ -100,27 +122,70 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`mobile-overlay ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+      />
+
       {/* Mobile Menu */}
       <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-inner">
           {navLinks.map(link => (
-            <Link
-              key={link.id}
-              to={link.path}
-              className="mobile-nav-link"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
+            <div key={link.id} className="mobile-nav-item">
+              
+              {/* Normal Link */}
+              {!link.dropdown && (
+                <Link
+                  to={link.path}
+                  className="mobile-nav-link"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )}
+
+              {/* Dropdown Link */}
+              {link.dropdown && (
+                <div className="mobile-dropdown">
+                  <button 
+                    className="mobile-nav-link mobile-dropdown-trigger"
+                    onClick={() => toggleMobileDropdown(link.id)}
+                  >
+                    {link.label}
+                    <svg 
+                      className={`mobile-dropdown-arrow ${openDropdown === link.id ? 'open' : ''}`} 
+                      width="12" height="8" viewBox="0 0 12 8" fill="currentColor"
+                    >
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    </svg>
+                  </button>
+                  
+                  <div className={`mobile-dropdown-menu ${openDropdown === link.id ? 'open' : ''}`}>
+                    {link.dropdown.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.path}
+                        className="mobile-dropdown-item"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
           ))}
 
-          <Link
-            to="contact" smooth duration={500} offset={-80}
+          <button
+            onClick={scrollToContact}
             className="mobile-nav-cta"
-            onClick={() => setMenuOpen(false)}
           >
             Free Consultation →
-          </Link>
+          </button>
+          
           <div className="mobile-contact">
             <a href="tel:+919811263046">📞 +91 98112 63046</a>
             <a href="mailto:pradeep@aixpertslabs.com">✉️ pradeep@aixpertslabs.com</a>
@@ -130,5 +195,5 @@ const Navbar = () => {
     </nav>
   )
 }
-
+    
 export default Navbar

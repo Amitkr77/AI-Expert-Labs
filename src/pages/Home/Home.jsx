@@ -8,7 +8,8 @@ import About     from '../../components/About/About'
 import Services  from '../../components/Services/Services'
 import Portfolio from '../../components/Portfolio/Portfolio'
 import Contact   from '../../components/Contact/Contact'
-import Footer    from '../../components/Footer/Footer'
+import CompanySlider   from '../../components/CompanySlider/CompanySlider'
+
 
 const Home = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const Home = () => {
       <Navbar />
       <main>
         <Hero />
+        <CompanySlider />
         <About />
         <Services />
         <Portfolio />

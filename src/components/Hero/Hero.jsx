@@ -20,10 +20,10 @@ const Hero = () => {
           {/* LEFT */}
           <div className="hero-left">
 
-            <div className="hero-tag">
+            {/* <div className="hero-tag">
               <span className="tag-dot"></span>
               🇮🇳 India's #1 AI Training & Solutions Company
-            </div>
+            </div> */}
 
             <h1 className="hero-h1">
               Master AI &

@@ -8,7 +8,7 @@ const Services = () => {
       <div className="container">
 
         <div className="services-hdr" data-aos="fade-up">
-          <span className="tag-pill">⚡ What We Do</span>
+          {/* <span className="tag-pill">⚡ What We Do</span> */}
           <h2 className="services-h2">
             AI Services That <span className="grad-text">Drive Results</span>
           </h2>

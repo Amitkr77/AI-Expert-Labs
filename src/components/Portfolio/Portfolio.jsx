@@ -11,7 +11,7 @@ const Portfolio = () => {
       <div className="container">
 
         <div className="port-hdr" data-aos="fade-up">
-          <span className="tag-pill">🏆 Our Work</span>
+          {/* <span className="tag-pill">🏆 Our Work</span> */}
           <h2 className="port-h2">Featured <span className="grad-text">AI Projects</span></h2>
           <p className="port-sub">Real-world AI solutions delivering measurable business results.</p>
         </div>

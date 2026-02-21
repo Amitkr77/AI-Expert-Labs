@@ -1,0 +1,41 @@
+/* src/pages/Home/Home.css */
+
+.compact-layout section {
+  padding: 40px 0;
+  min-height: auto;
+}
+
+.compact-layout .hero-section {
+  min-height: 60vh;
+  padding: 50px 0;
+}
+
+/* Reduce all margins */
+.compact-layout h1,
+.compact-layout h2,
+.compact-layout h3 {
+  margin-bottom: 15px;
+}
+
+.compact-layout p {
+  margin-bottom: 10px;
+}
+
+/* Cards smaller */
+.compact-layout .card,
+.compact-layout .service-card,
+.compact-layout .portfolio-item {
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+/* Reduce gap between elements */
+.compact-layout .row {
+  gap: 20px;
+}
+
+/* Images smaller */
+.compact-layout img {
+  max-height: 300px;
+  object-fit: cover;
+}

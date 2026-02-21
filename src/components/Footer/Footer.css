@@ -15,10 +15,13 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 5px;
+  margin-bottom: 10px;
 }
-
+.footer-logo .logo-img {
+  height: 70px;   /* 60px → 95px */
+  width: auto;
+}
 .footer-logo-box {
   width: 42px; height: 42px;
   background: var(--grad-primary);
@@ -175,4 +178,21 @@
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .footer-bottom-links { justify-content: center; }
+}
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover .logo-img {
+  opacity: 0.9;
 }

@@ -4,7 +4,7 @@
   z-index: 1000;
   padding: 16px 0;
   transition: all 0.4s ease;
-  background: transparent;
+  background: white;
 }
 
 .navbar.scrolled {
@@ -86,9 +86,9 @@
   position: relative;
 }
 
-.navbar:not(.scrolled) .nav-link { color: rgba(255,255,255,0.85); }
-.navbar:not(.scrolled) .nav-link:hover { color: white; background: rgba(255,255,255,0.1); }
-.navbar:not(.scrolled) .nav-link.active { color: white; background: rgba(255,255,255,0.15); }
+.navbar:not(.scrolled) .nav-link { color: rgba(0, 0, 0, 0.85); }
+.navbar:not(.scrolled) .nav-link:hover { color: rgb(7, 7, 7); background: rgba(255,255,255,0.1); }
+.navbar:not(.scrolled) .nav-link.active { color: rgb(0, 0, 0); background: rgba(255,255,255,0.15); }
 
 .nav-link:hover,
 .nav-link.active {
@@ -106,7 +106,7 @@
   white-space: nowrap;
 }
 
-.navbar:not(.scrolled) .nav-phone { color: rgba(255,255,255,0.85); }
+.navbar:not(.scrolled) .nav-phone { color: rgba(0, 0, 0, 0.85); }
 
 .nav-cta {
   background: var(--grad-primary);

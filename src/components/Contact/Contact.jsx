@@ -51,7 +51,7 @@ const Contact = () => {
       <div className="container">
 
         <div className="contact-hdr">
-          <span className="tag-pill">📬 Contact Us</span>
+          {/* <span className="tag-pill">📬 Contact Us</span> */}
           <h2 className="contact-h2">
             Let's <span className="grad-text">Connect & Grow</span> Together
           </h2>
