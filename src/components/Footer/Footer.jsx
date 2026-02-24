@@ -37,7 +37,7 @@ const Footer = () => {
               Empowering businesses and professionals with cutting-edge AI technology.
             </p> */}
             <div className="footer-contact-list">
-              <div className="footer-citem"><FaMapMarkerAlt /><span>Logix Cyber Park, Tower C, 9th Floor, Sec 62, Noida 201309</span></div>
+              <div className="footer-citem"><FaMapMarkerAlt /><span>Logix Cyber Park, Tower C, 9th Floor,<br/> Sec 62, Noida 201309</span></div>
               <div className="footer-citem"><FaPhoneAlt /><a href="tel:+919811263046">+91 98112 63046</a></div>
               <div className="footer-citem"><FaEnvelope /><a href="mailto:pradeep@aixpertslabs.com">pradeep@aixpertslabs.com</a></div>
             </div>
@@ -88,10 +88,10 @@ const Footer = () => {
               <input type="email" placeholder="Enter your email" className="news-input" />
               <button className="news-btn">Subscribe</button>
             </div>
-            <div className="footer-badges">
+            {/* <div className="footer-badges">
               <span className="footer-badge">🏆 ISO Certified</span>
               <span className="footer-badge">✅ Govt. Recognized</span>
-            </div>
+            </div> */}
           </div>
 
         </div>

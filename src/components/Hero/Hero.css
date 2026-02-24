@@ -3,12 +3,12 @@
    ============================================ */
 
 .hero {
-  margin-top: 25px;
+  padding-top: 120px;  
   position: relative;
   min-height: 75vh; /* 100vh से 65vh */
   display: flex;
   align-items: center;
-  padding: 60px 0 40px; /* padding कम किया */
+  padding: 100px 0 40px; /* padding कम किया */
   overflow: hidden;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
 }
@@ -361,6 +361,7 @@
 /* ========== RESPONSIVE ========== */
 @media (max-width: 968px) {
   .hero {
+    padding-top: 120px;
     min-height: auto;
     padding: 40px 0 30px;
   }
@@ -411,5 +412,21 @@
   .cta-secondary {
     width: 100%;
     text-align: center;
+  }
+  .hero-float {
+    transform: scale(0.9);
+  }
+
+  .float-num {
+    font-size: 1rem;
+  }
+
+  .float-icon {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px; /* Mobile navbar height ke hisaab se */
   }
 }

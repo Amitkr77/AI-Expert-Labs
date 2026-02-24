@@ -64,7 +64,7 @@ const About = () => {
             </div>
 
             <a href="tel:+919811263046" className="about-cta">
-              📞 Talk to Pradeep Kumar
+              📞 Talk to Our Team
             </a>
           </div>
         </div>
