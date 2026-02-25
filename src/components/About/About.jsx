@@ -1,88 +1,75 @@
-import React from 'react'
-import { statsData } from '../../data/siteData'
-import './About.css'
+import React from "react";
+import { statsData } from "../../data/siteData";
+import "./About.css";
+
+const highlights = [
+  {
+    title: "Real-Time Industry Projects",
+    desc: "Work on live AI applications aligned with real business environments and deploy production-ready solutions."
+  },
+  {
+    title: "Performance-Based Internship (Up to ₹40K)",
+    desc: "Top performers become eligible for internship opportunities with stipend up to ₹40,000 based on merit."
+  },
+  {
+    title: "Dedicated Placement Assistance",
+    desc: "Resume building, interview prep, hiring referrals and structured career roadmap support."
+  },
+  {
+    title: "1-on-1 Mentorship",
+    desc: "Personalized guidance and continuous skill tracking aligned with industry standards."
+  }
+];
 
 const About = () => {
   return (
-    <section className="about section" id="about">
+    <section className="about-new" id="about">
       <div className="container">
 
-        <div className="about-wrap">
-
-          {/* Image Side */}
-          <div className="about-imgs" data-aos="fade-right">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-              alt="Team" className="about-img-main"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80"
-              alt="Training" className="about-img-small"
-            />
-            <div className="about-exp-badge">
-              <span className="exp-num">5+</span>
-              <span className="exp-label">Years<br/>Experience</span>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="about-content" data-aos="fade-left">
-            {/* <span className="tag-pill">About Us</span> */}
-
-            <h2 className="about-h2">
-              India's Most Trusted
-              <span className="grad-text"> AI Company</span>
-            </h2>
-
-            <p className="about-p">
-              Founded by <strong>Pradeep Kumar</strong>, AI Experts Labs is headquartered at
-              Logix Cyber Park, Sector 62, Noida. We are a one-stop destination for
-              AI training, consulting, and custom AI development.
-            </p>
-
-            <p className="about-p">
-              Our mission is to democratize AI education and make
-              India a global AI powerhouse by training the next generation of
-              AI professionals and delivering world-class AI solutions to businesses.
-            </p>
-
-            <div className="about-features">
-              {[
-                { icon: "🎓", title: "AI Training",      desc: "Industry-focused programs with real projects" },
-                { icon: "🚀", title: "AI Development",   desc: "Custom AI solutions for your business"       },
-                { icon: "🤝", title: "100% Placement",   desc: "Dedicated placement support for all students" },
-                { icon: "📍", title: "Noida, India",     desc: "Logix Cyber Park, Tower C, 9th Floor"        },
-              ].map((f, i) => (
-                <div key={i} className="about-feat">
-                  <div className="feat-icon">{f.icon}</div>
-                  <div>
-                    <p className="feat-title">{f.title}</p>
-                    <p className="feat-desc">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <a href="tel:+919811263046" className="about-cta">
-              📞 Talk to Our Team
-            </a>
-          </div>
+        {/* TOP INTRO */}
+        <div className="about-intro" data-aos="fade-up">
+          <h2>
+            More Than Training —
+            <span className="grad-text"> A Complete AI Career Ecosystem</span>
+          </h2>
+          <p>
+            AI Experts Labs bridges the gap between academic learning and
+            real-world industry requirements by combining practical exposure,
+            structured mentorship, and career-driven execution.
+          </p>
         </div>
 
-        {/* Stats */}
-        <div className="stats-row" data-aos="fade-up">
-          {statsData.map(s => (
-            <div key={s.id} className="stat-box">
-              <span className="stat-icon">{s.icon}</span>
-              <span className="stat-num">{s.number}</span>
-              <span className="stat-lbl">{s.label}</span>
+        {/* HIGHLIGHT TIMELINE */}
+        <div className="about-timeline">
+          {highlights.map((item, index) => (
+            <div
+              key={index}
+              className="timeline-item"
+              data-aos="fade-up"
+              data-aos-delay={index * 120}
+            >
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* STATS BAR */}
+        <div className="about-stats-bar" data-aos="fade-up">
+          {statsData.map((s) => (
+            <div key={s.id} className="stat-bar-item">
+              <h3>{s.number}</h3>
+              <p>{s.label}</p>
             </div>
           ))}
         </div>
 
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

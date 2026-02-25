@@ -28,8 +28,8 @@ const Home = () => {
         <Hero />
         <CompanySlider />
         <About />
-        <Services />
         <Portfolio />
+        <Services />
         <Contact />
       </main>
 
