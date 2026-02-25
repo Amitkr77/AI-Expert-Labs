@@ -72,7 +72,16 @@ const Hero = () => {
                   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&q=80",
                   "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&q=80",
                 ].map((src, i) => (
-                  <img key={i} src={src} alt="student" className="trust-avatar" style={{ zIndex: 4 - i }} />
+                  <img
+                    key={i}
+                    src={`${src}&fm=webp`}
+                    alt="student"
+                    className="trust-avatar"
+                    loading="lazy"
+                    width="60"
+                    height="60"
+                    style={{ zIndex: 4 - i }}
+                  />
                 ))}
               </div>
               <div className="trust-text">
@@ -87,10 +96,20 @@ const Hero = () => {
           <div className="hero-right">
 
             <div className="hero-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80"
+             <img
+                src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=70&fm=webp"
+                srcSet="
+                  https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=70&fm=webp 400w,
+                  https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=70&fm=webp 700w,
+                  https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1000&q=70&fm=webp 1000w
+                "
+                sizes="(max-width: 768px) 100vw, 700px"
                 alt="AI Technology"
                 className="hero-main-img"
+                loading="eager"
+                fetchPriority="high"
+                width="700"
+                height="394"
               />
 
               {/* Float Cards */}

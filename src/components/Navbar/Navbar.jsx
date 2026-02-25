@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks } from '../../data/siteData'
 import './Navbar.css'
-import logo from "../../assets/logo3.png"
+import logo from "../../assets/logo5.webp"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -52,10 +52,14 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="nav-logo" onClick={handleLogoClick}>
-          <img 
+          <img
             src={logo}
-            alt="AIXperts Labs - Expert-Led AI Education & Workshops"
+            alt="AIXperts Labs"
             className="logo-img"
+            width="300"
+            height="105"
+            loading="eager"
+            fetchPriority="high"
           />
         </Link>
 

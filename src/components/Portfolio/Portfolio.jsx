@@ -28,7 +28,14 @@ const Portfolio = () => {
           {filtered.map((item, i) => (
             <div key={item.id} className="port-card" data-aos="fade-up" data-aos-delay={i * 80}>
               <div className="port-img-wrap">
-                <img src={item.image} alt={item.title} className="port-img" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="port-img"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
                 <div className="port-overlay">
                   <span className="port-result">✨ {item.result}</span>
                   <h3 className="port-card-title">{item.title}</h3>

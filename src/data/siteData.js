@@ -115,7 +115,7 @@ export const instituteCourses = [
     price: '₹49,999',
     originalPrice: '₹89,999',
     discount: '44% OFF',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=70&fm=webp',
     badge: 'Bestseller',
     badgeColor: '#f59e0b',
     tags: ['Python', 'TensorFlow', 'Scikit-learn', 'Deep Learning', 'NLP'],
