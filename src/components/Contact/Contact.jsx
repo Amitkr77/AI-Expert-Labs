@@ -44,9 +44,14 @@ const Contact = () => {
       newErrors.email = "Invalid email format"
     }
 
-    if (form.phone && !/^[0-9]{10}$/.test(form.phone)) {
-      newErrors.phone = "Enter valid 10 digit number"
-    }
+    const phone = form.phone.replace(/\s+/g, '').trim()
+
+      if (!phone) {
+        newErrors.phone = "Phone number is required"
+      } 
+      else if (!/^(?:\+91|91)?[6-9]\d{9}$/.test(phone)) {
+        newErrors.phone = "Enter valid Indian mobile number"
+      }
 
     if (!form.message.trim()) {
       newErrors.message = "Message is required"

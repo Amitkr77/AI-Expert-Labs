@@ -32,7 +32,7 @@ const Contact = () => {
     window.scrollTo(0, 0)
   }, [])
 
- const validate = () => {
+const validate = () => {
   const e = {}
 
   // Name
@@ -49,9 +49,13 @@ const Contact = () => {
     e.email = 'Enter a valid email address'
   }
 
-  // Phone (optional but if filled validate)
-  if (form.phone && !/^[0-9+\-\s]{8,15}$/.test(form.phone)) {
-    e.phone = 'Enter a valid phone number'
+ 
+  const phone = form.phone.replace(/\s+/g, '').trim()
+
+  if (!phone) {
+    e.phone = 'Phone number is required'
+  } else if (!/^\d{10}$/.test(phone)) {
+    e.phone = 'Enter valid 10 digit mobile number'
   }
 
   // Subject
