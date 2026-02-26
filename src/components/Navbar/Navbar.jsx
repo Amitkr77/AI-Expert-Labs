@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks } from '../../data/siteData'
 import './Navbar.css'
-import logo from "../../assets/logo5.webp"
+import logo from "../../assets/logo3.webp"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)

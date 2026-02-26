@@ -19,7 +19,7 @@ const Contact = () => {
   const [form, setForm] = useState({
     name: '',
     email: '',
-   // phone: '',
+    phone: '',
     subject: '',
     message: '',
   })
@@ -32,21 +32,57 @@ const Contact = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const validate = () => {
-    const e = {}
-    if (!form.name.trim())    e.name    = 'Name is required'
-    if (!form.email.trim())   e.email   = 'Email is required'
-    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Invalid email address'
-    if (!form.subject.trim()) e.subject = 'Please select a subject'
-    if (!form.message.trim()) e.message = 'Message is required'
-    return e
+ const validate = () => {
+  const e = {}
+
+  // Name
+  if (!form.name.trim()) {
+    e.name = 'Full name is required'
+  } else if (form.name.trim().length < 3) {
+    e.name = 'Name must be at least 3 characters'
   }
 
+  // Email
+  if (!form.email.trim()) {
+    e.email = 'Email is required'
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    e.email = 'Enter a valid email address'
+  }
+
+  // Phone (optional but if filled validate)
+  if (form.phone && !/^[0-9+\-\s]{8,15}$/.test(form.phone)) {
+    e.phone = 'Enter a valid phone number'
+  }
+
+  // Subject
+  if (!form.subject) {
+    e.subject = 'Please select a subject'
+  }
+
+  // Message
+  if (!form.message.trim()) {
+    e.message = 'Message is required'
+  } else if (form.message.trim().length < 10) {
+    e.message = 'Message must be at least 10 characters'
+  } else if (form.message.length > 500) {
+    e.message = 'Message must be under 500 characters'
+  }
+
+  return e
+}
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: '' })
-    }
+    const { name, value } = e.target
+
+    setForm(prev => ({
+      ...prev,
+      [name]: value
+    }))
+
+    setErrors(prev => ({
+      ...prev,
+      [name]: ''
+    }))
   }
 
   const handleSubmit = (e) => {
@@ -339,13 +375,17 @@ const Contact = () => {
                       <div className="form-group">
                         <label className="form-label">Phone Number</label>
                         <input
-                          type="tel"
-                          name="phone"
-                          value={form.phone}
-                          onChange={handleChange}
-                          placeholder="+91 XXXXX XXXXX"
-                          className="form-input"
-                        />
+                            type="tel"
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                            placeholder="+91 XXXXX XXXXX"
+                            className={`form-input ${errors.phone ? 'input-error' : ''}`}
+                          />
+
+                          {errors.phone && (
+                            <span className="error-msg">⚠ {errors.phone}</span>
+                          )}
                       </div>
                     </div>
 
@@ -411,6 +451,7 @@ const Contact = () => {
                       </label>
                       <textarea
                         name="message"
+                        maxLength={500}
                         value={form.message}
                         onChange={handleChange}
                         placeholder="Tell us about your project, goals, or questions..."
@@ -605,5 +646,4 @@ const Contact = () => {
     </div>
   )
 }
-
 export default Contact

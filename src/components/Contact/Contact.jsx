@@ -3,19 +3,83 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
-  const [sent, setSent]   = useState(false)
-  const [load, setLoad]   = useState(false)
 
-  const onChange = e => setForm({ ...form, [e.target.name]: e.target.value })
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
 
+  const [errors, setErrors] = useState({})
+  const [sent, setSent] = useState(false)
+  const [load, setLoad] = useState(false)
+
+  // Handle change
+  const onChange = e => {
+    const { name, value } = e.target
+    setForm({ ...form, [name]: value })
+
+    setErrors(prev => ({
+      ...prev,
+      [name]: ''
+    }))
+  }
+
+  // Validation
+  const validate = () => {
+    const newErrors = {}
+
+    if (!form.name.trim()) {
+      newErrors.name = "Full name is required"
+    } else if (form.name.length < 3) {
+      newErrors.name = "Minimum 3 characters required"
+    } else if (!/^[a-zA-Z\s]+$/.test(form.name)) {
+      newErrors.name = "Only letters allowed"
+    }
+
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      newErrors.email = "Invalid email format"
+    }
+
+    if (form.phone && !/^[0-9]{10}$/.test(form.phone)) {
+      newErrors.phone = "Enter valid 10 digit number"
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required"
+    } else if (form.message.length < 10) {
+      newErrors.message = "Minimum 10 characters required"
+    }
+
+    return newErrors
+  }
+
+  // Submit
   const onSubmit = e => {
     e.preventDefault()
+
+    const validationErrors = validate()
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+
     setLoad(true)
+
     setTimeout(() => {
       setLoad(false)
       setSent(true)
-      setForm({ name:'',email:'',phone:'',subject:'',message:'' })
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      })
+      setErrors({})
     }, 1500)
   }
 
@@ -30,7 +94,7 @@ const Contact = () => {
       icon: <FaPhoneAlt />,
       color: "#f59e0b",
       title: "Call / WhatsApp",
-      lines: [" "]
+      lines: ["+91 98112 63046"]
     },
     {
       icon: <FaEnvelope />,
@@ -50,8 +114,8 @@ const Contact = () => {
     <section className="contact section" id="contact">
       <div className="container">
 
+        {/* HEADER */}
         <div className="contact-hdr">
-          {/* <span className="tag-pill">📬 Contact Us</span> */}
           <h2 className="contact-h2">
             Let's <span className="grad-text">Connect & Grow</span> Together
           </h2>
@@ -80,7 +144,7 @@ const Contact = () => {
               </div>
             ))}
 
-            {/* GOOGLE MAP CARD */}
+            {/* GOOGLE MAP */}
             <div className="cinfo-card">
               <div
                 className="cinfo-icon"
@@ -101,14 +165,13 @@ const Contact = () => {
                     borderRadius: "12px",
                     marginTop: "10px"
                   }}
-                  allowFullScreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                   title="Company Location"
                 ></iframe>
               </div>
             </div>
 
+            {/* WHATSAPP CTA */}
             <div className="cta-box">
               <p>💬 Chat on WhatsApp</p>
               <a
@@ -123,7 +186,7 @@ const Contact = () => {
 
           </div>
 
-          {/* RIGHT SIDE — FORM */}
+          {/* RIGHT SIDE */}
           <div className="contact-right">
 
             {sent ? (
@@ -136,12 +199,14 @@ const Contact = () => {
                 </button>
               </div>
             ) : (
+
               <form className="cform" onSubmit={onSubmit}>
 
                 <h3 className="cform-title">Design Your Courses</h3>
                 <p className="cform-sub">We respond within 24 hours ⚡</p>
 
                 <div className="cform-row">
+
                   <div className="cform-group">
                     <label>Full Name *</label>
                     <input
@@ -149,8 +214,8 @@ const Contact = () => {
                       value={form.name}
                       onChange={onChange}
                       placeholder="Your full name"
-                      required
                     />
+                    {errors.name && <span className="error">{errors.name}</span>}
                   </div>
 
                   <div className="cform-group">
@@ -161,7 +226,9 @@ const Contact = () => {
                       onChange={onChange}
                       placeholder="+91 XXXXX XXXXX"
                     />
+                    {errors.phone && <span className="error">{errors.phone}</span>}
                   </div>
+
                 </div>
 
                 <div className="cform-group">
@@ -172,8 +239,8 @@ const Contact = () => {
                     value={form.email}
                     onChange={onChange}
                     placeholder="your@email.com"
-                    required
                   />
+                  {errors.email && <span className="error">{errors.email}</span>}
                 </div>
 
                 <div className="cform-group">
@@ -184,8 +251,8 @@ const Contact = () => {
                     onChange={onChange}
                     placeholder="Tell us about your goals..."
                     rows={4}
-                    required
                   />
+                  {errors.message && <span className="error">{errors.message}</span>}
                 </div>
 
                 <button
@@ -201,6 +268,7 @@ const Contact = () => {
                 </p>
 
               </form>
+
             )}
 
           </div>
