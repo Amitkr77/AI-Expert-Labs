@@ -43,13 +43,20 @@ const Footer = () => {
             </div>
             <div className="footer-socials">
               {[
-                { href: siteConfig.social.linkedin,  icon: <FaLinkedin  /> },
-                { href: siteConfig.social.twitter,   icon: <FaTwitter   /> },
-                { href: siteConfig.social.github,    icon: <FaGithub    /> },
-                { href: siteConfig.social.instagram, icon: <FaInstagram /> },
-                { href: siteConfig.social.youtube,   icon: <FaYoutube   /> },
+                { href: siteConfig.social.linkedin,  icon: <FaLinkedin />,  label: "LinkedIn" },
+                { href: siteConfig.social.twitter,   icon: <FaTwitter />,   label: "Twitter" },
+                { href: siteConfig.social.github,    icon: <FaGithub />,    label: "GitHub" },
+                { href: siteConfig.social.instagram, icon: <FaInstagram />, label: "Instagram" },
+                { href: siteConfig.social.youtube,   icon: <FaYoutube />,   label: "YouTube" },
               ].map((s, i) => (
-                <a key={i} href={s.href} target="_blank" rel="noreferrer" className="footer-soc-btn">
+                <a
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-soc-btn"
+                  aria-label={s.label}
+                >
                   {s.icon}
                 </a>
               ))}
