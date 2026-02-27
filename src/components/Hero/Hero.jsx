@@ -2,6 +2,13 @@ import React from "react";
 import { Link } from "react-scroll";
 import "./Hero.css";
 
+// Import Images from assets
+import heroMain from "../../assets/hero.webp";
+import student1 from "../../assets/St1.webp";
+import student2 from "../../assets/st2.webp";
+import student3 from "../../assets/st3.webp";
+import student4 from "../../assets/st4.webp";
+
 const highlights = [
   "Live Projects & Mentorship",
   "100% Placement Assistance",
@@ -9,18 +16,12 @@ const highlights = [
   "EMI Available — No Cost",
 ];
 
-const avatars = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=60&fm=webp",
-  "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&q=60&fm=webp",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&q=60&fm=webp",
-  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&q=60&fm=webp",
-];
+const avatars = [student1, student2, student3, student4];
 
 const Hero = () => {
   return (
     <section className="hero" id="hero">
 
-      {/* Simplified Background */}
       <div className="hero-bg">
         <div className="hero-blob blob-1"></div>
         <div className="hero-blob blob-2"></div>
@@ -45,7 +46,6 @@ const Hero = () => {
               AI Experts Labs for world-class AI training and solutions.
             </p>
 
-            {/* Highlights */}
             <div className="hero-highlights">
               {highlights.map((text, i) => (
                 <div key={i} className="highlight-item">
@@ -55,7 +55,6 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* CTA */}
             <div className="hero-ctas">
               <Link to="courses" smooth duration={500} offset={-80} className="cta-primary">
                 Explore Courses
@@ -65,14 +64,13 @@ const Hero = () => {
               </Link>
             </div>
 
-            {/* Trust */}
             <div className="hero-trust">
               <div className="trust-avatars">
                 {avatars.map((src, i) => (
                   <img
                     key={i}
                     src={src}
-                    alt="student"
+                    alt="AI Experts Labs student"
                     className="trust-avatar"
                     loading="lazy"
                     width="60"
@@ -91,13 +89,8 @@ const Hero = () => {
           {/* RIGHT */}
           <div className="hero-right">
             <img
-              src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=60&fm=webp"
-              srcSet="
-                https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=60&fm=webp 400w,
-                https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=60&fm=webp 700w
-              "
-              sizes="(max-width: 768px) 100vw, 700px"
-              alt="AI Technology"
+              src={heroMain}
+              alt="AI Training and Technology"
               className="hero-main-img"
               loading="eager"
               fetchPriority="high"

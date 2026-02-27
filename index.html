@@ -3,66 +3,66 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id=GTM-TCZN2M2H'+dl;
-      f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TCZN2M2H');
-    </script>
-    <!-- End Google Tag Manager -->
-
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Performance: Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- 🔥 Meta Title -->
+    <!-- Meta Title -->
     <title>AIXperts Labs | AI Learning Platform & Productivity Courses</title>
 
-    <!-- 🔥 Meta Description -->
+    <!-- Meta Description -->
     <meta
       name="description"
       content="Unlock your potential with AIXperts Labs to master the latest AI skills. Explore personalized learning paths, interactive workshops, and free resources to boost your productivity today."
     />
 
-    <!-- 🔥 Site Name -->
+    <!-- Site Name -->
     <meta
       name="application-name"
       content="AIXperts Labs: Expert-Led AI Education & Workshops"
     />
 
-    <!-- 🔥 Keywords -->
+    <!-- Keywords -->
     <meta
       name="keywords"
       content="AI learning platform, AI workshops, productivity courses, artificial intelligence training, AI education India"
     />
 
-    <!-- 🔥 Author -->
+    <!-- Author -->
     <meta name="author" content="AIXperts Labs" />
 
-    <!-- 🔥 Open Graph -->
+    <!-- Open Graph -->
     <meta property="og:title" content="AIXperts Labs | AI Learning Platform & Productivity Courses" />
     <meta property="og:description" content="Expert-led AI education, hands-on workshops and productivity-driven AI learning paths." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AIXperts Labs" />
 
+    <!-- Theme Color -->
     <meta name="theme-color" content="#1a1a2e" />
   </head>
 
   <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCZN2M2H"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="root"></div>
+
+    <!-- React App -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Delayed Google Tag Manager -->
+    <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = "https://www.googletagmanager.com/gtm.js?id=GTM-TCZN2M2H";
+        s.async = true;
+        document.head.appendChild(s);
+      });
+    </script>
+
   </body>
 </html>
