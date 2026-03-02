@@ -3,7 +3,7 @@ import { Link } from 'react-scroll'
 import { siteConfig, navLinks, servicesData } from '../../data/siteData'
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 import './Footer.css'
-import logo from "../../assets/logo4.png";
+import logo from "../../assets/logo7.png";
 
 const Footer = () => {
   const year = new Date().getFullYear()

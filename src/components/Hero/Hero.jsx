@@ -1,107 +1,119 @@
-import React from "react";
-import { Link } from "react-scroll";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Hero.css";
 
-// Import Images from assets
-import heroMain from "../../assets/hero.webp";
-import student1 from "../../assets/St1.webp";
-import student2 from "../../assets/st2.webp";
-import student3 from "../../assets/st3.webp";
-import student4 from "../../assets/st4.webp";
+import slide1 from "../../assets/slide1.jpg";
+import slide2 from "../../assets/slide2.jpg";
+import slide3 from "../../assets/slide3.jpg";
+import slide4 from "../../assets/slide4.jpg";
+import slide5 from "../../assets/slide5.jpg";
 
-const highlights = [
-  "Live Projects & Mentorship",
-  "100% Placement Assistance",
-  "Industry-Recognized Certificate",
-  "EMI Available — No Cost",
+const slides = [
+  { src: slide1, alt: "AI Training Slide 1" },
+  { src: slide2, alt: "AI Training Slide 2" },
+  { src: slide3, alt: "AI Training Slide 3" },
+  { src: slide4, alt: "AI Training Slide 4" },
+  { src: slide5, alt: "AI Training Slide 5" },
 ];
 
-const avatars = [student1, student2, student3, student4];
-
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const goTo = useCallback(
+    (index) => {
+      if (animating) return;
+      setAnimating(true);
+      setCurrent(index);
+      setTimeout(() => setAnimating(false), 700);
+    },
+    [animating]
+  );
+
+  const goNext = useCallback(() => {
+    goTo((current + 1) % slides.length);
+  }, [current, goTo]);
+
+  const goPrev = useCallback(() => {
+    goTo((current - 1 + slides.length) % slides.length);
+  }, [current, goTo]);
+
+  useEffect(() => {
+    const timer = setInterval(goNext, 5000);
+    return () => clearInterval(timer);
+  }, [goNext]);
+
   return (
     <section className="hero" id="hero">
-
-      <div className="hero-bg">
-        <div className="hero-blob blob-1"></div>
-        <div className="hero-blob blob-2"></div>
-      </div>
-
-      <div className="container">
-        <div className="hero-inner">
-
-          {/* LEFT */}
-          <div className="hero-left">
-
-            <h1 className="hero-h1">
-              Master AI &
-              <span className="hero-grad"> Transform</span>
-              <br />
-              Your Career &
-              <span className="hero-grad"> Business</span>
-            </h1>
-
-            <p className="hero-para">
-              Join <strong>10,000+ students & 150+ companies</strong> who trust
-              AI Experts Labs for world-class AI training and solutions.
-            </p>
-
-            <div className="hero-highlights">
-              {highlights.map((text, i) => (
-                <div key={i} className="highlight-item">
-                  <span className="check">✔</span>
-                  <span>{text}</span>
-                </div>
-              ))}
+      <div className="slider-container">
+        <div className="slider-wrapper">
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className={`slide ${i === current ? "slide-active" : "slide-hidden"}`}
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="slide-img"
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                draggable={false}
+              />
+              <div className="slide-overlay" />
             </div>
+          ))}
 
-            <div className="hero-ctas">
-              <Link to="courses" smooth duration={500} offset={-80} className="cta-primary">
-                Explore Courses
-              </Link>
-              <Link to="contact" smooth duration={500} offset={-80} className="cta-secondary">
-                Free Consultation
-              </Link>
-            </div>
+          {/* Prev Button */}
+          <button
+            className="slider-btn slider-btn-prev"
+            onClick={goPrev}
+            aria-label="Previous Slide"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
 
-            <div className="hero-trust">
-              <div className="trust-avatars">
-                {avatars.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt="AI Experts Labs student"
-                    className="trust-avatar"
-                    loading="lazy"
-                    width="60"
-                    height="60"
-                  />
-                ))}
-              </div>
+          {/* Next Button */}
+          <button
+            className="slider-btn slider-btn-next"
+            onClick={goNext}
+            aria-label="Next Slide"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
 
-              <span className="trust-text">
-                ⭐ 4.9/5 — Trusted by <strong>10,000+</strong> students
-              </span>
-            </div>
-
+          {/* Dots */}
+          <div className="slider-dots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`slider-dot ${i === current ? "dot-active" : ""}`}
+                onClick={() => goTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
           </div>
 
-          {/* RIGHT */}
-          <div className="hero-right">
-            <img
-              src={heroMain}
-              alt="AI Training and Technology"
-              className="hero-main-img"
-              loading="eager"
-              fetchPriority="high"
-              width="700"
-              height="394"
-            />
+          {/* Counter */}
+          <div className="slide-counter">
+            <span className="counter-current">
+              {String(current + 1).padStart(2, "0")}
+            </span>
+            <span className="counter-sep" />
+            <span className="counter-total">
+              {String(slides.length).padStart(2, "0")}
+            </span>
           </div>
 
+          {/* Progress Bar */}
+          <div className="progress-bar">
+            <div key={current} className="progress-fill" />
+          </div>
         </div>
       </div>
-
     </section>
   );
 };

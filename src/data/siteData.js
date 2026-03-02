@@ -1,7 +1,7 @@
 import pradeepImg from "../assets/team/pradeep_kumar.jpeg"
-import pawanImg from "../assets/team/pawan.jpeg"
-import deepakImg from "../assets/team/Deepak.jpeg"
-import ayushImg from "../assets/team/Ayush.jpeg"
+import anshuImg from "../assets/team/Anshu.jpeg"
+import HarshuImg from "../assets/team/Harshu.jpeg"
+import SumanImg from "../assets/team/Suman.png"
 
 
 export const siteConfig = {
@@ -1493,32 +1493,32 @@ export const teamData = [
     id: 1,
     name: "Pradeep Kumar",
     role: "Founder & CEO",
-    bio: "10+ years in AI & technology. Visionary leader driving India's AI revolution.",
+    bio: "",
     image: pradeepImg,
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     id: 2,
-    name: "Dr. Pawan Kr Tiwary",
-    role: "Head of AI Research",
-    bio: "PhD MIT. Ex-Google DeepMind. Expert in deep learning and neural networks.",
-    image: pawanImg,
+    name: "Anshu Bharti",
+    role: "Co-Founder & COO",
+    bio: "",
+    image: anshuImg,
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     id: 3,
-    name: "Deepak Kr Yadav",
-    role: "Lead ML Engineer",
-    bio: "8+ years building production ML systems for Fortune 500 companies.",
-    image: deepakImg,
+    name: "Harshu Bharti",
+    role: "Co-founder & CTO",
+    bio: "",
+    image: HarshuImg,
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     id: 4,
-    name: "Ayush Kumar",
-    role: "Data Science Lead",
+    name: "Saurav Suman",
+    role: "Head Business Operation & CX",
     bio: "Specialist in big data, analytics, and business intelligence solutions.",
-    image: ayushImg,
+    image: SumanImg,
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];

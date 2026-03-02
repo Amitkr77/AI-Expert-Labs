@@ -1,432 +1,254 @@
 /* ============================================
-   HERO SECTION - COMPACT VERSION
+   HERO SECTION
    ============================================ */
 
 .hero {
-  padding-top: 120px;  
   position: relative;
-  min-height: 75vh; /* 100vh से 65vh */
-  display: flex;
-  align-items: center;
-  padding: 100px 0 40px; /* padding कम किया */
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-}
-
-/* ========== BACKGROUND ========== */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.4; /* थोड़ा कम opacity */
-}
-
-.hero-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px); /* 80px से 60px */
-  animation: float 20s ease-in-out infinite;
-}
-
-.blob-1 {
-  width: 250px; /* 300px से 250px */
-  height: 250px;
-  background: rgba(138, 43, 226, 0.3);
-  top: 10%;
-  left: 10%;
-}
-
-.blob-2 {
-  width: 200px; /* 250px से 200px */
-  height: 200px;
-  background: rgba(0, 191, 255, 0.3);
-  bottom: 10%;
-  right: 10%;
-  animation-delay: -5s;
-}
-
-.blob-3 {
-  width: 180px; /* 220px से 180px */
-  height: 180px;
-  background: rgba(255, 20, 147, 0.2);
-  top: 50%;
-  left: 50%;
-  animation-delay: -10s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) rotate(240deg); }
-}
-
-.hero-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 30px 30px; /* 40px से 30px */
-}
-
-/* ========== CONTAINER ========== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px; /* 60px से 40px */
-  align-items: center;
-}
-
-/* ========== LEFT SIDE ========== */
-.hero-left {
-  color: white;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(138, 43, 226, 0.15);
-  border: 1px solid rgba(138, 43, 226, 0.3);
-  padding: 6px 14px; /* 8px 16px से कम */
-  border-radius: 50px;
-  font-size: 0.8rem; /* 0.85rem से कम */
-  font-weight: 500;
-  margin-bottom: 20px; /* 24px से 20px */
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.tag-dot {
-  width: 6px;
-  height: 6px;
-  background: #00ff88;
-  border-radius: 50%;
-  animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
-/* ========== HEADING ========== */
-.hero-h1 {
-  font-size: 2.8rem; /* 3.5rem से 2.8rem */
-  font-weight: 800;
-  line-height: 1.1; /* 1.2 से 1.1 */
-  margin-bottom: 16px; /* 24px से 16px */
-  color: white;
-}
-
-.hero-grad {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ========== PARAGRAPH ========== */
-.hero-para {
-  font-size: 1rem; /* 1.1rem से 1rem */
-  line-height: 1.5; /* 1.6 से 1.5 */
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 20px; /* 28px से 20px */
-}
-
-/* ========== HIGHLIGHTS ========== */
-.hero-highlights {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px; /* 12px से 10px */
-  margin-bottom: 24px; /* 32px से 24px */
-}
-
-.highlight-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem; /* 0.9rem से कम */
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.highlight-item span:first-child {
-  font-size: 1rem; /* icon size */
-}
-
-/* ========== CTA BUTTONS ========== */
-.hero-ctas {
-  display: flex;
-  gap: 16px; /* 20px से 16px */
-  margin-bottom: 24px; /* 32px से 24px */
-  flex-wrap: wrap;
-}
-
-.cta-primary,
-.cta-secondary {
-  padding: 12px 28px; /* 14px 32px से कम */
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem; /* 1rem से कम */
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.cta-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3); /* shadow कम */
-}
-
-.cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.4);
-}
-
-.cta-secondary {
-  background: transparent;
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* ========== TRUST BADGES ========== */
-.hero-trust {
-  display: flex;
-  align-items: center;
-  gap: 14px; /* 16px से 14px */
-}
-
-.trust-avatars {
-  display: flex;
-}
-
-.trust-avatar {
-  width: 36px; /* 40px से 36px */
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #1a1a2e;
-  margin-left: -10px; /* -12px से -10px */
-  object-fit: cover;
-}
-
-.trust-avatar:first-child {
-  margin-left: 0;
-}
-
-.trust-text {
-  font-size: 0.85rem; /* 0.9rem से कम */
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.trust-stars {
-  font-size: 0.75rem; /* 0.8rem से कम */
-  margin-bottom: 2px;
-}
-
-/* ========== RIGHT SIDE ========== */
-.hero-right {
-  position: relative;
-}
-
-.hero-img-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: visible;
-}
-
-.hero-main-img {
   width: 100%;
-  height: auto;
-  max-height: 400px; /* height limit */
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.img-glow {
-  position: absolute;
-  inset: -30px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-  border-radius: 20px;
-  filter: blur(40px); /* 50px से 40px */
-  z-index: -1;
-  opacity: 0.6;
-}
-
-/* ========== FLOATING CARDS ========== */
-.hero-float {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 12px 16px; /* 14px 18px से कम */
-  border-radius: 12px;
+  background: #0a0a0a;
   display: flex;
   align-items: center;
-  gap: 10px; /* 12px से 10px */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  animation: floatCard 3s ease-in-out infinite;
+  justify-content: center;
+  padding-top: 100px;        /* navbar ke neeche */
+  padding-bottom: 40px;
+  min-height: 80vh;
+  box-sizing: border-box;
 }
 
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); } /* -10px से -8px */
+/* ============================================
+   HERO SECTION — FULL IMAGE NO CROP
+   ============================================ */
+
+/* .hero {
+  position: relative;
+  width: 100%;
+  background: #0a0a0a;
+  padding-top: 80px;       
+  box-sizing: border-box;
+} */
+
+/* ========== SLIDER WRAPPER ========== */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
 }
 
-.card-placement {
-  top: 15%; /* 20% से 15% */
-  right: -30px; /* -40px से -30px */
-  animation-delay: 0s;
+/* ========== SLIDES ========== */
+.slide {
+  width: 100%;
+  display: none;            /* hidden by default */
 }
 
-.card-students {
-  bottom: 20%; /* 25% से 20% */
-  left: -30px;
-  animation-delay: 1s;
+.slide-active {
+  display: block;           /* sirf active slide dikhega */
+  animation: fadeIn 0.8s ease;
 }
 
-.card-rating {
-  top: 50%;
-  right: -35px;
-  animation-delay: 2s;
+.slide-hidden {
+  display: none;
 }
 
-.float-icon {
-  font-size: 1.8rem; /* 2rem से 1.8rem */
-  line-height: 1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.float-num {
-  font-size: 1.2rem; /* 1.4rem से 1.2rem */
-  font-weight: 700;
-  color: #1a1a2e;
-  margin: 0;
+/* ========== IMAGE — FULL NO CROP ========== */
+.slide-img {
+  width: 100%;              /* poori width */
+  height: auto;             /* height auto — image cut nahi hogi */
+  display: block;
+  user-select: none;
+  object-fit: contain;      /* contain — puri image dikhegi */
 }
 
-.float-label {
-  font-size: 0.7rem; /* 0.75rem से कम */
-  color: #666;
-  margin: 0;
-}
-
-/* ========== SCROLL HINT ========== */
-.hero-scroll-hint {
+/* ========== OVERLAY ========== */
+.slide-overlay {
   position: absolute;
-  bottom: 20px; /* 30px से 20px */
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.10) 0%,
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(0, 0, 0, 0.40) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ========== ARROW BUTTONS ========== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.slider-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn-prev {
+  left: 16px;
+}
+
+.slider-btn-next {
+  right: 16px;
+}
+
+/* ========== DOTS ========== */
+.slider-dots {
+  position: absolute;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-}
-
-.scroll-ring {
-  width: 24px; /* 28px से 24px */
-  height: 40px; /* 45px से 40px */
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
   display: flex;
-  justify-content: center;
-  padding-top: 6px;
+  gap: 8px;
+  z-index: 10;
 }
 
-.scroll-dot {
-  width: 4px;
-  height: 4px;
-  background: white;
+.slider-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  animation: scrollDot 2s ease-in-out infinite;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-@keyframes scrollDot {
-  0%, 100% { transform: translateY(0); opacity: 0; }
-  50% { transform: translateY(12px); opacity: 1; } /* 15px से 12px */
+.dot-active {
+  background: #fff;
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ========== SLIDE COUNTER ========== */
+.slide-counter {
+  position: absolute;
+  bottom: 14px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.counter-current {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.counter-sep {
+  width: 18px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  display: block;
+}
+
+/* ========== PROGRESS BAR ========== */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  animation: progressAnim 5s linear forwards;
+}
+
+@keyframes progressAnim {
+  from { width: 0%; }
+  to { width: 100%; }
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 968px) {
-  .hero {
-    padding-top: 120px;
-    min-height: auto;
-    padding: 40px 0 30px;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .hero-h1 {
-    font-size: 2.2rem; /* mobile पर और छोटा */
-  }
-
-  .hero-highlights {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-main-img {
-    max-height: 300px;
-  }
-
-  .hero-float {
-    padding: 10px 14px;
-  }
-
-  .card-placement,
-  .card-students,
-  .card-rating {
-    position: static;
-    margin: 10px auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-para {
-    font-size: 0.9rem;
-  }
-
-  .hero-ctas {
-    flex-direction: column;
-  }
-
-  .cta-primary,
-  .cta-secondary {
-    width: 100%;
-    text-align: center;
-  }
-  .hero-float {
-    transform: scale(0.9);
-  }
-
-  .float-num {
-    font-size: 1rem;
-  }
-
-  .float-icon {
-    font-size: 1.5rem;
-  }
-}
 @media (max-width: 768px) {
   .hero {
-    padding-top: 100px; /* Mobile navbar height ke hisaab se */
+    padding-top: 70px;
   }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .slider-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .slider-btn-prev { left: 10px; }
+  .slider-btn-next { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 65px;
+  }
+
+  .slider-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slider-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .slider-btn-prev { left: 6px; }
+  .slider-btn-next { right: 6px; }
+
+  .slider-dots { bottom: 10px; }
+
+  .slider-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dot-active { width: 16px; }
+
+  .slide-counter { display: none; }
 }
