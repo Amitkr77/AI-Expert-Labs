@@ -1,246 +1,110 @@
-/* ============================================
-   HERO SECTION
-   ============================================ */
-
 .hero {
   position: relative;
   width: 100%;
   padding-top: 80px;
-  background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 50%, #1e1e4a 100%);
+  background: #0a0a1f;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-/* ========== SLIDER WRAPPER ========== */
-
- .slider-wrapper {
+.slider-wrapper {
   position: relative;
   width: 100%;
- }
+}
 
-
-/* ========== SLIDES ========== */
 .slide {
-  width: 100%;
-  height: 100%;
   display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fade 0.8s ease;
 }
 
 .slide-active {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-
-.slide-hidden {
-  display: none;
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.03);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* ========== IMAGE — FULL NO CROP ========== */
+/* ✅ IMAGE FULL SHOW — NO CROP */
 .slide-img {
   width: 100%;
-  max-height: 65vh;   /* 👈 Hero ki height control yaha karo */
-  
-  object-fit: contain;  /* crop nahi hoga */
+  max-height: 70vh;
+  object-fit: contain;   /* Crop nahi karega */
   object-position: center;
-
-  display: block;
 }
 
-/* ========== OVERLAY ========== */
+/* Overlay */
 .slide-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.10) 0%,
-    rgba(0, 0, 0, 0.05) 40%,
-    rgba(0, 0, 0, 0.40) 100%
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.3)
   );
-  z-index: 3;
-  pointer-events: none;
 }
 
-/* ========== ARROW BUTTONS ========== */
+/* Buttons */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
   border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-  outline: none;
+  color: white;
+  font-size: 18px;
 }
 
-.slider-btn svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-}
+.slider-btn-prev { left: 15px; }
+.slider-btn-next { right: 15px; }
 
-.slider-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.slider-btn-prev {
-  left: 16px;
-}
-
-.slider-btn-next {
-  right: 16px;
-}
-
-/* ========== DOTS ========== */
+/* Dots */
 .slider-dots {
   position: absolute;
-  bottom: 16px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
-  z-index: 10;
 }
 
 .slider-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.5);
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-  outline: none;
 }
 
 .dot-active {
-  background: #fff;
-  width: 22px;
+  background: white;
+  width: 20px;
   border-radius: 4px;
 }
 
-/* ========== SLIDE COUNTER ========== */
-.slide-counter {
-  position: absolute;
-  bottom: 14px;
-  right: 20px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 1px;
-}
-
-.counter-current {
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.counter-sep {
-  width: 18px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.4);
-  display: block;
-}
-
-/* ========== PROGRESS BAR ========== */
+/* Progress */
 .progress-bar {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
   height: 3px;
-  background: rgba(255, 255, 255, 0.15);
-  z-index: 10;
+  background: rgba(255,255,255,0.2);
 }
 
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #667eea, #764ba2);
-  animation: progressAnim 5s linear forwards;
+  animation: progress 5s linear forwards;
 }
 
-@keyframes progressAnim {
+@keyframes progress {
   from { width: 0%; }
   to { width: 100%; }
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 70px;
-  }
-
-  .slider-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .slider-btn svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .slider-btn-prev { left: 10px; }
-  .slider-btn-next { right: 10px; }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding-top: 65px;
-  }
-
-  .slider-btn {
-    width: 30px;
-    height: 30px;
-  }
-
-  .slider-btn svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .slider-btn-prev { left: 6px; }
-  .slider-btn-next { right: 6px; }
-
-  .slider-dots { bottom: 10px; }
-
-  .slider-dot {
-    width: 6px;
-    height: 6px;
-  }
-
-  .dot-active { width: 16px; }
-
-  .slide-counter { display: none; }
 }
