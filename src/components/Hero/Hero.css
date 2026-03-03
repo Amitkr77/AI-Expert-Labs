@@ -5,45 +5,34 @@
 .hero {
   position: relative;
   width: 100%;
-  background: #0a0a0a;
+  padding-top: 80px;
+  background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 50%, #1e1e4a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;        /* navbar ke neeche */
-  padding-bottom: 0px;
-  min-height: 80vh;
-  box-sizing: border-box;
 }
-
-/* ============================================
-   HERO SECTION — FULL IMAGE NO CROP
-   ============================================ */
-
-/* .hero {
-  position: relative;
-  width: 100%;
-  background: #0a0a0a;
-  padding-top: 80px;       
-  box-sizing: border-box;
-} */
 
 /* ========== SLIDER WRAPPER ========== */
-.slider-wrapper {
+
+ .slider-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 0 !important;
-}
+ }
+
 
 /* ========== SLIDES ========== */
 .slide {
   width: 100%;
-  display: none;            /* hidden by default */
+  height: 100%;
+  display: none;
 }
 
 .slide-active {
-  display: block;           /* sirf active slide dikhega */
-  animation: fadeIn 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .slide-hidden {
   display: none;
@@ -62,11 +51,13 @@
 
 /* ========== IMAGE — FULL NO CROP ========== */
 .slide-img {
-  width: 100%;              /* poori width */
-  height: auto;             /* height auto — image cut nahi hogi */
+  width: 100%;
+  max-height: 65vh;   /* 👈 Hero ki height control yaha karo */
+  
+  object-fit: contain;  /* crop nahi hoga */
+  object-position: center;
+
   display: block;
-  user-select: none;
-  object-fit: cover;      /* contain — puri image dikhegi */
 }
 
 /* ========== OVERLAY ========== */
