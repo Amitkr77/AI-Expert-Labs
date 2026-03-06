@@ -28,7 +28,7 @@ export const navLinks = [
   { id: 3, label: "Services", path: "/services" },
   {
     id: 4,
-    label: "Courses",
+    label: "Academic",
     dropdown: [
       { label: "Institute", path: "/courses/institute" },
       { label: "Corporate", path: "/courses/corporate" }

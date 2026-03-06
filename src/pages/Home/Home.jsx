@@ -9,7 +9,7 @@ import Services  from '../../components/Services/Services'
 import Portfolio from '../../components/Portfolio/Portfolio'
 import Contact   from '../../components/Contact/Contact'
 import CompanySlider   from '../../components/CompanySlider/CompanySlider'
-
+import OurPartners from '../../components/OurPartners/OurPartners'
 
 const Home = () => {
   useEffect(() => {
@@ -28,6 +28,7 @@ const Home = () => {
         <Hero />
         <CompanySlider />
         <About />
+        <OurPartners />
         <Portfolio />
         <Services />
         <Contact />
