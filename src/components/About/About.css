@@ -4,7 +4,7 @@
 
 .about-new {
   background: #ffffff;   /* white background for readability */
-  padding: 20px 0;
+  padding: 0px ;
   color: #111827;        /* dark readable text */
 }
 
@@ -113,7 +113,7 @@
 @media (max-width: 992px) {
 
   .about-new {
-    padding: 70px 0;
+    padding: 10px 0;
   }
 
   .about-stats-bar {
