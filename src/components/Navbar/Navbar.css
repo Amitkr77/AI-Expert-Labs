@@ -4,7 +4,7 @@
   z-index: 1000;
   padding: 16px 0;
   transition: all 0.4s ease;
-  background: white;
+  background: #091751;
 }
 
 .navbar.scrolled {
@@ -86,14 +86,14 @@
   position: relative;
 }
 
-.navbar:not(.scrolled) .nav-link { color: rgba(0, 0, 0, 0.85); }
-.navbar:not(.scrolled) .nav-link:hover { color: rgb(7, 7, 7); background: rgba(255,255,255,0.1); }
-.navbar:not(.scrolled) .nav-link.active { color: rgb(0, 0, 0); background: rgba(255,255,255,0.15); }
+.navbar:not(.scrolled) .nav-link { color: #ffffff; }
+.navbar:not(.scrolled) .nav-link:hover { color: var(--primary); background: transparent; }
+.navbar:not(.scrolled) .nav-link.active { color: var(--primary); background: transparent; }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--primary);
-  background: rgba(99,102,241,0.06);
+  background: transparent;
 }
 
 /* Actions */

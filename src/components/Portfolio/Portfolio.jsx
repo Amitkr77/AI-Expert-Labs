@@ -73,7 +73,7 @@ const Portfolio = () => {
             ‹
           </button>
 
-          <div className="carousel">
+          <div className="carousel" >
             {filtered.map((item, i) => (
               <div key={item.id} className={`carousel-card ${getPosition(i)}`}>
 

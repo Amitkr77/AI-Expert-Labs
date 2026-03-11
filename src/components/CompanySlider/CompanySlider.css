@@ -6,7 +6,7 @@
 .company-slider-section {
   padding: 30px 0;
   /* NEW BACKGROUND COLOR - Blue Purple Mix */
-  background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 50%, #1e1e4a 100%);
+  background: #0a0f2c;
   overflow: hidden;
   position: relative;
 }

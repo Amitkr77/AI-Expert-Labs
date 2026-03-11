@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks } from '../../data/siteData'
 import './Navbar.css'
-import logo from "../../assets/logo7.png"
+import logo from "../../assets/logo8.png"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -56,8 +56,8 @@ const Navbar = () => {
             src={logo}
             alt="AIXperts Labs"
             className="logo-img"
-            width="300"
-            height="105"
+            width="350"
+            height="155"
             loading="eager"
             fetchPriority="high"
           />
@@ -108,9 +108,9 @@ const Navbar = () => {
 
         {/* Right CTAs */}
         <div className="nav-actions">
-          <a href="tel:+919811263046" className="nav-phone">
+        {/*  <a href="tel:+919811263046" className="nav-phone">
             📞 +91 98112 63046
-          </a>
+          </a>*/}
           <button onClick={scrollToContact} className="nav-cta">
             Free Consultation
           </button>

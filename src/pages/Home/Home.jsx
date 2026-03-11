@@ -3,7 +3,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import Navbar    from '../../components/Navbar/Navbar'
-import Hero      from '../../components/Hero/Hero'
+import Hero      from '../../components/Hero/Hero1'
 import About     from '../../components/About/About'
 import Services  from '../../components/Services/Services'
 import Portfolio from '../../components/Portfolio/Portfolio'
@@ -28,8 +28,8 @@ const Home = () => {
         <Hero />
         <CompanySlider />
         <About />
-        <OurPartners />
         <Portfolio />
+         <OurPartners />
         <Services />
         <Contact />
       </main>
