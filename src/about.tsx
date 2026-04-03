@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
+import pradeep from "./assets/team/pradeep.jpg";
+import harshu from "./assets/team/harshu.jpg";
+import anshu from "./assets/team/anshu.jpg";
+import saurav from "./assets/team/Suman.jpg";
 import { Sparkles } from "lucide-react";
+
 export default function AboutPage() {
   return (
     <div className="bg-white text-slate-900">
@@ -468,30 +473,34 @@ export default function AboutPage() {
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          
+<TeamRowCard
+  name="Pradeep Kumar"
+  role="Founder & CEO"
+  img={pradeep}
+  desc="Leading AIxperts Labs with a vision to transform enterprises through cutting-edge AI strategies."
+/>
 
-          <TeamRowCard
-            name="Pradeep Kumar"
-            role="Founder & CEO"
-            img="https://aixpertslabs.com/assets/pradeep_kumar-69a6af88.jpeg"
-          />
+<TeamRowCard
+  name="Harshu Bharti"
+  role="Co-Founder & CTO"
+  img={harshu}
+  desc="Architecting scalable AI systems and driving innovation in intelligent automation."
+/>
 
-          <TeamRowCard
-            name=" Harshu Bharti"
-            role="Co-Founder & CTO"
-            img="https://aixpertslabs.com/assets/Harshu-67b2905b.jpeg"
-          />
+<TeamRowCard
+  name="Anshu Bharti"
+  role="Co-founder & COO"
+  img={anshu}
+  desc="Ensuring seamless execution and operational excellence across all AI solutions."
+/>
 
-          <TeamRowCard
-            name=" Anshu Bharti"
-            role="Co-founder & COO"
-            img="https://aixpertslabs.com/assets/Anshu-5f8fa3a3.jpeg"
-          />
-
-          <TeamRowCard
-            name="Saurav Suman"
-            role="Head of Sales & internship"
-            img="https://aixpertslabs.com/assets/Suman-bac29b31.png"
-          />
+<TeamRowCard
+  name="Saurav Suman"
+  role="Head of Sales & Internship"
+  img={saurav}
+  desc="Driving growth, partnerships, and talent development across AI programs."
+/>
 
         </div>
       </div>
@@ -548,20 +557,21 @@ export default function AboutPage() {
   )
 }
 
-function TeamRowCard({ name, role, img }) {
+function TeamRowCard({ name, role, img, desc }) {
   return (
     <div className="group flex items-center gap-8 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6">
 
-      {/* IMAGE (FIXED RATIO - NO CUT ISSUE) */}
       <div className="w-[160px] h-[200px] flex-shrink-0 overflow-hidden rounded-2xl bg-slate-100">
         <img
           src={img}
           alt={name}
+          onError={(e) => {
+            e.currentTarget.src = "https://via.placeholder.com/200x250";
+          }}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500"
         />
       </div>
 
-      {/* TEXT */}
       <div className="flex-1">
         <h3 className="text-xl font-semibold text-slate-900 group-hover:text-orange-500 transition">
           {name}
@@ -571,14 +581,12 @@ function TeamRowCard({ name, role, img }) {
           {role}
         </p>
 
-        {/* premium divider */}
         <div className="w-12 h-[3px] bg-slate-300 mt-4 group-hover:w-20 group-hover:bg-orange-400 transition-all duration-300"></div>
 
         <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-md">
-          Driving innovation and leading AI transformation initiatives across enterprise ecosystems.
+          {desc}
         </p>
       </div>
-
     </div>
   );
 }

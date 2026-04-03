@@ -67,7 +67,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-8">
 
           {/* Left Menu */}
-          <div className="flex items-center gap-8 border-r border-slate-200 pr-8 mr-2">
+          <div className="flex items-center gap-8 pr-8 mr-2">
 
             <Link to="/" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
               Home
@@ -855,6 +855,118 @@ const CTA = () => {
     </section>
   );
 };
+const Privacy = () => {
+  return (
+    <div className="pt-28 pb-20 bg-white">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <h1 className="text-5xl font-bold mb-6 text-slate-900">
+          Privacy Policy
+        </h1>
+
+        <p className="text-slate-500 mb-8 text-lg">
+          At AIxperts Labs, we prioritize your privacy and are committed to protecting your personal data with transparency and security.
+        </p>
+
+        {/* SECTION */}
+        <div className="space-y-8">
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">1. Information We Collect</h2>
+            <p className="text-slate-600">
+              We collect personal details such as your name, email, phone number, and any data submitted through forms or interactions on our platform.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">2. How We Use Your Data</h2>
+            <p className="text-slate-600">
+              Your data is used to improve our services, respond to inquiries, provide updates, and enhance your experience with our AI solutions.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">3. Data Security</h2>
+            <p className="text-slate-600">
+              We implement advanced security measures to safeguard your information from unauthorized access or misuse.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">4. Third-Party Sharing</h2>
+            <p className="text-slate-600">
+              We do not sell or share your data with third parties except when required by law or necessary to provide services.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">5. Contact Us</h2>
+            <p className="text-slate-600">
+              If you have any questions, contact us at <span className="text-orange-600 font-semibold">support@aixpertslabs.com</span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Terms = () => {
+  return (
+    <div className="pt-28 pb-20 bg-white">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <h1 className="text-5xl font-bold mb-6 text-slate-900">
+          Terms of Service
+        </h1>
+
+        <p className="text-slate-500 mb-8 text-lg">
+          By accessing and using AIxperts Labs, you agree to the following terms and conditions.
+        </p>
+
+        <div className="space-y-8">
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">1. Use of Services</h2>
+            <p className="text-slate-600">
+              You agree to use our platform responsibly and in compliance with all applicable laws and regulations.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">2. Intellectual Property</h2>
+            <p className="text-slate-600">
+              All content, branding, and AI solutions are owned by AIxperts Labs and cannot be copied or reused without permission.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">3. Limitation of Liability</h2>
+            <p className="text-slate-600">
+              We are not liable for any direct or indirect damages resulting from the use of our services.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">4. Modifications</h2>
+            <p className="text-slate-600">
+              We reserve the right to update these terms at any time without prior notice.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">5. Contact</h2>
+            <p className="text-slate-600">
+              For any concerns, reach us at <span className="text-orange-600 font-semibold">support@aixpertslabs.com</span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Footer = () => {
   return (
@@ -958,8 +1070,13 @@ const Footer = () => {
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-slate-400 text-sm">© 2026 AIxperts Labs Private Limited. All rights reserved.</p>
           <div className="flex gap-10">
-            <a href="#" className="text-slate-400 hover:text-orange-600 text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-slate-400 hover:text-orange-600 text-sm transition-colors">Terms of Service</a>
+           <Link to="/privacy" className="text-slate-400 hover:text-orange-600 text-sm transition-colors">
+  Privacy Policy
+</Link>
+
+<Link to="/terms" className="text-slate-400 hover:text-orange-600 text-sm transition-colors">
+  Terms of Service
+</Link>
           </div>
         </div>
       </div>
@@ -999,6 +1116,8 @@ export default function App() {
             <Route path="/corporate" element={<Corporate />} />
             <Route path="/institute" element={<Institute />} />
             <Route path="/school" element={<School />} />
+            <Route path="/privacy" element={<Privacy />} />
+<Route path="/terms" element={<Terms />} />
             {/* <Route path="/research" element={<Research />} /> */}
             <Route path="/consultation" element={<Consultation />} />
           </Routes>
