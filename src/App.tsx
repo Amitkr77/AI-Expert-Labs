@@ -209,41 +209,40 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <>
-      <section className="relative min-h-screen flex items-center py-20 overflow-hidden hero-futuristic-bg">
-
-        {/* Background Effects */}
+<section className="relative w-full min-h-[100dvh] flex flex-col justify-center py-8 md:py-12 lg:py-16 overflow-hidden hero-futuristic-bg">
+        {/* Background */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-orange-600/10 rounded-full blur-[120px]" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
 
-          {/* LEFT CONTENT */}
+          {/* LEFT */}
           <div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
               Leading the AI Revolution
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-xl sm:text-1xl md:text-2xl lg:text-4xl font-bold text-white mb-3 leading-tight">
               Engineering <span className="text-orange-500">Intelligence</span> for the Future
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 max-w-xl">
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-6 max-w-xl">
               AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, automation, and workforce transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
 
               <Link
                 to="/services"
-                className="bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-orange-700 transition-all text-center"
+                className="bg-orange-600 text-white px-5 py-3 rounded-full font-bold text-sm hover:bg-orange-700 transition text-center"
               >
                 Explore Solutions
               </Link>
 
               <Link
                 to="/about"
-                className="bg-white/5 border border-white/10 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition-all text-center"
+                className="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-full font-bold text-sm hover:bg-white/10 transition text-center"
               >
                 Our Methodology
               </Link>
@@ -251,34 +250,34 @@ const Hero = () => {
             </div>
 
             {/* STATS */}
-            <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6">
+            <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-white/10 pt-4">
 
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-white">50K+</p>
-                <p className="text-xs text-slate-400 uppercase">Students</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">50K+</p>
+                <p className="text-[10px] text-slate-400 uppercase">Students</p>
               </div>
 
-              <div className="w-px h-8 bg-white/10 hidden sm:block"></div>
+              <div className="hidden sm:block w-px h-6 bg-white/10"></div>
 
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-white">200+</p>
-                <p className="text-xs text-slate-400 uppercase">Projects</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">200+</p>
+                <p className="text-[10px] text-slate-400 uppercase">Projects</p>
               </div>
 
             </div>
 
           </div>
 
-          {/* RIGHT VIDEO */}
+          {/* RIGHT */}
           <div>
-            <div className="rounded-[30px] overflow-hidden shadow-2xl border border-white/10">
+            <div className="rounded-[20px] overflow-hidden shadow-2xl border border-white/10">
 
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-[220px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover"
+                // className="w-full h-[160px] sm:h-[200px] md:h-[220px] lg:h-[500px] lg:h-[500px] object-cover"
               >
                 <source src={aihero} type="video/mp4" />
               </video>
@@ -290,18 +289,18 @@ const Hero = () => {
       </section>
 
       {/* COMPANY STRIP */}
-      <section className="bg-[#0a0f2c] py-6 overflow-hidden">
-        <p className="text-center text-white text-sm sm:text-lg mb-6">
+      <section className="bg-[#0a0f2c] py-4 overflow-hidden">
+        <p className="text-center text-white text-xs sm:text-sm mb-4">
           Our Students Work at <span className="text-purple-400">Top Companies</span>
         </p>
 
         <div className="overflow-hidden">
-          <div className="flex gap-4 sm:gap-8 animate-scroll w-max">
+          <div className="flex gap-3 sm:gap-6 animate-scroll w-max">
 
             {["Google","Microsoft","Amazon","Meta","Apple","Netflix"].map((c,i)=>(
               <div
                 key={i}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white text-xs sm:text-sm font-semibold whitespace-nowrap"
+                className="px-3 py-1 sm:px-5 sm:py-2 bg-white/10 border border-white/20 rounded-lg text-white text-[10px] sm:text-xs font-semibold whitespace-nowrap"
               >
                 {c}
               </div>
@@ -1001,7 +1000,7 @@ const Footer = () => {
   return (
     <footer className="bg-white pt-6 pb-6 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-10">
+        <div className="gridgrid-cols-2 lg:grid-cols-4 gap-16 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-8">
                <Link to="/" className="flex items-center gap-3">
@@ -1135,7 +1134,7 @@ export default function App() {
     <Router>
       <div className="min-h-screen bg-white font-sans">
         <Navbar />
-        <main>
+        <main className="pt-20" >
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
