@@ -69,7 +69,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="bg-white pt-21 pb-32">
+    <div className="bg-white  pb-32">
     
       {/* HERO */}
 {/* HERO */}

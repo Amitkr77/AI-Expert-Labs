@@ -100,7 +100,7 @@ const Portfolio = () => {
       {/* HERO */}
 {/* HERO */}
 {/* HERO */}
-<div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden  pt-20">
+<div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden  pt-0">
 
   {/* VIDEO BACKGROUND */}
   <video
@@ -122,7 +122,7 @@ const Portfolio = () => {
   bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
 
   {/* CONTENT */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
+  <div className="relative z-10 max-w-7xl mx-auto px-2 py-2 text-center">
 
     {/* TAG (same as services) */}
     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-8 shadow-lg backdrop-blur-md">
