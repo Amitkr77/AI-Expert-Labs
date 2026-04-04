@@ -216,7 +216,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-[100dvh] flex items-center justify-center py-10 sm:py-14 lg:py-20 overflow-hidden hero-futuristic-bg">
+      <section className="relative w-full min-h-[100dvh] flex items-start justify-center pt-4 sm:pt-6 lg:pt-10 pb-10 overflow-hidden hero-futuristic-bg">
 
         {/* Background Effects */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
