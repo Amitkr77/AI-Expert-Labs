@@ -54,7 +54,7 @@ const Navbar = () => {
 
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-        {/* Logo */}
+        {/* Logo */} 
        <Link to="/" className="flex items-center gap-3">
   <img
     src={logo}
@@ -207,130 +207,109 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-
-  const companies = [
-    "Google","Microsoft","Amazon","Meta","Apple","Netflix",
-    "Adobe","Salesforce","IBM","Intel","Nvidia","Oracle"
-  ];
-
-  const doubledCompanies = [...companies, ...companies];
-
   return (
     <>
-      <section className="relative h-[80vh] flex items-start  py-16 pt-02 overflow-hidden hero-futuristic-bg">
+      <section className="relative min-h-screen flex items-center py-20 overflow-hidden hero-futuristic-bg">
 
-        {/* Glowing Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[120px] animate-pulse delay-700" />
-        
-        <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10  pt-9">
+        {/* Background Effects */}
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-orange-600/10 rounded-full blur-[120px]" />
 
-          {/* LEFT TEXT */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-5">
-              <Sparkles className="w-4 h-4" /> Leading the AI Revolution
+          {/* LEFT CONTENT */}
+          <div>
+
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">
+              Leading the AI Revolution
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
               Engineering <span className="text-orange-500">Intelligence</span> for the Future
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl leading-relaxed">
-              AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, autonomous automation, and workforce transformation.
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 max-w-xl">
+              AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, automation, and workforce transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-             <Link
-  to="/services"
-  className="bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-orange-700 transition-all flex items-center gap-3"
->
-  Explore Solutions
-  <ArrowRight className="w-5 h-5" />
-</Link>
+            <div className="flex flex-col sm:flex-row gap-4">
 
               <Link
-  to="/about"
-  className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
->
-  Our Methodology
-</Link>
+                to="/services"
+                className="bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-orange-700 transition-all text-center"
+              >
+                Explore Solutions
+              </Link>
+
+              <Link
+                to="/about"
+                className="bg-white/5 border border-white/10 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition-all text-center"
+              >
+                Our Methodology
+              </Link>
+
             </div>
 
-            <div className="mt-16 flex items-center gap-10 border-t border-white/10 pt-10">
-              <div>
-                <p className="text-3xl font-bold text-white">50K+</p>
-                <p className="text-sm text-slate-400 uppercase">Students Trained</p>
-              </div>
-
-              <div className="w-px h-10 bg-white/10"></div>
+            {/* STATS */}
+            <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6">
 
               <div>
-                <p className="text-3xl font-bold text-white">200+</p>
-                <p className="text-sm text-slate-400 uppercase">AI Projects</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white">50K+</p>
+                <p className="text-xs text-slate-400 uppercase">Students</p>
               </div>
+
+              <div className="w-px h-8 bg-white/10 hidden sm:block"></div>
+
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold text-white">200+</p>
+                <p className="text-xs text-slate-400 uppercase">Projects</p>
+              </div>
+
             </div>
 
-          </motion.div>
+          </div>
 
-          {/* RIGHT IMAGE */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-
-            <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/5 animate-float">
+          {/* RIGHT VIDEO */}
+          <div>
+            <div className="rounded-[30px] overflow-hidden shadow-2xl border border-white/10">
 
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-650 h-89 object-cover"
+                className="w-full h-[220px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover"
               >
                 <source src={aihero} type="video/mp4" />
               </video>
 
             </div>
-
-          </motion.div>
+          </div>
 
         </div>
       </section>
 
-
-      {/* ===== COMPANY SLIDER ===== */}
-
-      <section className="bg-[#0a0f2c] py-8 overflow-hidden">
-
-        <p className="text-center text-white text-lg mb-8">
+      {/* COMPANY STRIP */}
+      <section className="bg-[#0a0f2c] py-6 overflow-hidden">
+        <p className="text-center text-white text-sm sm:text-lg mb-6">
           Our Students Work at <span className="text-purple-400">Top Companies</span>
         </p>
 
         <div className="overflow-hidden">
+          <div className="flex gap-4 sm:gap-8 animate-scroll w-max">
 
-          <div className="flex gap-8 animate-scroll w-max">
-
-            {doubledCompanies.map((company,i)=>(
+            {["Google","Microsoft","Amazon","Meta","Apple","Netflix"].map((c,i)=>(
               <div
                 key={i}
-                className="px-6 py-3 bg-white/10 border border-white/20 rounded-xl text-white text-sm font-semibold whitespace-nowrap"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white text-xs sm:text-sm font-semibold whitespace-nowrap"
               >
-                {company}
+                {c}
               </div>
             ))}
 
           </div>
-
         </div>
-
       </section>
-
     </>
   );
 };
