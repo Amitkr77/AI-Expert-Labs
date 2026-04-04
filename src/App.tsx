@@ -151,7 +151,57 @@ const Navbar = () => {
         </button>
 
       </div>
+{/* Mobile Menu */}
+{isMobileMenuOpen && (
+  <div className="lg:hidden bg-white border-t border-slate-200 px-6 py-4 space-y-4 shadow-md">
 
+    <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+      Home
+    </Link>
+
+    <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+      About
+    </Link>
+
+    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+      Services
+    </Link>
+
+    {/* Academic */}
+    <div className="space-y-2">
+      <p className="font-bold text-slate-800">Academic</p>
+
+      <Link to="/corporate" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+        Corporate Training
+      </Link>
+
+      <Link to="/institute" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+        Institute Courses
+      </Link>
+
+      <Link to="/school" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+        School Programs
+      </Link>
+    </div>
+
+    <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+      Portfolio
+    </Link>
+
+    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+      Contact
+    </Link>
+
+    <Link
+      to="/consultation"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="block text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
+    >
+      Free Consultation
+    </Link>
+
+  </div>
+)}
     </nav>
   );
 };
