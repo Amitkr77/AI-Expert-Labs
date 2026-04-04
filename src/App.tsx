@@ -54,7 +54,7 @@ const Navbar = () => {
 
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-        {/* Logo */} 
+        {/* Logo */}
        <Link to="/" className="flex items-center gap-3">
   <img
     src={logo}
@@ -207,108 +207,130 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+
+  const companies = [
+    "Google","Microsoft","Amazon","Meta","Apple","Netflix",
+    "Adobe","Salesforce","IBM","Intel","Nvidia","Oracle"
+  ];
+
+  const doubledCompanies = [...companies, ...companies];
+
   return (
     <>
-<section className="relative w-full min-h-[100dvh] flex flex-col justify-center py-8 md:py-12 lg:py-16 overflow-hidden hero-futuristic-bg">
-        {/* Background */}
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-orange-600/10 rounded-full blur-[120px]" />
+      <section className="relative h-[80vh] flex items-start  py-16 pt-02 overflow-hidden hero-futuristic-bg">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[120px] animate-pulse delay-700" />
+        
+        <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10  pt-9">
 
-          {/* LEFT */}
-          <div>
+          {/* LEFT TEXT */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
 
-            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
-              Leading the AI Revolution
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-5">
+              <Sparkles className="w-4 h-4" /> Leading the AI Revolution
             </div>
 
-            <h1 className="text-xl sm:text-1xl md:text-2xl lg:text-4xl font-bold text-white mb-3 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
               Engineering <span className="text-orange-500">Intelligence</span> for the Future
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-6 max-w-xl">
-              AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, automation, and workforce transformation.
+            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl leading-relaxed">
+              AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, autonomous automation, and workforce transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+             <Link
+  to="/services"
+  className="bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-orange-700 transition-all flex items-center gap-3"
+>
+  Explore Solutions
+  <ArrowRight className="w-5 h-5" />
+</Link>
 
               <Link
-                to="/services"
-                className="bg-orange-600 text-white px-5 py-3 rounded-full font-bold text-sm hover:bg-orange-700 transition text-center"
-              >
-                Explore Solutions
-              </Link>
-
-              <Link
-                to="/about"
-                className="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-full font-bold text-sm hover:bg-white/10 transition text-center"
-              >
-                Our Methodology
-              </Link>
-
+  to="/about"
+  className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
+>
+  Our Methodology
+</Link>
             </div>
 
-            {/* STATS */}
-            <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-white/10 pt-4">
-
+            <div className="mt-16 flex items-center gap-10 border-t border-white/10 pt-10">
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">50K+</p>
-                <p className="text-[10px] text-slate-400 uppercase">Students</p>
+                <p className="text-3xl font-bold text-white">50K+</p>
+                <p className="text-sm text-slate-400 uppercase">Students Trained</p>
               </div>
 
-              <div className="hidden sm:block w-px h-6 bg-white/10"></div>
+              <div className="w-px h-10 bg-white/10"></div>
 
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">200+</p>
-                <p className="text-[10px] text-slate-400 uppercase">Projects</p>
+                <p className="text-3xl font-bold text-white">200+</p>
+                <p className="text-sm text-slate-400 uppercase">AI Projects</p>
               </div>
-
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* RIGHT */}
-          <div>
-            <div className="rounded-[20px] overflow-hidden shadow-2xl border border-white/10">
+          {/* RIGHT IMAGE */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+
+            <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/5 animate-float">
 
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                // className="w-full h-[160px] sm:h-[200px] md:h-[220px] lg:h-[500px] lg:h-[500px] object-cover"
+                className="w-650 h-89 object-cover"
               >
                 <source src={aihero} type="video/mp4" />
               </video>
 
             </div>
-          </div>
+
+          </motion.div>
 
         </div>
       </section>
 
-      {/* COMPANY STRIP */}
-      <section className="bg-[#0a0f2c] py-4 overflow-hidden">
-        <p className="text-center text-white text-xs sm:text-sm mb-4">
+
+      {/* ===== COMPANY SLIDER ===== */}
+
+      <section className="bg-[#0a0f2c] py-8 overflow-hidden">
+
+        <p className="text-center text-white text-lg mb-8">
           Our Students Work at <span className="text-purple-400">Top Companies</span>
         </p>
 
         <div className="overflow-hidden">
-          <div className="flex gap-3 sm:gap-6 animate-scroll w-max">
 
-            {["Google","Microsoft","Amazon","Meta","Apple","Netflix"].map((c,i)=>(
+          <div className="flex gap-8 animate-scroll w-max">
+
+            {doubledCompanies.map((company,i)=>(
               <div
                 key={i}
-                className="px-3 py-1 sm:px-5 sm:py-2 bg-white/10 border border-white/20 rounded-lg text-white text-[10px] sm:text-xs font-semibold whitespace-nowrap"
+                className="px-6 py-3 bg-white/10 border border-white/20 rounded-xl text-white text-sm font-semibold whitespace-nowrap"
               >
-                {c}
+                {company}
               </div>
             ))}
 
           </div>
+
         </div>
+
       </section>
+
     </>
   );
 };
@@ -1000,7 +1022,7 @@ const Footer = () => {
   return (
     <footer className="bg-white pt-6 pb-6 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="gridgrid-cols-2 lg:grid-cols-4 gap-16 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-8">
                <Link to="/" className="flex items-center gap-3">
@@ -1134,7 +1156,7 @@ export default function App() {
     <Router>
       <div className="min-h-screen bg-white font-sans">
         <Navbar />
-        <main className="pt-20" >
+        <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
