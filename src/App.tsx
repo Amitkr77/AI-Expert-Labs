@@ -209,7 +209,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-[100dvh] flex items-start justify-center pt-4 sm:pt-6 lg:pt-10 pb-10 overflow-hidden hero-futuristic-bg">
+      <section className="relative w-full min-h-[100dvh] flex items-center justify-center pt-4 sm:pt-6 lg:pt-10 pb-10 overflow-hidden hero-futuristic-bg">
 
         {/* Background Effects */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
@@ -225,35 +225,35 @@ const Hero = () => {
           >
 
             <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">
-              <Sparkles className="w-4 h-4" /> Leading the AI Revolution
+              <Sparkles className="w-4 h-6" /> Leading the AI Revolution
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6.5xl xl:text-7xl font-bold text-white mb-6 leading-tight">
               Engineering <span className="text-orange-500">Intelligence</span> for the Future
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-6 max-w-xl">
+            <p className="text-sm sm:text-base md:text-2xl text-slate-300 mb-6 max-w-2xl">
               AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, automation, and workforce transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-10 sm:gap-6">
 
-              <Link
-                to="/services"
-                className="bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-orange-700 transition text-center flex items-center justify-center gap-2"
-              >
-                Explore Solutions
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+  <Link
+    to="/services"
+    className="bg-orange-600 text-white px-10 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-orange-700 transition flex items-center justify-center gap-2"
+  >
+    Explore Solutions
+    <ArrowRight className="w-5 h-5" />
+  </Link>
 
-              <Link
-                to="/about"
-                className="bg-white/5 border border-white/10 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition text-center"
-              >
-                Our Methodology
-              </Link>
+  <Link
+    to="/about"
+    className="bg-white/5 border border-white/10 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-white/10 transition text-center"
+  >
+    Our Methodology
+  </Link>
 
-            </div>
+</div>
 
             {/* STATS */}
             <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-white/10 pt-4">
@@ -1049,44 +1049,60 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Solutions</h4>
-            <ul className="space-y-4">
-              {['AI Solutions', 'AI Automation', 'Workforce Training', 'Custom LLMs', 'AI Strategy'].map(item => (
-                <li key={item}><a href="#" className="text-slate-500 hover:text-orange-600 transition-colors">{item}</a></li>
-              ))}
-            </ul>
-          </div>
+  <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Our Expertise</h4>
+  <ul className="space-y-4">
+
+    <li>
+      <Link to="/services" className="text-slate-500 hover:text-orange-600 transition-colors">
+        Strategic AI Strategy
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" className="text-slate-500 hover:text-orange-600 transition-colors">
+        Autonomous Workflows
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" className="text-slate-500 hover:text-orange-600 transition-colors">
+        Custom LLM Solutions
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/hellogini" className="text-slate-500 hover:text-orange-600 transition-colors">
+        HelloGini Voice AI
+      </Link>
+    </li>
+
+  </ul>
+</div>
 
           <div>
-            <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Company</h4>
+            <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Ecosystem</h4>
            <ul className="space-y-4">
   <li>
-    <Link to="/" className="text-slate-500 hover:text-orange-600 transition-colors">
-      Home
+    <Link to="/institute" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Academic Programs
     </Link>
   </li>
 
   <li>
-    <Link to="/about" className="text-slate-500 hover:text-orange-600 transition-colors">
-      About
-    </Link>
-  </li>
-
-  <li>
-    <Link to="/services" className="text-slate-500 hover:text-orange-600 transition-colors">
-      Services
+    <Link to="/corporate" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Corporate Training
     </Link>
   </li>
 
   <li>
     <Link to="/portfolio" className="text-slate-500 hover:text-orange-600 transition-colors">
-      Portfolio
+      Impact Stories
     </Link>
   </li>
 
   <li>
     <Link to="/contact" className="text-slate-500 hover:text-orange-600 transition-colors">
-      Contact
+     Contact Team
     </Link>
   </li>
 </ul>

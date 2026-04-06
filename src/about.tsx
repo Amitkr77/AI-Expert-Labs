@@ -46,34 +46,34 @@ export default function AboutPage() {
   <div className="absolute inset-0 bg-black/70"></div>
 
 </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl text-2xl mx-auto px-6 text-center">
 
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-5">
   <Sparkles className="w-4 h-4" />
   ARCHITECTING INTELLIGENCE
 </span>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
-            Building the Future of{" "}
-            <span className="text-orange-400">
-              Artificial Intelligence
-            </span>
-          </h1>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] font-extrabold leading-[1.05] text-white mb-6 tracking-tight">
+  Building the Future of{" "}
+  <span className="text-orange-500">
+    Artificial Intelligence
+  </span>
+</h1>
 
-          <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-10">
+          <p className="text-2xl text-slate-200 max-w-4xl mx-auto mb-10">
             We empower global institutions to harness the transformative power of AI through strategic implementation, high-fidelity education, and resilient autonomous systems.
           </p>
 
           <div className="flex justify-center gap-5 flex-wrap">
             <Link
   to="/consultation"
-  className="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-500 transition-all"
+  className="bg-blue-600 text-white px-6 py-3 text-2xl rounded-full font-bold hover:bg-blue-500 transition-all"
 >
   Free Consultation
 </Link>
             <Link
   to="/contact"
-  className="px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition"
+  className="px-8 py-3 border border-white/30  text-2xl  text-white rounded-full font-semibold hover:bg-white/10 transition"
 >
   WHO WE ARE
 </Link>
@@ -85,13 +85,13 @@ export default function AboutPage() {
 
       {/* WHO WE ARE */}
       <section className="py-22 bg-slate-50">
-  <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-10xl mx-auto px-6">
 
     <div className="grid lg:grid-cols-12 gap-12 items-start">
 
       {/* LEFT CONTENT */}
       <div className="lg:col-span-7">
-        <h2 className="text-4xl font-bold text-slate-900 mb-6">
+        <h2 className="text-7xl font-bold text-slate-900 mb-6">
   Who <span className="text-orange-500">We</span> Are
 </h2>
 
