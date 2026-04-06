@@ -22,70 +22,73 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
-        {/* BG IMAGE + OVERLAY */}
-       <div className="absolute inset-0">
+  {/* BG VIDEO */}
+  <div className="absolute inset-0 overflow-hidden">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover brightness-75"
+    >
+      <source src="/video/yxdnwa81sxrmw0cwzzz8smvt9c_result_.mp4" type="video/mp4" />
+    </video>
 
- <div className="absolute inset-0 overflow-hidden">
+    {/* PREMIUM OVERLAY */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+  </div>
 
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="auto"
-    className="w-full h-full object-cover"
-  >
-    <source src="/video/yxdnwa81sxrmw0cwzzz8smvt9c_result_.mp4" type="video/mp4" />
-  </video>
+  {/* CONTENT */}
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 
-  {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-black/60"></div>
+    {/* TAG */}
+    <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-sm font-semibold tracking-widest mb-6 backdrop-blur-md">
+      <Sparkles className="w-4 h-4" />
+      ARCHITECTING INTELLIGENCE
+    </span>
 
-</div>
+    {/* HEADING */}
+    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] font-extrabold leading-[1.05] text-white mb-6 tracking-tight">
+      Building the Future of{" "}
+      <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent drop-shadow-lg">
+        Artificial Intelligence
+      </span>
+    </h1>
 
-  <div className="absolute inset-0 bg-black/70"></div>
+    {/* SUBTEXT */}
+    <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+      We empower global institutions to harness the transformative power of AI through 
+      <span className="text-white font-medium"> strategic execution</span>, 
+      <span className="text-white font-medium"> advanced education</span>, and 
+      <span className="text-white font-medium"> autonomous intelligence systems</span>.
+    </p>
 
-</div>
-        <div className="relative z-10 max-w-5xl text-2xl mx-auto px-6 text-center">
+    {/* CTA */}
+    <div className="flex justify-center gap-6 flex-wrap">
 
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-5">
-  <Sparkles className="w-4 h-4" />
-  ARCHITECTING INTELLIGENCE
-</span>
+      <Link
+        to="/consultation"
+        className="relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all shadow-xl shadow-blue-900/40 hover:scale-105"
+      >
+        Free Consultation →
+      </Link>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] font-extrabold leading-[1.05] text-white mb-6 tracking-tight">
-  Building the Future of{" "}
-  <span className="text-orange-500">
-    Artificial Intelligence
-  </span>
-</h1>
+      <Link
+        to="/contact"
+        className="px-10 py-5 text-lg font-semibold text-white rounded-full border border-white/30 backdrop-blur-md hover:bg-white/10 transition-all hover:scale-105"
+      >
+        Who We Are
+      </Link>
 
-          <p className="text-2xl text-slate-200 max-w-4xl mx-auto mb-10">
-            We empower global institutions to harness the transformative power of AI through strategic implementation, high-fidelity education, and resilient autonomous systems.
-          </p>
+    </div>
 
-          <div className="flex justify-center gap-5 flex-wrap">
-            <Link
-  to="/consultation"
-  className="bg-blue-600 text-white px-6 py-3 text-2xl rounded-full font-bold hover:bg-blue-500 transition-all"
->
-  Free Consultation
-</Link>
-            <Link
-  to="/contact"
-  className="px-8 py-3 border border-white/30  text-2xl  text-white rounded-full font-semibold hover:bg-white/10 transition"
->
-  WHO WE ARE
-</Link>
-          </div>
-
-        </div>
-      </section>
+  </div>
+</section>
 
 
       {/* WHO WE ARE */}
       <section className="py-22 bg-slate-50">
-  <div className="max-w-10xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
     <div className="grid lg:grid-cols-12 gap-12 items-start">
 
