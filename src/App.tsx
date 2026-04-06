@@ -45,99 +45,93 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Components ---
 
 const Navbar = () => {
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 py-4 shadow-sm">
-
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300
+      ${
+        scrolled
+          ? "bg-white shadow-md border-b border-slate-200"
+          : "bg-white/70 backdrop-blur-md border-b border-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-       <Link to="/" className="flex items-center gap-3">
-  <img
-    src={logo}
-    alt="AIxperts Labs Logo"
-    className="h-13"
-  />
-</Link>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="AIxperts Labs Logo"
+            className="h-12"
+          />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
 
-          {/* Left Menu */}
-          <div className="flex items-center gap-8 pr-8 mr-2">
+          <Link to="/" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+            Home
+          </Link>
 
-            <Link to="/" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-              Home
-            </Link>
+          <Link to="/about" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+            About
+          </Link>
 
-            <Link to="/about" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-              About
-            </Link>
+          <Link to="/services" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+            Services
+          </Link>
 
-            <Link to="/services" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-              Services
-            </Link>
+          {/* Academic Dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              Academic
+              <ChevronRight className="w-4 h-4 rotate-90" />
+            </button>
 
-          
+            <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="bg-white shadow-xl border rounded-xl py-2 w-48">
 
-            {/* Academic Dropdown */}
-              <div className="relative group">
+                <Link to="/corporate" className="block px-4 py-2 text-sm hover:bg-slate-100">
+                  Corporate Training
+                </Link>
 
-                <button className="flex items-center gap-1 text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-                  Academic
-                  <ChevronRight className="w-4 h-4 rotate-90" />
-                </button>
+                <Link to="/institute" className="block px-4 py-2 text-sm hover:bg-slate-100">
+                  Institute Courses
+                </Link>
 
-                {/* Dropdown */}
-                <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-
-                  <div className="bg-white shadow-xl border rounded-xl py-2 w-48">
-
-                    <Link
-                      to="/corporate"
-                      className="block px-4 py-2 text-sm hover:bg-slate-100"
-                    >
-                      Corporate Training
-                    </Link>
-
-                    <Link
-                      to="/institute"
-                      className="block px-4 py-2 text-sm hover:bg-slate-100"
-                    >
-                      Institute Courses
-                    </Link>
-
-                    <Link
-                      to="/school"
-                      className="block px-4 py-2 text-sm hover:bg-slate-100"
-                    >
-                      School Programs
-                    </Link>
-
-                  </div>
-
-                </div>
+                <Link to="/school" className="block px-4 py-2 text-sm hover:bg-slate-100">
+                  School Programs
+                </Link>
 
               </div>
-            <Link to="/portfolio" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-              Portfolio
-            </Link>
+            </div>
+          </div>
 
-            <Link to="/contact" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
-              Contact
-            </Link>
-
-            <Link to="/consultation" className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
-              Free Consultation
+          <Link to="/portfolio" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+            Portfolio
           </Link>
-           </div>
 
-          {/* Right Side Buttons */}
-          <div className="flex items-center gap-6">
+          <Link to="/contact" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+            Contact
+          </Link>
 
-           </div>
+          <Link
+            to="/consultation"
+            className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100"
+          >
+            Free Consultation
+          </Link>
 
         </div>
 
@@ -150,61 +144,60 @@ const Navbar = () => {
         </button>
 
       </div>
-{/* Mobile Menu */}
-{isMobileMenuOpen && (
-  <div className="lg:hidden bg-white border-t border-slate-200 px-6 py-4 space-y-4 shadow-md">
 
-    <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
-      Home
-    </Link>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-slate-200 px-6 py-4 space-y-4 shadow-md">
 
-    <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
-      About
-    </Link>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+            Home
+          </Link>
 
-    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
-      Services
-    </Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+            About
+          </Link>
 
-    {/* Academic */}
-    <div className="space-y-2">
-      <p className="font-bold text-slate-800">Academic</p>
+          <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+            Services
+          </Link>
 
-      <Link to="/corporate" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
-        Corporate Training
-      </Link>
+          <div className="space-y-2">
+            <p className="font-bold text-slate-800">Academic</p>
 
-      <Link to="/institute" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
-        Institute Courses
-      </Link>
+            <Link to="/corporate" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+              Corporate Training
+            </Link>
 
-      <Link to="/school" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
-        School Programs
-      </Link>
-    </div>
+            <Link to="/institute" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+              Institute Courses
+            </Link>
 
-    <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
-      Portfolio
-    </Link>
+            <Link to="/school" onClick={() => setIsMobileMenuOpen(false)} className="block pl-3 text-sm text-slate-600">
+              School Programs
+            </Link>
+          </div>
 
-    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
-      Contact
-    </Link>
+          <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+            Portfolio
+          </Link>
 
-    <Link
-      to="/consultation"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className="block text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
-    >
-      Free Consultation
-    </Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block font-semibold text-slate-700">
+            Contact
+          </Link>
 
-  </div>
-)}
+          <Link
+            to="/consultation"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
+          >
+            Free Consultation
+          </Link>
+
+        </div>
+      )}
     </nav>
   );
 };
-
 const Hero = () => {
 
   const companies = [
@@ -290,16 +283,15 @@ const Hero = () => {
 
             <div className="rounded-[24px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl border border-white/10">
 
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-[180px] sm:h-[240px] md:h-[300px] lg:h-[500px] object-cover"
-              >
-                <source src={aihero} type="video/mp4" />
-              </video>
-
+             <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-[220px] sm:h-[160px] md:h-[320px] lg:h-[420px] object-cover object-center"
+>
+  <source src={aihero} type="video/mp4" />
+</video>
             </div>
 
           </motion.div>
@@ -1059,7 +1051,7 @@ const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Solutions</h4>
             <ul className="space-y-4">
-              {['Enterprise Consulting', 'AI Automation', 'Workforce Training', 'Custom LLMs', 'AI Strategy'].map(item => (
+              {['AI Solutions', 'AI Automation', 'Workforce Training', 'Custom LLMs', 'AI Strategy'].map(item => (
                 <li key={item}><a href="#" className="text-slate-500 hover:text-orange-600 transition-colors">{item}</a></li>
               ))}
             </ul>

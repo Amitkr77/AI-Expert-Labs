@@ -557,7 +557,7 @@ export default function AboutPage() {
   )
 }
 
-function TeamRowCard({ name, role, img, desc }) {
+function TeamRowCard({name,role,img,desc}) {
   return (
     <div className="group flex items-center gap-8 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6">
 
