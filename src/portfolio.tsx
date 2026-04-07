@@ -122,7 +122,7 @@ const Portfolio = () => {
   bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
 
   {/* CONTENT */}
-  <div className="relative z-10 max-w-7xl mx-auto px-2 py-2 text-center">
+  <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
     {/* TAG (same as services) */}
     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-8 shadow-lg backdrop-blur-md">
@@ -131,7 +131,7 @@ const Portfolio = () => {
 </span>
 
     {/* HEADING (bigger like services) */}
-    <h1 className="text-4xl md:text-8xl font-bold text-white leading-tight mb-6">
+    <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
       Showcasing Our{" "}
       <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
         AI Projects
@@ -139,7 +139,7 @@ const Portfolio = () => {
     </h1>
 
     {/* SUBTEXT */}
-    <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
+    <p className="text-slate-300 max-w-4xl mx-auto text-3xl mb-10">
       Explore real-world AI solutions we’ve built — from automation systems 
       to intelligent platforms driving business transformation.
     </p>
@@ -164,34 +164,48 @@ const Portfolio = () => {
     </div>
 
     {/* STATS (same style as services strip) */}
-    <div className="max-w-5xl mx-auto border-y border-white/10">
+    <div className="max-w-8xl mx-auto border-y border-white/10">
 
-      <div className="grid grid-cols-1 md:grid-cols-3">
+  <div className="grid grid-cols-2 md:grid-cols-5">
 
-        <div className="p-8 border-r border-white/10 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            Projects Completed
-          </p>
-          <p className="text-3xl font-bold text-white">50+</p>
-        </div>
-
-        <div className="p-8 border-r border-white/10 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            AI Solutions
-          </p>
-          <p className="text-3xl font-bold text-white">20+</p>
-        </div>
-
-        <div className="p-8 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            Client Satisfaction
-          </p>
-          <p className="text-3xl font-bold text-white">100%</p>
-        </div>
-
-      </div>
-
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Projects Completed
+      </p>
+      <p className="text-2xl font-bold text-white">50+</p>
     </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        AI Solutions
+      </p>
+      <p className="text-2xl font-bold text-white">20+</p>
+    </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Clients
+      </p>
+      <p className="text-2xl font-bold text-white">100+</p>
+    </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Automations
+      </p>
+      <p className="text-2xl font-bold text-white">75+</p>
+    </div>
+
+    <div className="p-6 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Satisfaction
+      </p>
+      <p className="text-2xl font-bold text-white">100%</p>
+    </div>
+
+  </div>
+
+</div>
 
   </div>
 </div>
