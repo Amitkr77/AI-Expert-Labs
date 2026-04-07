@@ -69,13 +69,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="AIxperts Labs Logo"
-            className="h-12"
-          />
-        </Link>
+        {/* Logo */}
+<Link to="/" className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="AIxperts Labs Logo"
+    className="h-16" // 🔥 increased from h-12 → h-16
+  />
+</Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
@@ -126,12 +127,27 @@ const Navbar = () => {
             Contact
           </Link>
 
-          <Link
-            to="/consultation"
-            className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100"
-          >
-            Free Consultation
-          </Link>
+          <div className="flex items-center gap-4">
+
+  {/* Free Consultation */}
+  <Link
+    to="/consultation"
+    className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100"
+  >
+    Free Consultation
+  </Link>
+
+  {/* WhatsApp Button */}
+  <a
+    href="https://wa.me/91XXXXXXXXXX" // 👉 apna number daalo
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-green-500 text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-green-600 hover:scale-105 transition-all shadow-lg shadow-green-100 flex items-center gap-2"
+  >
+    WhatsApp
+  </a>
+
+</div>
 
         </div>
 
@@ -209,7 +225,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-[100dvh] flex items-center justify-center pt-4 sm:pt-6 lg:pt-10 pb-10 overflow-hidden hero-futuristic-bg">
+      <section className="relative w-full min-h-[85vh] flex items-center justify-center pt-2 sm:pt-4 lg:pt-6 pb-6 overflow-hidden hero-futuristic-bg">
 
         {/* Background Effects */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
@@ -228,46 +244,60 @@ const Hero = () => {
               <Sparkles className="w-4 h-6" /> Leading the AI Revolution
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6.5xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
               Engineering <span className="text-orange-500">Intelligence</span> for the Future
             </h1>
 
-            <p className="text-sm sm:text-base md:text-2xl text-slate-300 mb-6 max-w-2xl">
+            <p className="text-sm sm:text-base md:text-xl text-slate-300 mb-6 max-w-2xl">
               AIxperts Labs is a premier innovation hub specializing in enterprise AI strategy, automation, and workforce transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-10 sm:gap-6">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-6">
 
-  <Link
-    to="/services"
-    className="bg-orange-600 text-white px-10 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-orange-700 transition flex items-center justify-center gap-2"
-  >
-    Explore Solutions
-    <ArrowRight className="w-5 h-5" />
-  </Link>
+              <Link
+                to="/services"
+                className="bg-orange-600 text-white px-10 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-orange-700 transition flex items-center justify-center gap-2"
+              >
+                Explore Solutions
+                <ArrowRight className="w-5 h-5" />
+              </Link>
 
-  <Link
-    to="/about"
-    className="bg-white/5 border border-white/10 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-white/10 transition text-center"
-  >
-    Our Methodology
-  </Link>
+              <Link
+                to="/about"
+                className="bg-white/5 border border-white/10 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-white/10 transition text-center"
+              >
+                Our Methodology
+              </Link>
 
-</div>
+            </div>
 
-            {/* STATS */}
-            <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-white/10 pt-4">
+            {/* STATS 🔥 UPDATED */}
+            <div className="mt-8 flex flex-wrap items-center gap-8 border-t border-white/10 pt-6">
 
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">50K+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white">50K+</p>
                 <p className="text-[10px] text-slate-400 uppercase">Students</p>
               </div>
 
               <div className="hidden sm:block w-px h-6 bg-white/10"></div>
 
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">200+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white">200+</p>
                 <p className="text-[10px] text-slate-400 uppercase">Projects</p>
+              </div>
+
+              <div className="hidden sm:block w-px h-6 bg-white/10"></div>
+
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold text-white">98%</p>
+                <p className="text-[10px] text-slate-400 uppercase">Success Rate</p>
+              </div>
+
+              <div className="hidden sm:block w-px h-6 bg-white/10"></div>
+
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold text-white">24/7</p>
+                <p className="text-[10px] text-slate-400 uppercase">Support</p>
               </div>
 
             </div>
@@ -283,15 +313,16 @@ const Hero = () => {
 
             <div className="rounded-[24px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl border border-white/10">
 
-             <video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="w-full h-[220px] sm:h-[160px] md:h-[320px] lg:h-[420px] object-cover object-center"
->
-  <source src={aihero} type="video/mp4" />
-</video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] object-cover object-center scale-110"
+              >
+                <source src={aihero} type="video/mp4" />
+              </video>
+
             </div>
 
           </motion.div>
@@ -386,7 +417,7 @@ const CredibilityStrip = () => {
 
               <div
                 key={i}
-                className="w-52 flex-shrink-0 bg-[#E5F4E3] border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
+                className="w-52 flex-shrink-0 bg-orange-200 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
               >
 
                 <img
@@ -1023,7 +1054,7 @@ const Footer = () => {
     className="h-10"
   />
 </Link>
-              <span className="text-2xl font-bold text-slate-900">AIxperts Labs</span>
+              <span className="text-2xl font-bold text-slate-900">Aixperts Labs</span>
             </div>
             <p className="text-slate-500 leading-relaxed mb-10">
               The global standard for AI innovation, education, and enterprise transformation.

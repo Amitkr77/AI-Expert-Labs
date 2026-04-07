@@ -113,7 +113,7 @@ const Services = () => {
     </h1>
 
     {/* SUBTEXT */}
-    <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
+    <p className="text-slate-300 max-w-4xl mx-auto text-3xl mb-12">
       We architect high-performance autonomous agents and custom LLM infrastructure for the world's most ambitious enterprises.
     </p>
 
@@ -141,32 +141,46 @@ const Services = () => {
     {/* STATS */}
     <div className="max-w-5xl mx-auto border-y border-white/10">
 
-      <div className="grid grid-cols-1 md:grid-cols-3">
+  <div className="grid grid-cols-2 md:grid-cols-5">
 
-        <div className="p-8 border-r border-white/10 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            Projects Delivered
-          </p>
-          <p className="text-3xl font-bold text-white">100+</p>
-        </div>
-
-        <div className="p-8 border-r border-white/10 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            Industries
-          </p>
-          <p className="text-3xl font-bold text-white">50+</p>
-        </div>
-
-        <div className="p-8 text-center">
-          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
-            Client Satisfaction
-          </p>
-          <p className="text-3xl font-bold text-white">100%</p>
-        </div>
-
-      </div>
-
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Projects Delivered
+      </p>
+      <p className="text-3xl font-bold text-white">100+</p>
     </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Industries
+      </p>
+      <p className="text-3xl font-bold text-white">50+</p>
+    </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Clients
+      </p>
+      <p className="text-3xl font-bold text-white">200+</p>
+    </div>
+
+    <div className="p-6 border-r border-white/10 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Automations
+      </p>
+      <p className="text-3xl font-bold text-white">150+</p>
+    </div>
+
+    <div className="p-6 text-center">
+      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+        Client Satisfaction
+      </p>
+      <p className="text-3xl font-bold text-white">100%</p>
+    </div>
+
+  </div>
+
+</div>
 
   </div>
 </div>
@@ -197,54 +211,75 @@ const Services = () => {
   {/* GRID */}
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    {[
-      {
-        step: "01",
-        title: "Strategic Audit",
-        desc: "Identifying high-impact opportunities within existing data architecture.",
-      },
-      {
-        step: "02",
-        title: "Infrastructure",
-        desc: "Secure, scalable vector databases and enterprise-grade LLM pipelines.",
-      },
-      {
-        step: "03",
-        title: "Custom Training",
-        desc: "Fine-tuning models on proprietary datasets with RAG implementation.",
-      },
-      {
-        step: "04",
-        title: "Autonomous Scale",
-        desc: "Multi-agent systems orchestrating complex workflows.",
-      },
-    ].map((item, i) => (
-      <div
-        key={i}
-        data-aos="fade-up"
-        data-aos-delay={i * 100}
-        className="p-8 rounded-2xl border border-orange-500/60 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 opacity-50 hover:-translate-y-1 transition-all duration-300"
-      >
+  {[
+    {
+      step: "01",
+      title: "Strategic Audit",
+      desc: "Identifying high-impact opportunities within existing data architecture.",
+    },
+    {
+      step: "02",
+      title: "Infrastructure",
+      desc: "Secure, scalable vector databases and enterprise-grade LLM pipelines.",
+    },
+    {
+      step: "03",
+      title: "Custom Training",
+      desc: "Fine-tuning models on proprietary datasets with RAG implementation.",
+    },
+    {
+      step: "04",
+      title: "Autonomous Scale",
+      desc: "Multi-agent systems orchestrating complex workflows.",
+    },
+  ].map((item, i) => (
+    <div
+      key={i}
+      data-aos="fade-up"
+      data-aos-delay={i * 100}
+      className="group relative p-8 rounded-2xl overflow-hidden
+      border border-slate-200
+      bg-gradient-to-br from-orange-50 via-white to-purple-50
+      hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+      transition-all duration-500 hover:-translate-y-2
+      shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+    >
+
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-white/0 group-hover:bg-black/20 transition duration-500"></div>
+
+      {/* CONTENT */}
+      <div className="relative z-10">
 
         {/* STEP */}
-        <p className="text-[10px] py-2font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">
+        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 
+        group-hover:text-white/70 transition">
           Phase {item.step}
         </p>
 
         {/* TITLE */}
-        <h3 className="text-lg font-bold text-slate-900 mb-3">
+        <h3 className="text-lg font-bold text-slate-900 mb-3 
+        group-hover:text-white transition">
           {item.title}
         </h3>
 
         {/* DESC */}
-        <p className="text-sm text-slate-500 leading-relaxed">
+        <p className="text-sm text-slate-500 leading-relaxed 
+        group-hover:text-white/90 transition">
           {item.desc}
         </p>
 
       </div>
-    ))}
 
-  </div>
+      {/* 🔥 GLOW EFFECT */}
+      <div className="absolute -bottom-10 -right-10 w-32 h-32 
+      bg-gradient-to-r from-orange-500/30 to-purple-500/30 
+      blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+    </div>
+  ))}
+
+</div>
 
 </div>
 
@@ -254,7 +289,7 @@ const Services = () => {
 {/* CORE SPECIALIZATION SECTION */}
 {/* CORE SPECIALIZATION SECTION */}
 {/* CORE SPECIALIZATION SECTION */}
-<div className="max-w-7xl mx-auto px-6 mt-24">
+<div className="max-w-7xl mx-auto px-6 mt-20">
 
   {/* HEADING */}
   <div className="text-center mb-12">
@@ -269,52 +304,64 @@ const Services = () => {
   </div>
 
   {/* SERVICES GRID */}
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
     {servicesData.map((service, i) => (
       <div
         key={service.id}
         data-aos="fade-up"
         data-aos-delay={i * 80}
-        className="group relative p-6 rounded-2xl border border-slate-200 overflow-hidden
-        bg-gradient-to-br from-white via-slate-50 to-blue-50
-        hover:-translate-y-2 transition-all duration-300
-        hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]"
+        className="group relative p-6 rounded-2xl overflow-hidden
+        border border-slate-200
+        bg-gradient-to-br from-orange-50 via-white to-purple-50
+        hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+        transition-all duration-500 hover:-translate-y-2
+        shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
       >
 
-        {/* HOVER GLOW */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
-        bg-gradient-to-br from-orange-500/10 via-transparent to-blue-500/10"></div>
+        {/* OVERLAY FOR TEXT READABILITY */}
+        <div className="absolute inset-0 bg-white/0 group-hover:bg-black/20 transition duration-500"></div>
 
         {/* CONTENT */}
         <div className="relative z-10">
 
+          {/* ICON */}
+          {/* <div className="w-10 h-10 flex items-center justify-center rounded-lg mb-4 
+          bg-orange-100 text-orange-600 
+          group-hover:bg-white group-hover:text-orange-600 transition">
+            ⚡
+          </div> */}
+
           {/* TITLE */}
-          <h3 className="text-lg font-semibold mb-2 group-hover:text-orange-500 transition">
+          <h3 className="text-lg font-semibold mb-2 text-slate-800 group-hover:text-white transition">
             {service.title}
           </h3>
 
           {/* DESC */}
-          <p className="text-sm text-slate-500 mb-3">
+          <p className="text-sm text-slate-500 mb-4 group-hover:text-white/90 transition">
             {service.description}
           </p>
 
           {/* POINTS */}
-          <ul className="text-xs text-slate-400 mb-4 space-y-1">
+          <ul className="text-xs text-slate-500 mb-5 space-y-1 group-hover:text-white/80 transition">
             {service.points.map((p, index) => (
-              <li key={index}>✔ {p}</li>
+              <li key={index} className="flex items-center gap-2">
+                <span className="text-orange-500 group-hover:text-white">✔</span> {p}
+              </li>
             ))}
           </ul>
 
           {/* CTA */}
           <a
             href="tel:+919811263046"
-            className="text-orange-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
+            className="text-orange-600 text-sm font-semibold flex items-center gap-1 
+            group-hover:text-white group-hover:gap-2 transition-all"
           >
             Get Service →
           </a>
 
         </div>
+
       </div>
     ))}
 
@@ -331,19 +378,19 @@ const Services = () => {
         </p>
 
        {/* PROCESS */}
-<div className="max-w-7xl mx-auto px-6 mt-32">
+<div className="max-w-7xl mx-auto px-6 mt-24">
 
-  <div className="text-center mb-16">
+  <div className="text-center mb-14">
     <h2 className="text-4xl font-bold mb-4">
-  <span className="text-black">Our </span>
-  <span className="text-orange-500">Process</span>
-</h2>
+      <span className="text-black">Our </span>
+      <span className="text-orange-500">Process</span>
+    </h2>
     <p className="text-slate-500">
       A proven approach to deliver scalable AI solutions
     </p>
   </div>
 
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
     {[
       {
@@ -371,27 +418,50 @@ const Services = () => {
         key={i}
         data-aos="fade-up"
         data-aos-delay={i * 100}
-        className="group relative p-8 rounded-3xl border border-slate-200 overflow-hidden
-bg-gradient-to-br from-white via-orange-50 to-pink-300
-hover:-translate-y-3 transition-all duration-500
-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+        className="group relative p-8 rounded-3xl overflow-hidden
+        border border-slate-200
+        bg-gradient-to-br from-orange-50 via-white to-purple-50
+        hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+        transition-all duration-500 hover:-translate-y-3
+        shadow-sm hover:shadow-[0_25px_70px_rgba(0,0,0,0.15)]"
       >
 
-        {/* STEP NUMBER */}
-        <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg mb-6 shadow-md">
-          {item.step}
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-white/0 group-hover:bg-black/20 transition duration-500"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10">
+
+          {/* STEP NUMBER */}
+          <div className="w-14 h-14 flex items-center justify-center rounded-xl 
+          bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg mb-6 shadow-md
+          group-hover:bg-white group-hover:text-purple-600 transition">
+            {item.step}
+          </div>
+
+          {/* TITLE */}
+          <h3 className="text-xl font-bold text-slate-900 mb-3 
+          group-hover:text-white transition">
+            {item.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-slate-500 text-sm leading-relaxed 
+          group-hover:text-white/90 transition">
+            {item.desc}
+          </p>
+
         </div>
 
-        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition">
-          {item.title}
-        </h3>
+        {/* 🔥 BOTTOM LINE ANIMATION */}
+        <div className="absolute bottom-0 left-0 h-1 w-0 
+        bg-gradient-to-r from-white via-orange-300 to-white 
+        group-hover:w-full transition-all duration-500 rounded-b-3xl"></div>
 
-        <p className="text-slate-500 text-sm leading-relaxed">
-          {item.desc}
-        </p>
-
-        {/* HOVER LINE */}
-        <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300 rounded-b-3xl"></div>
+        {/* 🔥 GLOW EFFECT */}
+        <div className="absolute -top-10 -right-10 w-32 h-32 
+        bg-gradient-to-r from-orange-500/30 to-purple-500/30 
+        blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
       </div>
     ))}

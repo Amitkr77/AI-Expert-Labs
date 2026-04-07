@@ -87,38 +87,43 @@ export default function AboutPage() {
 
 
       {/* WHO WE ARE */}
-      <section className="py-22 bg-slate-50">
+      <section className="py-16 bg-slate-50">
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="grid lg:grid-cols-12 gap-12 items-start">
+    <div className="grid lg:grid-cols-12 gap-12 items-center">
 
       {/* LEFT CONTENT */}
       <div className="lg:col-span-7">
-        <h2 className="text-7xl font-bold text-slate-900 mb-6">
-  Who <span className="text-orange-500">We</span> Are
-</h2>
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+          Who <span className="text-orange-500">We</span> Are
+        </h2>
 
-        <div className="space-y-3 text-slate-600 text-lg leading-relaxed max-w-2xl">
+        <div className="space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+
           <p>
-            Founded at the intersection of technological disruption and industrial necessity,
-            AIxpets Labs is an elite research and implementation firm. We don’t just anticipate
-            the future—we engineer the workflows that define it.
-            We specialize in designing intelligent ecosystems where data, automation, and
-  human creativity converge to unlock exponential business value. From enterprise
-  AI strategy to autonomous workflow deployment, our solutions are built to adapt,
-  evolve, and scale with the dynamic demands of modern organizations.
-
+            Founded at the intersection of <span className="font-semibold text-slate-800">technological disruption</span> and 
+            <span className="font-semibold text-slate-800"> industrial innovation</span>, AIxperts Labs is an elite 
+            AI research and implementation company.
           </p>
 
           <p>
-            Our multidisciplinary team operates at the cutting edge of Generative AI and
-            autonomous systems to deliver scalable, real-world impact for global partners.
-             At AIxperts Labs, innovation is not a one-time achievement—it is a continuous
-  process of refinement, experimentation, and transformation. We partner with
-  forward-thinking enterprises to bridge the gap between emerging technologies
-  and real-world implementation, ensuring measurable outcomes and long-term success.
-
+            We design <span className="font-semibold text-orange-500">intelligent ecosystems</span> where 
+            <span className="font-semibold text-slate-800"> data, automation, and human creativity</span> 
+            work together to create exponential business growth.
           </p>
+
+          <p>
+            From <span className="font-semibold">enterprise AI strategy</span> to 
+            <span className="font-semibold"> autonomous workflows</span>, our solutions are built to 
+            <span className="font-semibold text-slate-800"> adapt, scale, and evolve</span> with modern businesses.
+          </p>
+
+          <p>
+            Our team specializes in <span className="font-semibold text-orange-500">Generative AI</span> and 
+            <span className="font-semibold"> intelligent automation</span>, delivering measurable impact 
+            and long-term transformation for global clients.
+          </p>
+
         </div>
       </div>
 
@@ -126,26 +131,26 @@ export default function AboutPage() {
       <div className="lg:col-span-5 space-y-6">
 
         {/* MISSION */}
-        <div className="p-8 rounded-3xl bg-white border border-slate-200  shadow-sm hover:shadow-xl transition">
-          <div className="text-orange-500  colour-orange-500 text-3xl mb-4">🎯</div>
-          <h3 className="text-2xl  font-semibold mb-3">
+        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition">
+          <div className="text-orange-500 text-3xl mb-4">🎯</div>
+          <h3 className="text-2xl font-semibold mb-3">
             Our Mission
           </h3>
           <p className="text-sm text-slate-500 leading-relaxed">
-            To democratize access to advanced intelligence and amplify human
-            potential through seamless AI integration across the enterprise stack.
+            To make <span className="font-semibold text-slate-800">advanced AI accessible</span> 
+            and empower organizations by integrating intelligent systems into everyday operations.
           </p>
         </div>
 
         {/* VISION */}
         <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition">
           <div className="text-purple-500 text-3xl mb-4">👁️</div>
-          <h3 className="text-xl font-semibold mb-3">
+          <h3 className="text-2xl font-semibold mb-3">
             Our Vision
           </h3>
           <p className="text-sm text-slate-500 leading-relaxed">
-            To become the global cornerstone of the AI era—where every organization
-            operates at peak intelligence and efficiency.
+            To lead the global AI transformation where every business operates with 
+            <span className="font-semibold text-slate-800"> maximum intelligence, speed, and efficiency</span>.
           </p>
         </div>
 
@@ -156,7 +161,7 @@ export default function AboutPage() {
   </div>
 </section>
 {/* IMPACT STATS */}
-<section className="py-20 bg-white border-y border-slate-100">
+<section className="py-12 bg-white border-y border-slate-100">
   <div className="max-w-7xl mx-auto px-6">
 
     <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
@@ -172,21 +177,21 @@ export default function AboutPage() {
           {/* PROGRESS LINE */}
           <div className="h-[2px] w-full bg-slate-100 rounded-full overflow-hidden">
             <div
-  className="h-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 rounded-full"
-  style={{ width: item.width }}
-></div>
+              className="h-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 rounded-full"
+              style={{ width: item.width }}
+            ></div>
           </div>
 
           {/* NUMBER */}
           <h3 className="relative inline-block text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
-  <span className="relative z-10">{item.value}</span>
+            <span className="relative z-10">{item.value}</span>
 
-  {/* GRADIENT BG */}
-  <span className="absolute inset-0 bg-gradient-to-r  rounded-xl blur-sm"></span>
-</h3>
+            {/* GRADIENT BG */}
+            <span className="absolute inset-0 bg-gradient-to-r from-orange-200 via-pink-200 to-purple-200 rounded-xl blur-sm opacity-60"></span>
+          </h3>
 
-          {/* LABEL */}
-          <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-semibold">
+          {/* LABEL 🔥 IMPROVED */}
+          <p className="inline-block px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
             {item.label}
           </p>
 
@@ -198,14 +203,11 @@ export default function AboutPage() {
   </div>
 </section>
      {/* STRATEGIC DOMAINS */}
-<section className="relative py-28 text-black overflow-hidden">
+<section className="relative py-16 text-black overflow-hidden">
 
   {/* BG IMAGE */}
   <div className="absolute inset-0">
-    <img
-
-      className="w-full h-full object-cover"
-    />
+    <img className="w-full h-full object-cover" />
     <div className="absolute inset-0 bg-white/85"></div>
   </div>
 
@@ -213,86 +215,67 @@ export default function AboutPage() {
 
     {/* HEADING */}
     <div className="text-center mb-10">
-      <h2 className="text-4xl md:text-5xl font-bold text-orange-500 mb-">
-        Strategic Domains
-      </h2>
-      <p className="text-slate-600 text-xl tracking-widest uppercase">
-       
-      </p>
+    <h2 className="text-4xl md:text-5xl font-bold">
+  <span className="text-black">Strategic </span>
+  <span className="text-orange-500">Domains</span>
+</h2>
     </div>
 
     {/* GRID */}
-    <div className="grid md:grid-cols-4 gap-5">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      {/* BIG CARD */}
-      <div className="md:col-span-2 p-8 rounded-3xl bg-white/5 border border-black/30 backdrop-blur-xl hover:shadow-2xl transition">
-        <div className="mb-4 text-blue-400 text-2xl"></div>
-        <h3 className="text-2xl font-bold mb-3">
-          Enterprise AI Consulting
-        </h3>
-        <p className="text-slate-400 text-xl leading-relaxed">
-          We engineer bespoke strategic roadmaps that bridge the gap between legacy operations and the frontier of cognitive computing.
+      {/* CARD 1 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-bold mb-2">Enterprise AI Consulting</h3>
+        <p className="text-slate-500 text-sm">
+          Strategic roadmaps bridging legacy systems with AI-driven innovation.
         </p>
       </div>
 
-      {/* SMALL CARD */}
-      <div className="p-8 rounded-3xl bg-white/5 border border-black/30 backdrop-blur-xl hover:shadow-2xl transition">
-        <div className="mb-4 text-purple-400 text-xl"></div>
-        <h3 className="text-2xl font-semibold mb-2">
-          AI Automation
-        </h3>
-        <p className="text-slate-400 text-xl">
-          High-fidelity autonomous workflows that eliminate friction.
+      {/* CARD 2 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-semibold mb-2">AI Automation</h3>
+        <p className="text-slate-500 text-sm">
+          Autonomous workflows designed to eliminate friction and boost efficiency.
         </p>
       </div>
 
-      {/* SMALL CARD */}
-      <div className="p-8 rounded-3xl bg-white/5 border border-black/30 backdrop-blur-xl hover:shadow-2xl transition">
-        <div className="mb-4 text-blue-300 text-xl"></div>
-        <h3 className="text-2xl font-semibold mb-2">
-          Elite Training
-        </h3>
-        <p className="text-slate-400 text-xl">
-          Upskilling global workforces with AI-first programs.
+      {/* CARD 3 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-semibold mb-2">Elite Training</h3>
+        <p className="text-slate-500 text-sm">
+          AI-first programs to upskill modern global workforces.
         </p>
       </div>
 
-      {/* SMALL CARD */}
-      <div className="p-8 rounded-3xl bg-white/5 border border-black/30 backdrop-blur-xl hover:shadow-2xl transition">
-        <div className="mb-4 text-green-400 text-xl"></div>
-        <h3 className="text-2xl font-semibold mb-2">
-          Innovation Lab
-        </h3>
-        <p className="text-slate-400 text-xl">
-          Continuous R&D focused on proprietary AI frameworks.
+      {/* CARD 4 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-semibold mb-2">Innovation Lab</h3>
+        <p className="text-slate-500 text-sm">
+          Continuous R&D focused on building proprietary AI frameworks.
         </p>
       </div>
 
-      {/* WIDE CARD */}
-      <div className="md:col-span-2 p-8 rounded-3xl bg-white/5 border border-black/30 backdrop-blur-xl hover:shadow-2xl transition flex justify-between items-center">
+      {/* CARD 5 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-semibold mb-2">Agentic Frameworks</h3>
+        <p className="text-slate-500 text-sm">
+          Multi-agent systems capable of reasoning, decision-making, and execution.
+        </p>
+      </div>
 
-        <div>
-          <h3 className="text-2xl font-bold mb-2">
-            Agentic Frameworks
-          </h3>
-          <p className="text-slate-400 text-xl">
-            Building autonomous multi-agent systems capable of reasoning and execution.
-          </p>
-        </div>
-
-        <div className="flex gap-3">
-          <div className="w-10 h-10 bg-white/10 rounded-lg"></div>
-          <div className="w-10 h-10 bg-white/10 rounded-lg"></div>
-          <div className="w-10 h-10 bg-white/10 rounded-lg"></div>
-        </div>
-
+      {/* CARD 6 */}
+      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
+        <h3 className="text-xl font-bold mb-2">AI Solutions</h3>
+        <p className="text-sm opacity-90">
+          End-to-end AI solutions tailored for scalable business transformation.
+        </p>
       </div>
 
     </div>
 
   </div>
 </section>
-
 
       {/* STATS */}
      
@@ -304,7 +287,9 @@ export default function AboutPage() {
 
     {/* HEADING */}
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-3">AI Innovation Lab</h2>
+     <h2 className="text-4xl font-bold mb-3">
+  AI <span className="text-orange-500">Innovation</span> Lab
+</h2>
       <p className="text-slate-500">
         Next-generation artificial intelligence research and development
       </p>
@@ -571,7 +556,9 @@ function TeamRowCard({name,role,img,desc}) {
           onError={(e) => {
             e.currentTarget.src = "https://via.placeholder.com/200x250";
           }}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500"
+          className={`w-full h-full object-cover ${
+  name === "Anshu Bharti" ? "object-[center_top]" : "object-center"
+} group-hover:scale-105 transition duration-500`}
         />
       </div>
 
