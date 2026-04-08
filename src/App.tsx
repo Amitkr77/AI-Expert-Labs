@@ -15,7 +15,7 @@ import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
 import Homeasy from "./assets/partners/homeasy.png";
-import aihero from "./assets/videos/aihero.mp4";
+import aihero from "./public/videos/aihero.mp4";
 import Consultation from "./consultation";
 
 import { 
@@ -225,7 +225,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-[85vh] flex items-center justify-center pt-2 sm:pt-4 lg:pt-6 pb-6 overflow-hidden hero-futuristic-bg">
+      <section className="relative w-full min-h-[85vh] flex items-center justify-center pt-10 sm:pt-10 lg:pt-12 pb-6 overflow-hidden hero-futuristic-bg">
 
         {/* Background Effects */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-[120px]" />
@@ -311,17 +311,17 @@ const Hero = () => {
             transition={{ duration: 1 }}
           >
 
-            <div className="rounded-[24px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl border border-white/10">
+            <div className="mx-auto w-[90%] sm:w-[100%] lg:w-[90%] h-[550px] sm:h-[550px] lg:h-[650px] overflow-hidden rounded-[30px]">
 
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] object-cover object-center scale-110"
-              >
-                <source src={aihero} type="video/mp4" />
-              </video>
+             <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-125 max-h-[650px] object-cover"
+>
+  <source src="/video/aihero.mp4" type="video/mp4" />
+</video>
 
             </div>
 
@@ -331,28 +331,30 @@ const Hero = () => {
       </section>
 
       {/* COMPANY SLIDER */}
-      <section className="bg-[#0a0f2c] py-4 sm:py-6 overflow-hidden">
+  <section className="bg-[#0a0f2c] py-2 sm:py-6 overflow-hidden">
 
-        <p className="text-center text-white text-xs sm:text-sm mb-4">
-          Our Students Work at <span className="text-purple-400">Top Companies</span>
-        </p>
+  <p className="text-center text-white text-xs sm:text-2xl mb-2">
+    Our Students Work at <span className="text-purple-400">Top Companies</span>
+  </p>
 
-        <div className="overflow-hidden">
-          <div className="flex gap-4 sm:gap-8 animate-scroll w-max">
+  <div className="overflow-hidden w-full">
 
-            {doubledCompanies.map((company,i)=>(
-              <div
-                key={i}
-                className="px-3 py-1 sm:px-6 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white text-[10px] sm:text-sm font-semibold whitespace-nowrap"
-              >
-                {company}
-              </div>
-            ))}
+    <div className="animate-scroll">
 
-          </div>
+      {[...companies, ...companies, ...companies].map((company, i) => (
+        <div
+          key={i}
+          className="px-3 sm:px-5 py-2 sm:py-3 mr-2 sm:mr-4 bg-white/10 border border-white/20 rounded-xl text-white text-[10px] sm:text-sm font-semibold whitespace-nowrap"
+        >
+          {company}
         </div>
+      ))}
 
-      </section>
+    </div>
+
+  </div>
+
+</section>
     </>
   );
 };
@@ -417,7 +419,7 @@ const CredibilityStrip = () => {
 
               <div
                 key={i}
-                className="w-52 flex-shrink-0 bg-orange-200 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
+                className="w-52 flex-shrink-0 bg-blue-200 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
               >
 
                 <img
@@ -994,7 +996,7 @@ const Terms = () => {
         </h1>
 
         <p className="text-slate-500 mb-8 text-lg">
-          By accessing and using AIxperts Labs, you agree to the following terms and conditions.
+          By accessing and using Aixperts Labs, you agree to the following terms and conditions.
         </p>
 
         <div className="space-y-8">

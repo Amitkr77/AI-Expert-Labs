@@ -1,6 +1,4 @@
 "use client"
-
-import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import pradeep from "./assets/team/pradeep.jpg";
 import harshu from "./assets/team/harshu.jpg";
@@ -207,7 +205,7 @@ export default function AboutPage() {
 
   {/* BG IMAGE */}
   <div className="absolute inset-0">
-    <img className="w-full h-full object-cover" />
+    <img className="w-full h-full object-cover"/>
     <div className="absolute inset-0 bg-white/85"></div>
   </div>
 
@@ -389,7 +387,7 @@ export default function AboutPage() {
           <div className="space-y-6 text-slate-300">
 
             <div>
-              <h3 className="font-semibold xl  text-white mb-1">
+              <h3 className="font-semibold text-xl  text-white mb-1">
                 • Generative AI
               </h3>
               <p className="text-sm">
@@ -455,7 +453,7 @@ export default function AboutPage() {
             Leadership Team
           </h2>
           <p className="text-slate-500 mt-3">
-            Experts driving AIxpets Labs mission
+            Experts driving Aixperts Labs mission
           </p>
         </div>
 
