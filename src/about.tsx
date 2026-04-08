@@ -275,85 +275,6 @@ export default function AboutPage() {
   </div>
 </section>
 
-      {/* STATS */}
-     
-
-      {/* AI LAB */}
-     {/* AI LAB */}
-<section className="pt-8 pb-10 bg-white">
-  <div className="max-w-7xl mx-auto px-6">
-
-    {/* HEADING */}
-    <div className="text-center mb-16">
-     <h2 className="text-4xl font-bold mb-3">
-  AI <span className="text-orange-500">Innovation</span> Lab
-</h2>
-      <p className="text-slate-500">
-        Next-generation artificial intelligence research and development
-      </p>
-    </div>
-
-    {/* GRID */}
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      {[
-        {
-          title: "AI Research",
-          desc: "Exploring advanced machine learning architectures and intelligent systems.",
-          icon: "🧠",
-        },
-        {
-          title: "AI Infrastructure",
-          desc: "Developing scalable AI platforms for enterprise applications.",
-          icon: "⚙️",
-        },
-        {
-          title: "AI Development",
-          desc: "Building innovative AI products like HelloGini.",
-          icon: "🚀",
-        },
-        {
-          title: "AI Automation",
-          desc: "Seamless deployment of AI models into production-ready environments.",
-          icon: "📦",
-        },
-        {
-          title: "Data Engineering",
-          desc: "Designing robust data pipelines and architectures for AI systems.",
-          icon: "📊",
-        },
-        {
-          title: "AI Security",
-          desc: "Ensuring safe, ethical, and secure AI implementations across platforms.",
-          icon: "🔐",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="group p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-        >
-
-          {/* ICON */}
-          <div className="text-3xl mb-4">{item.icon}</div>
-
-          {/* TITLE */}
-          <h3 className="font-bold text-lg mb-3 group-hover:text-orange-500 transition">
-            {item.title}
-          </h3>
-
-          {/* DESC */}
-          <p className="text-slate-500 text-sm leading-relaxed">
-            {item.desc}
-          </p>
-
-        </div>
-      ))}
-
-    </div>
-
-  </div>
-</section>
-
       {/* INTELLIGENCE FRONTIERS */}
 {/* INTELLIGENCE FRONTIERS */}
 <section className="relative py-14 text-white overflow-hidden">
@@ -441,6 +362,87 @@ export default function AboutPage() {
 
   </div>
 </section>
+
+
+      {/* STATS */}
+     
+
+      {/* AI LAB */}
+     {/* AI LAB */}
+<section className="pt-8 pb-10 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* HEADING */}
+    <div className="text-center mb-16">
+     <h2 className="text-4xl font-bold mb-3">
+  AI <span className="text-orange-500">Innovation</span> Lab
+</h2>
+      <p className="text-slate-500">
+        Next-generation artificial intelligence research and development
+      </p>
+    </div>
+
+    {/* GRID */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {[
+        {
+          title: "AI Research",
+          desc: "Exploring advanced machine learning architectures and intelligent systems.",
+          icon: "🧠",
+        },
+        {
+          title: "AI Infrastructure",
+          desc: "Developing scalable AI platforms for enterprise applications.",
+          icon: "⚙️",
+        },
+        {
+          title: "AI Development",
+          desc: "Building innovative AI products like HelloGini.",
+          icon: "🚀",
+        },
+        {
+          title: "AI Automation",
+          desc: "Seamless deployment of AI models into production-ready environments.",
+          icon: "📦",
+        },
+        {
+          title: "Data Engineering",
+          desc: "Designing robust data pipelines and architectures for AI systems.",
+          icon: "📊",
+        },
+        {
+          title: "AI Security",
+          desc: "Ensuring safe, ethical, and secure AI implementations across platforms.",
+          icon: "🔐",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+        >
+
+          {/* ICON */}
+          <div className="text-3xl mb-4">{item.icon}</div>
+
+          {/* TITLE */}
+          <h3 className="font-bold text-lg mb-3 group-hover:text-orange-500 transition">
+            {item.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-slate-500 text-sm leading-relaxed">
+            {item.desc}
+          </p>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
 
 
       {/* TEAM (FIXED PREMIUM) */}
@@ -543,7 +545,14 @@ export default function AboutPage() {
   )
 }
 
-function TeamRowCard({name,role,img,desc}) {
+interface TeamRowCardProps {
+  name: string;
+  role: string;
+  img: string;
+  desc: string;
+}
+
+function TeamRowCard({ name, role, img, desc }: TeamRowCardProps) {
   return (
     <div className="group flex items-center gap-8 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6">
 

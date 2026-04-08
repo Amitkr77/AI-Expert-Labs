@@ -457,23 +457,72 @@ const CapabilityStack = () => {
   return (
     <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
+
         <div className="max-w-3xl mb-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">The AIxperts <br /><span className="text-orange-600">Capability Stack</span></h2>
-          <p className="text-slate-500 text-lg leading-relaxed">Our vertical integration ensures that every layer of your AI transformation is optimized for performance and security.</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+            The Aixperts <br />
+            <span className="text-orange-600">Capability Stack</span>
+          </h2>
+
+          <p className="text-slate-500 text-lg leading-relaxed">
+            Our vertical integration ensures that every layer of your AI transformation is optimized for performance and security.
+          </p>
         </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+
           {layers.map((layer, i) => (
-            <div key={i} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-slate-900 hover:text-white transition-all duration-500 group">
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
-                {layer.icon}
+
+            <div
+              key={i}
+              className="group relative p-8 rounded-3xl overflow-hidden
+              
+              border border-slate-200
+              
+              bg-gradient-to-br from-orange-50 via-white to-purple-50
+              
+              hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+              
+              transition-all duration-500 hover:-translate-y-2
+              shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+            >
+
+              {/* DARK OVERLAY */}
+              <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+
+              <div className="relative z-10">
+
+                {/* ICON */}
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6 
+                group-hover:bg-white group-hover:text-orange-600 transition">
+                  {layer.icon}
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-xl font-bold mb-3 text-slate-900 
+                group-hover:text-white transition">
+                  {layer.title}
+                </h3>
+
+                {/* DESC */}
+                <p className="text-sm text-slate-500 
+                group-hover:text-white/90 leading-relaxed transition">
+                  {layer.desc}
+                </p>
+
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-white transition-colors">
-  {layer.title}
-</h3>
-              <p className="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed">{layer.desc}</p>
+
+              {/* GLOW EFFECT */}
+              <div className="absolute -top-10 -right-10 w-28 h-28 
+              bg-gradient-to-r from-orange-500/30 to-purple-500/30 
+              blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
     </section>
   );
@@ -490,34 +539,87 @@ const Industries = () => {
   return (
     <section className="py-16 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
+
         <div className="flex flex-col lg:flex-row gap-20 items-center">
+
+          {/* LEFT */}
           <div className="lg:w-1/2">
-            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">Industry <br />Verticals</h2>
-            <p className="text-slate-500 text-xl leading-relaxed mb-12">We deploy specialized AI solutions across diverse sectors, solving unique challenges with precision engineering.</p>
-          <div className="mt-6">
-  <Link
-    to="/portfolio"
-    className="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-2"
-  >
-    Industry Insights <ArrowUpRight className="w-4 h-4" />
-  </Link>
-</div>
+            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
+              Industry <br />Verticals
+            </h2>
+
+            <p className="text-slate-500 text-xl leading-relaxed mb-12">
+              We deploy specialized AI solutions across diverse sectors, solving unique challenges with precision engineering.
+            </p>
+
+            <div className="mt-6">
+              <Link
+                to="/portfolio"
+                className="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-2"
+              >
+                Industry Insights <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
+
+          {/* RIGHT */}
           <div className="lg:w-1/2 p-10 grid sm:grid-cols-2 gap-6">
+
             {industries.map((ind, i) => (
-              <div key={i} className="p-6 rounded-[32px] bg-slate-50 border border-slate-200 shadow-sm hover:shadow-xl transition-all">
-                <div className="text-orange-600 mb-6">{ind.icon}</div>
-                <h4 className="text-lg font-bold text-slate-900 mb-3">{ind.name}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{ind.desc}</p>
+
+              <div
+                key={i}
+                className="group relative p-6 rounded-[32px] overflow-hidden
+                
+                border border-slate-200
+                
+                bg-gradient-to-br from-orange-50 via-white to-purple-50
+                
+                hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+                
+                transition-all duration-500 hover:-translate-y-2
+                shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+              >
+
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+
+                <div className="relative z-10">
+
+                  {/* ICON */}
+                  <div className="text-orange-600 mb-6 group-hover:text-white transition">
+                    {ind.icon}
+                  </div>
+
+                  {/* TITLE */}
+                  <h4 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-white transition">
+                    {ind.name}
+                  </h4>
+
+                  {/* DESC */}
+                  <p className="text-sm text-slate-500 leading-relaxed group-hover:text-white/90 transition">
+                    {ind.desc}
+                  </p>
+
+                </div>
+
+                {/* GLOW */}
+                <div className="absolute -bottom-10 -right-10 w-28 h-28 
+                bg-gradient-to-r from-orange-500/30 to-purple-500/30 
+                blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
               </div>
+
             ))}
+
           </div>
+
         </div>
+
       </div>
     </section>
   );
 };
-
 const CaseStudies = () => {
   return (
     <section className="py-16 bg-white">
@@ -728,30 +830,65 @@ const Solutions = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-6">
-          {solutions.map((s, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -5 }}
-              className="p-6 rounded-[32px] bg-slate-50 border border-slate-200 hover:border-orange-500/30 transition-all duration-500 group relative overflow-hidden"
-            >
-              
-              <div className="flex items-center justify-between mb-10">
-                <div className="w-14 h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg">
-                  {s.icon}
-                </div>
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border border-slate-200 px-3 py-1 rounded-full">
-                  {s.tag}
-                </span>
-              </div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-orange-600 transition-colors">{s.title}</h3>
-              <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-md">{s.desc}</p>
-              <div className="flex items-center gap-2 text-slate-900 font-bold uppercase tracking-widest text-xs opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-              <ChevronRight className="w-4 h-4" />
-              </div>
-            </motion.div>
-          ))}
+       <div className="grid md:grid-cols-4 gap-6">
+  {solutions.map((s, i) => (
+    <motion.div 
+      key={i}
+      whileHover={{ y: -6 }}
+      className="group relative p-6 rounded-[32px] overflow-hidden
+      
+      border border-slate-200
+      
+      bg-gradient-to-br from-orange-50 via-white to-purple-50
+      
+      hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+      
+      transition-all duration-500 
+      shadow-sm hover:shadow-[0_25px_70px_rgba(0,0,0,0.2)]"
+    >
+
+      {/* 🔥 DARK OVERLAY */}
+      <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+
+      <div className="relative z-10">
+
+        {/* TOP */}
+        <div className="flex items-center justify-between mb-10">
+
+          <div className="w-14 h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg 
+          group-hover:bg-white group-hover:text-orange-600 transition">
+            {s.icon}
+          </div>
+
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border border-slate-200 px-3 py-1 rounded-full 
+          group-hover:text-white group-hover:border-white/30 transition">
+            {s.tag}
+          </span>
+
         </div>
+
+        {/* TITLE */}
+        <h3 className="text-3xl font-bold text-slate-900 mb-4 
+        group-hover:text-white transition">
+          {s.title}
+        </h3>
+
+        {/* DESC */}
+        <p className="text-slate-500 text-lg leading-relaxed mb-10 
+        group-hover:text-white/90 transition">
+          {s.desc}
+        </p>
+
+      </div>
+
+      {/* 🔥 BIG GLOW (IMPORTANT) */}
+      <div className="absolute -bottom-16 -right-16 w-40 h-40 
+      bg-gradient-to-r from-orange-500/40 via-pink-500/40 to-purple-500/40 
+      blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+    </motion.div>
+  ))}
+</div>
       </div>
     </section>
   );
