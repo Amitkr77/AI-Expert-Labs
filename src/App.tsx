@@ -576,7 +576,7 @@ const Industries = () => {
 </div>
 
           {/* RIGHT */}
-          <div className="lg:w-1/2 p-10 grid sm:grid-cols-2 gap-6">
+          <div className="lg:w-4/5 p-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {industries.map((ind, i) => (
 
