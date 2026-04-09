@@ -7,8 +7,10 @@ import FloatingGini from "./floatinggini";
 import Services from "./services";
 import Portfolio from "./portfolio";
 import Contact from "./contact";
+import FloatingSocials from "./FloatingSocials";
 import Corporate from "./corporate";
 import Institute from "./institute";
+import FloatingWhatsapp from "./floatingWhatsapp";
 import School from "./school";
 import logo from "./assets/logo/logo.png";
 import ecotwist from "./assets/partners/ecotwist.png";
@@ -138,14 +140,6 @@ const Navbar = () => {
   </Link>
 
   {/* WhatsApp Button */}
-  <a
-    href="https://wa.me/91XXXXXXXXXX" // 👉 apna number daalo
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green-500 text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-green-600 hover:scale-105 transition-all shadow-lg shadow-green-100 flex items-center gap-2"
-  >
-    WhatsApp
-  </a>
 
 </div>
 
@@ -331,9 +325,9 @@ const Hero = () => {
       </section>
 
       {/* COMPANY SLIDER */}
-  <section className="bg-[#0a0f2c] py-2 sm:py-6 overflow-hidden">
+  <section className="bg-[#0a0f2c] py-8 sm:py-12 overflow-hidden">
 
-  <p className="text-center text-white text-xs sm:text-2xl mb-2">
+  <p className="text-center text-white text-l sm:text-3xl mb-8">
     Our Students Work at <span className="text-purple-400">Top Companies</span>
   </p>
 
@@ -362,42 +356,15 @@ const Hero = () => {
 const CredibilityStrip = () => {
 
   const partners = [
-    {
-      name: "BiddRx",
-      logo: "https://www.biddrx.com/Images/logo.png",
-    },
-    {
-      name: "Casters Global",
-      logo: "https://castersglobal.com/Casters_Global_Logo.png",
-    },
-    {
-      name: "Cehro India",
-      logo: "https://www.cehroindia.org/assets/cehro%20logo%201.png",
-    },
-    {
-      name: "Sumedha Agro",
-      logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp",
-    },
-    {  
-      name: "Homeasy",
-      logo: Homeasy,
-    },
-    {  
-      name: "Bharatx Ventures",
-      logo: bharatx,
-    },
-    {  
-      name: "Kynyx",
-      logo: "https://kynyx.com/assets/logo12-rzpEHoIw.png",
-    },
-    {  
-      name: "EcoTwist",
-      logo: ecotwist,
-    },
-    {  
-      name: "Bharatx Infratech",
-      logo: infratech,
-    },
+    { name: "BiddRx", logo: "https://www.biddrx.com/Images/logo.png" },
+    { name: "Casters Global", logo: "https://castersglobal.com/Casters_Global_Logo.png" },
+    { name: "Cehro India", logo: "https://www.cehroindia.org/assets/cehro%20logo%201.png" },
+    { name: "Sumedha Agro", logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp" },
+    { name: "Homeasy", logo: Homeasy },
+    { name: "Bharatx Ventures", logo: bharatx },
+    { name: "Kynyx", logo: "https://kynyx.com/assets/logo12-rzpEHoIw.png" },
+    { name: "EcoTwist", logo: ecotwist },
+    { name: "Bharatx Infratech", logo: infratech },
   ];
 
   const loopPartners = [...partners, ...partners];
@@ -405,32 +372,48 @@ const CredibilityStrip = () => {
   return (
     <section className="bg-white py-16 border-b">
 
-      <div className="max-w-7xl mx-auto px-6">
+      {/* 🔥 FULL WIDTH */}
+      <div className="w-full">
 
-        <h2 className="text-center text-2xl font-bold mb-12 text-slate-800">
-          Strategic Partners & Collaborators
+        {/* HEADING */}
+        <h2 className="text-center text-6xl font-bold mb-16 text-slate-800 px-6">
+          Strategic Partners & <span className="text-orange-500">Collaborators</span>
         </h2>
 
-        <div className="overflow-hidden">
+        {/* SLIDER */}
+        <div className="relative overflow-hidden">
 
-          <div className="flex gap-8 w-max animate-partnersScroll">
+          {/* OPTIONAL FADE EFFECT */}
+          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+          <div className="flex gap-10 w-max animate-partnersScroll px-6">
 
             {loopPartners.map((partner, i) => (
 
               <div
                 key={i}
-                className="w-52 flex-shrink-0 bg-blue-200 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
+                className="w-56 flex-shrink-0 rounded-3xl p-8 
+                
+                bg-gradient-to-br from-slate-50 via-white to-slate-100
+                
+                border border-slate-200
+                
+                shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
+                
+                hover:-translate-y-2
+                
+                transition-all duration-500 
+                
+                flex items-center justify-center"
               >
 
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-14 mx-auto object-contain mb-3"
+                  className="h-20 object-contain mx-auto transition duration-300 hover:scale-110 
+                  drop-shadow-[0_4px_10px_rgba(0,0,0,0.15)]"
                 />
-
-                <p className="text-sm font-semibold text-slate-700">
-                  {partner.name}
-                </p>
 
               </div>
 
@@ -445,8 +428,8 @@ const CredibilityStrip = () => {
     </section>
   );
 };
-
 const CapabilityStack = () => {
+
   const layers = [
     { title: 'Intelligence Layer', desc: 'Custom LLMs and proprietary neural architectures.', icon: <BrainCircuit className="w-5 h-5" /> },
     { title: 'Agentic Layer', desc: 'Autonomous task execution and self-healing workflows.', icon: <Workflow className="w-5 h-5" /> },
@@ -454,41 +437,49 @@ const CapabilityStack = () => {
     { title: 'Infrastructure Layer', desc: 'Secure, scalable, and compliant AI compute stacks.', icon: <ShieldCheck className="w-5 h-5" /> },
   ];
 
+  // 🔥 DARK PREMIUM GRADIENTS
+  const gradients = [
+    "hover:from-orange-300 hover:via-orange-200 hover:to-amber-300",
+    "hover:from-blue-300 hover:via-sky-200 hover:to-cyan-300",
+    "hover:from-purple-300 hover:via-pink-200 hover:to-rose-300",
+    "hover:from-emerald-300 hover:via-green-200 hover:to-lime-300",
+  ];
+
   return (
     <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="max-w-3xl mb-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
             The Aixperts <br />
             <span className="text-orange-600">Capability Stack</span>
           </h2>
 
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-slate-500 text-2xl leading-relaxed">
             Our vertical integration ensures that every layer of your AI transformation is optimized for performance and security.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
           {layers.map((layer, i) => (
 
             <div
               key={i}
-              className="group relative p-8 rounded-3xl overflow-hidden
+              className={`group relative p-8 rounded-3xl overflow-hidden
               
               border border-slate-200
               
               bg-gradient-to-br from-orange-50 via-white to-purple-50
               
-              hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+              hover:bg-gradient-to-br ${gradients[i]}
               
-              transition-all duration-500 hover:-translate-y-2
-              shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+              transition-all duration-500 ease-out hover:-translate-y-2
+              shadow-sm hover:shadow-[0_25px_80px_rgba(0,0,0,0.2)]`}
             >
 
               {/* DARK OVERLAY */}
-              <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+              <div className="absolute inset-0 bg-white/0 group-hover:bg-black/20 transition duration-500"></div>
 
               <div className="relative z-10">
 
@@ -512,10 +503,10 @@ const CapabilityStack = () => {
 
               </div>
 
-              {/* GLOW EFFECT */}
-              <div className="absolute -top-10 -right-10 w-28 h-28 
-              bg-gradient-to-r from-orange-500/30 to-purple-500/30 
-              blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              {/* GLOW */}
+              <div className="absolute -top-10 -right-10 w-32 h-32 
+              bg-gradient-to-r from-orange-400/40 to-purple-400/40 
+              blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             </div>
 
@@ -529,11 +520,24 @@ const CapabilityStack = () => {
 };
 
 const Industries = () => {
+
   const industries = [
     { name: 'Financial Services', desc: 'Risk modeling, fraud detection, and automated wealth management.', icon: <BarChart3 className="w-6 h-6" /> },
     { name: 'Healthcare', desc: 'Diagnostic assistance and personalized patient care pathways.', icon: <Activity className="w-6 h-6" /> },
     { name: 'Manufacturing', desc: 'Predictive maintenance and autonomous supply chain optimization.', icon: <Layers className="w-6 h-6" /> },
     { name: 'Retail & E-commerce', desc: 'Hyper-personalized customer journeys and inventory intelligence.', icon: <Globe className="w-6 h-6" /> },
+    { name: 'EDTECH', desc: 'Adaptive learning platforms and AI-driven student support.', icon: <CheckCircle2 className="w-6 h-6" /> },
+    { name: 'DEEPTECH', desc: 'Smart grid management and climate risk analytics.', icon: <Cpu className="w-6 h-6" /> },
+  ];
+
+  // 🔥 6 DIFFERENT PREMIUM GRADIENTS
+  const gradients = [
+    "hover:from-orange-400 hover:via-orange-300 hover:to-amber-400",
+    "hover:from-blue-400 hover:via-sky-300 hover:to-cyan-400",
+    "hover:from-purple-400 hover:via-pink-300 hover:to-rose-400",
+    "hover:from-emerald-400 hover:via-green-300 hover:to-lime-400",
+    "hover:from-indigo-400 hover:via-violet-300 hover:to-purple-400",
+    "hover:from-teal-400 hover:via-cyan-300 hover:to-blue-400",
   ];
 
   return (
@@ -543,24 +547,33 @@ const Industries = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
 
           {/* LEFT */}
-          <div className="lg:w-1/2">
-            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
-              Industry <br />Verticals
-            </h2>
+          {/* LEFT */}
+<div className="lg:w-1/2">
 
-            <p className="text-slate-500 text-xl leading-relaxed mb-12">
-              We deploy specialized AI solutions across diverse sectors, solving unique challenges with precision engineering.
-            </p>
+  {/* HEADING */}
+  <h2 className="text-6xl md:text-8xl font-bold text-slate-900 mb-10 tracking-tight leading-tight">
+    Industry <br />
+    <span className="text-orange-500">Verticals</span>
+  </h2>
 
-            <div className="mt-6">
-              <Link
-                to="/portfolio"
-                className="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-2"
-              >
-                Industry Insights <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
+  {/* DESCRIPTION */}
+  <p className="text-slate-500 text-2xl leading-relaxed mb-14 max-w-xl">
+    We deploy specialized AI solutions across diverse sectors, solving unique challenges with precision engineering.
+  </p>
+
+  {/* BUTTON */}
+  <div className="mt-6">
+    <Link
+      to="/portfolio"
+      className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold text-lg 
+      hover:bg-orange-600 transition-all inline-flex items-center gap-3 shadow-lg"
+    >
+      Industry Insights 
+      <ArrowUpRight className="w-5 h-5" />
+    </Link>
+  </div>
+
+</div>
 
           {/* RIGHT */}
           <div className="lg:w-1/2 p-10 grid sm:grid-cols-2 gap-6">
@@ -569,20 +582,20 @@ const Industries = () => {
 
               <div
                 key={i}
-                className="group relative p-6 rounded-[32px] overflow-hidden
+                className={`group relative p-6 rounded-[32px] overflow-hidden
                 
                 border border-slate-200
                 
                 bg-gradient-to-br from-orange-50 via-white to-purple-50
                 
-                hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+                hover:bg-gradient-to-br ${gradients[i]}
                 
                 transition-all duration-500 hover:-translate-y-2
-                shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.2)]`}
               >
 
                 {/* OVERLAY */}
-                <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-black/25 transition duration-500"></div>
 
                 <div className="relative z-10">
 
@@ -605,7 +618,7 @@ const Industries = () => {
 
                 {/* GLOW */}
                 <div className="absolute -bottom-10 -right-10 w-28 h-28 
-                bg-gradient-to-r from-orange-500/30 to-purple-500/30 
+                bg-gradient-to-r from-white/30 to-white/10 
                 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
               </div>
@@ -625,8 +638,10 @@ const CaseStudies = () => {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-5xl font-bold text-slate-900 mb-6 tracking-tight">Impact Stories</h2>
-          <p className="text-slate-500 text-lg">Measurable results from our most ambitious enterprise collaborations.</p>
+          <h2 className="text-8xl font-bold text-slate-900 mb-6 tracking-tight">
+  Impact <span className="text-orange-500">Stories</span>
+</h2>
+          <p className="text-slate-500 text-4xl">Measurable results from our most ambitious enterprise collaborations.</p>
         </div>
         <div className="grid lg:grid-cols-2 gap-10">
           {[
@@ -802,93 +817,109 @@ const Solutions = () => {
     }
   ];
 
+  // 🔥 DIFFERENT GRADIENTS
+  const gradients = [
+    "hover:from-orange-400 hover:via-orange-300 hover:to-yellow-200",
+    "hover:from-blue-400 hover:via-cyan-300 hover:to-sky-200",
+    "hover:from-purple-400 hover:via-pink-300 hover:to-rose-200",
+    "hover:from-green-400 hover:via-emerald-300 hover:to-lime-200",
+  ];
+
   return (
     <section className="py-10 bg-white relative overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* HEADER */}
         <div className="grid lg:grid-cols-12 gap-16 mb-14 items-end">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-5 mb-6">
               <div className="h-px w-12 bg-orange-500" />
-              <span className="text-orange-500 font-bold uppercase tracking-[0.2em] text-xs">Our Expertise</span>
+              <span className="text-orange-500 font-bold uppercase tracking-[0.2em] text-xs">
+                Our Expertise
+              </span>
             </div>
+
             <h2 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-  <span className="text-black">Architecting the</span> <br />
-  <span className="text-orange-600">Next Era of Intelligence</span>
-</h2>
+              <span className="text-black">Architecting the</span> <br />
+              <span className="text-orange-600">Next Era of Intelligence</span>
+            </h2>
           </div>
+
           <div className="lg:col-span-4 lg:pb-4">
             <p className="text-slate-500 text-lg leading-relaxed mb-8">
               We provide the technical foundation and strategic vision required for organizations to thrive in an AI-first world.
             </p>
+
             <Link
-  to="/portfolio"
-  className="text-slate-900 font-bold flex items-center gap-2 group hover:text-orange-600 transition-colors uppercase tracking-widest text-sm"
->
-  View Capabilities 
-  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-</Link>
+              to="/portfolio"
+              className="text-slate-900 font-bold flex items-center gap-2 group hover:text-orange-600 transition-colors uppercase tracking-widest text-sm"
+            >
+              View Capabilities 
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
 
-       <div className="grid md:grid-cols-4 gap-6">
-  {solutions.map((s, i) => (
-    <motion.div 
-      key={i}
-      whileHover={{ y: -6 }}
-      className="group relative p-6 rounded-[32px] overflow-hidden
-      
-      border border-slate-200
-      
-      bg-gradient-to-br from-orange-50 via-white to-purple-50
-      
-      hover:bg-gradient-to-br hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
-      
-      transition-all duration-500 
-      shadow-sm hover:shadow-[0_25px_70px_rgba(0,0,0,0.2)]"
-    >
+        {/* CARDS */}
+        <div className="grid md:grid-cols-4 gap-6">
+          {solutions.map((s, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -6 }}
+              className={`group relative p-6 rounded-[32px] overflow-hidden
+              border border-slate-200
 
-      {/* 🔥 DARK OVERLAY */}
-      <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition duration-500"></div>
+              bg-gradient-to-br from-orange-50 via-white to-purple-50
 
-      <div className="relative z-10">
+              hover:bg-gradient-to-br ${gradients[i]}
 
-        {/* TOP */}
-        <div className="flex items-center justify-between mb-10">
+              transition-all duration-700 ease-out
+              shadow-sm hover:shadow-[0_25px_70px_rgba(0,0,0,0.2)]`}
+            >
 
-          <div className="w-14 h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg 
-          group-hover:bg-white group-hover:text-orange-600 transition">
-            {s.icon}
-          </div>
+              {/* DARK OVERLAY */}
+              <div className="absolute inset-0 bg-white/0 group-hover:bg-black/20 transition duration-500"></div>
 
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border border-slate-200 px-3 py-1 rounded-full 
-          group-hover:text-white group-hover:border-white/30 transition">
-            {s.tag}
-          </span>
+              <div className="relative z-10">
 
+                {/* TOP */}
+                <div className="flex items-center justify-between mb-10">
+
+                  <div className="w-14 h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg 
+                  group-hover:bg-white group-hover:text-orange-600 transition">
+                    {s.icon}
+                  </div>
+
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border border-slate-200 px-3 py-1 rounded-full 
+                  group-hover:text-white group-hover:border-white/30 transition">
+                    {s.tag}
+                  </span>
+
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-3xl font-bold text-slate-900 mb-4 
+                group-hover:text-white transition">
+                  {s.title}
+                </h3>
+
+                {/* DESC */}
+                <p className="text-slate-500 text-lg leading-relaxed mb-10 
+                group-hover:text-white/90 transition">
+                  {s.desc}
+                </p>
+
+              </div>
+
+              {/* GLOW EFFECT */}
+              <div className="absolute -bottom-16 -right-16 w-40 h-40 
+              bg-gradient-to-r from-white/30 to-white/10 
+              blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+            </motion.div>
+          ))}
         </div>
 
-        {/* TITLE */}
-        <h3 className="text-3xl font-bold text-slate-900 mb-4 
-        group-hover:text-white transition">
-          {s.title}
-        </h3>
-
-        {/* DESC */}
-        <p className="text-slate-500 text-lg leading-relaxed mb-10 
-        group-hover:text-white/90 transition">
-          {s.desc}
-        </p>
-
-      </div>
-
-      {/* 🔥 BIG GLOW (IMPORTANT) */}
-      <div className="absolute -bottom-16 -right-16 w-40 h-40 
-      bg-gradient-to-r from-orange-500/40 via-pink-500/40 to-purple-500/40 
-      blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-    </motion.div>
-  ))}
-</div>
       </div>
     </section>
   );
@@ -1331,7 +1362,7 @@ const HomePage = () => (
 export default function App() {
   return (
     <Router>
-      <FloatingGini />
+      <FloatingGini />    <FloatingSocials /> 
       <div className="min-h-screen bg-white font-sans">
         <Navbar />
         <main className="pt-20">
