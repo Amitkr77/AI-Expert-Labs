@@ -13,12 +13,18 @@ import Institute from "./institute";
 import FloatingWhatsapp from "./floatingWhatsapp";
 import School from "./school";
 import logo from "./assets/logo/logo.png";
+import run from "./assets/logo/run.png";
 import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
 import Homeasy from "./assets/partners/homeasy.png";
 import aihero from "./public/videos/aihero.mp4";
 import Consultation from "./consultation";
+import MovingGini from "./MovingGini";
+import cehro from './assets/cehro.png';
+import kynyx from './assets/kynyx logo.png'; 
+import casters from './assets/Casters.png'; 
+
 
 import { 
   ArrowRight, 
@@ -356,75 +362,93 @@ const Hero = () => {
 const CredibilityStrip = () => {
 
   const partners = [
-    { name: "BiddRx", logo: "https://www.biddrx.com/Images/logo.png" },
-    { name: "Casters Global", logo: "https://castersglobal.com/Casters_Global_Logo.png" },
-    { name: "Cehro India", logo: "https://www.cehroindia.org/assets/cehro%20logo%201.png" },
-    { name: "Sumedha Agro", logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp" },
-    { name: "Homeasy", logo: Homeasy },
-    { name: "Bharatx Ventures", logo: bharatx },
-    { name: "Kynyx", logo: "https://kynyx.com/assets/logo12-rzpEHoIw.png" },
-    { name: "EcoTwist", logo: ecotwist },
-    { name: "Bharatx Infratech", logo: infratech },
+    { id: 1, name: "BiddRx", logo: "https://www.biddrx.com/Images/logo.png" },
+    { id: 2, name: "Casters Global", logo: casters },
+    { id: 3, name: "Cehro India", logo: cehro },
+    { id: 4, name: "Sumedha Agro", logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp" },
+    { id: 5, name: "Homeasy", logo: Homeasy },
+    { id: 6, name: "Bharatx Ventures", logo: bharatx },
+    { id: 7, name: "Kynyx", logo: kynyx },
+    { id: 8, name: "EcoTwist", logo: ecotwist },
+    { id: 9, name: "Bharatx Infratech", logo: infratech },
   ];
 
-  const loopPartners = [...partners, ...partners];
+  const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
-    <section className="bg-white py-16 border-b">
-
-      {/* 🔥 FULL WIDTH */}
-      <div className="w-full">
-
-        {/* HEADING */}
-        <h2 className="text-center text-6xl font-bold mb-16 text-slate-800 px-6">
-          Strategic Partners & <span className="text-orange-500">Collaborators</span>
+    <section className="w-full bg-gradient-to-b from-white to-gray-50 py-6 overflow-hidden">
+      {/* HEADING */}
+      <div className="text-center mb-4 px-6">
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+          <span className="text-black">Strategic </span>
+          <span className="text-orange-500">Partners</span>
         </h2>
-
-        {/* SLIDER */}
-        <div className="relative overflow-hidden">
-
-          {/* OPTIONAL FADE EFFECT */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
-
-          <div className="flex gap-10 w-max animate-partnersScroll px-6">
-
-            {loopPartners.map((partner, i) => (
-
-              <div
-                key={i}
-                className="w-56 flex-shrink-0 rounded-3xl p-8 
-                
-                bg-gradient-to-br from-slate-50 via-white to-slate-100
-                
-                border border-slate-200
-                
-                shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
-                
-                hover:-translate-y-2
-                
-                transition-all duration-500 
-                
-                flex items-center justify-center"
-              >
-
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-20 object-contain mx-auto transition duration-300 hover:scale-110 
-                  drop-shadow-[0_4px_10px_rgba(0,0,0,0.15)]"
-                />
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
+        <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">
+          Collaborating with industry leaders to drive innovation and excellence.
+        </p>
       </div>
 
+      {/* SLIDER */}
+      <div className="relative w-full overflow-hidden">
+        {/* FADE EDGES */}
+        <div className="absolute left-0 top-0 h-full w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent" />
+        <div className="absolute right-0 top-0 h-full w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent" />
+
+        {/* TRACK */}
+        <div className="flex w-max items-center gap-12 md:gap-20 animate-marquee hover:[animation-play-state:paused] px-6">
+          {duplicatedPartners.map((partner, index) => (
+            <div
+              key={`${partner.id}-${index}`}
+                className="
+                flex-shrink-0 
+                h-24 md:h-28 
+                w-auto
+                flex items-center justify-center
+                rounded-2xl p-3
+                hover:bg-white transition
+              "
+            >
+            <img
+  src={partner.logo}
+  alt={partner.name}
+  className={`
+    object-contain
+    transition duration-300
+    hover:scale-110
+
+    ${partner.name === "Kynyx"
+      ? "h-40 scale-125"
+      : "max-h-full"}
+  `}
+/>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ANIMATION */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+
+        @media (max-width: 1024px) {
+          .animate-marquee {
+            animation: marquee 30s linear infinite;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .animate-marquee {
+            animation: marquee 20s linear infinite;
+          }
+        }
+      `}</style>
     </section>
   );
 };
@@ -522,12 +546,12 @@ const CapabilityStack = () => {
 const Industries = () => {
 
   const industries = [
-    { name: 'Financial Services', desc: 'Risk modeling, fraud detection, and automated wealth management.', icon: <BarChart3 className="w-6 h-6" /> },
+    { name: 'Deeptech', desc: 'Smart grid management and climate risk analytics.', icon: <BarChart3 className="w-6 h-6" /> },
     { name: 'Healthcare', desc: 'Diagnostic assistance and personalized patient care pathways.', icon: <Activity className="w-6 h-6" /> },
     { name: 'Manufacturing', desc: 'Predictive maintenance and autonomous supply chain optimization.', icon: <Layers className="w-6 h-6" /> },
-    { name: 'Retail & E-commerce', desc: 'Hyper-personalized customer journeys and inventory intelligence.', icon: <Globe className="w-6 h-6" /> },
-    { name: 'EDTECH', desc: 'Adaptive learning platforms and AI-driven student support.', icon: <CheckCircle2 className="w-6 h-6" /> },
-    { name: 'DEEPTECH', desc: 'Smart grid management and climate risk analytics.', icon: <Cpu className="w-6 h-6" /> },
+    { name: 'Edtech', desc: 'Adaptive learning platforms and AI-driven student support.', icon: <Globe className="w-6 h-6" /> },
+    { name: 'Retail & E-commerce', desc: 'Hyper-personalized customer journeys and inventory intelligence..', icon: <CheckCircle2 className="w-6 h-6" /> },
+    { name: 'Financial Services', desc: 'Risk modeling, fraud detection, and automated wealth management.', icon: <Cpu className="w-6 h-6" /> },
   ];
 
   // 🔥 6 DIFFERENT PREMIUM GRADIENTS
@@ -544,7 +568,7 @@ const Industries = () => {
     <section className="py-16 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+        <div className="flex flex-col lg:flex-row gap-10 items-center">
 
           {/* LEFT */}
           {/* LEFT */}
@@ -576,7 +600,7 @@ const Industries = () => {
 </div>
 
           {/* RIGHT */}
-          <div className="lg:w-4/5 p-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="lg:w-4/5 p-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {industries.map((ind, i) => (
 
@@ -1362,7 +1386,7 @@ const HomePage = () => (
 export default function App() {
   return (
     <Router>
-      <FloatingGini />    <FloatingSocials /> 
+      <FloatingGini />    <FloatingSocials />  
       <div className="min-h-screen bg-white font-sans">
         <Navbar />
         <main className="pt-20">
@@ -1376,7 +1400,7 @@ export default function App() {
             <Route path="/institute" element={<Institute />} />
             <Route path="/school" element={<School />} />
             <Route path="/hellogini" element={<HelloGini />} /> 
-            
+
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             {/* <Route path="/research" element={<Research />} /> */}

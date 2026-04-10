@@ -5,6 +5,14 @@ import harshu from "./assets/team/harshu.jpg";
 import anshu from "./assets/team/anshu.jpg";
 import saurav from "./assets/team/Suman.jpg";
 import { Sparkles } from "lucide-react";
+import {
+  Bot,
+  FlaskConical,
+  Network,
+  Cpu,
+  GraduationCap,
+  Briefcase
+} from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -200,83 +208,7 @@ export default function AboutPage() {
 
   </div>
 </section>
-     {/* STRATEGIC DOMAINS */}
-<section className="relative py-16 text-black overflow-hidden">
 
-  {/* BG IMAGE */}
-  <div className="absolute inset-0">
-    <img className="w-full h-full object-cover"/>
-    <div className="absolute inset-0 bg-white/85"></div>
-  </div>
-
-  <div className="relative z-10 max-w-7xl mx-auto px-6">
-
-    {/* HEADING */}
-    <div className="text-center mb-10">
-    <h2 className="text-4xl md:text-5xl font-bold">
-  <span className="text-black">Strategic </span>
-  <span className="text-orange-500">Domains</span>
-</h2>
-    </div>
-
-    {/* GRID */}
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      {/* CARD 1 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-bold mb-2">Enterprise AI Consulting</h3>
-        <p className="text-slate-500 text-sm">
-          Strategic roadmaps bridging legacy systems with AI-driven innovation.
-        </p>
-      </div>
-
-      {/* CARD 2 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-semibold mb-2">AI Automation</h3>
-        <p className="text-slate-500 text-sm">
-          Autonomous workflows designed to eliminate friction and boost efficiency.
-        </p>
-      </div>
-
-      {/* CARD 3 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-semibold mb-2">Elite Training</h3>
-        <p className="text-slate-500 text-sm">
-          AI-first programs to upskill modern global workforces.
-        </p>
-      </div>
-
-      {/* CARD 4 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-semibold mb-2">Innovation Lab</h3>
-        <p className="text-slate-500 text-sm">
-          Continuous R&D focused on building proprietary AI frameworks.
-        </p>
-      </div>
-
-      {/* CARD 5 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-semibold mb-2">Agentic Frameworks</h3>
-        <p className="text-slate-500 text-sm">
-          Multi-agent systems capable of reasoning, decision-making, and execution.
-        </p>
-      </div>
-
-      {/* CARD 6 */}
-      <div className="p-6 rounded-2xl bg-white/10 border border-black/20 backdrop-blur-md hover:shadow-xl transition">
-        <h3 className="text-xl font-bold mb-2">AI Solutions</h3>
-        <p className="text-sm opacity-90">
-          End-to-end AI solutions tailored for scalable business transformation.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-      {/* INTELLIGENCE FRONTIERS */}
-{/* INTELLIGENCE FRONTIERS */}
 <section className="relative py-14 text-white overflow-hidden">
 
   {/* BG IMAGE */}
@@ -362,6 +294,110 @@ export default function AboutPage() {
 
   </div>
 </section>
+     {/* STRATEGIC DOMAINS */}
+<section className="relative py-16 text-black overflow-hidden">
+
+  {/* BG IMAGE */}
+  <div className="absolute inset-0">
+    <img className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-white/85"></div>
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-6">
+
+    {/* HEADING */}
+    <div className="text-center mb-10">
+      <h2 className="text-4xl md:text-5xl font-bold">
+        <span className="text-black">Strategic </span>
+        <span className="text-orange-500">Domains</span>
+      </h2>
+    </div>
+
+    {/* GRID */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      {[
+        {
+          title: "AI Automation",
+          desc: "Autonomous workflows designed to eliminate friction and boost efficiency.",
+          gradient: "hover:from-orange-600 hover:via-orange-500 hover:to-amber-600",
+          icon: <Bot size={28} />
+        },
+        {
+          title: "Innovation Lab",
+          desc: "Continuous R&D focused on building proprietary AI frameworks.",
+          gradient: "hover:from-blue-600 hover:via-cyan-500 hover:to-sky-600",
+          icon: <FlaskConical size={28} />
+        },
+        {
+          title: "Agentic Frameworks",
+          desc: "Multi-agent systems capable of reasoning, decision-making, and execution.",
+          gradient: "hover:from-purple-600 hover:via-pink-500 hover:to-rose-600",
+          icon: <Network size={28} />
+        },
+        {
+          title: "AI Solutions",
+          desc: "End-to-end AI solutions tailored for scalable business transformation.",
+          gradient: "hover:from-emerald-600 hover:via-green-500 hover:to-lime-600",
+          icon: <Cpu size={28} />
+        },
+        {
+          title: "Workforce Upskilling",
+          desc: "AI-first programs to upskill modern global workforces.",
+          gradient: "hover:from-indigo-600 hover:via-violet-500 hover:to-purple-600",
+          icon: <GraduationCap size={28} />
+        },
+        {
+          title: "AI Consulting",
+          desc: "Strategic roadmaps bridging legacy systems with AI-driven innovation.",
+          gradient: "hover:from-teal-600 hover:via-cyan-500 hover:to-blue-600",
+          icon: <Briefcase size={28} />
+        }
+      ].map((card, i) => (
+
+        <div
+          key={i}
+          className={`group p-6 rounded-2xl border border-black/20 backdrop-blur-md
+          bg-white/10
+          hover:bg-gradient-to-br ${card.gradient}
+          transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl`}
+        >
+
+          {/* ICON */}
+          <div className="
+            mb-4 w-12 h-12 flex items-center justify-center
+            rounded-xl bg-orange-100
+            text-orange-500
+            group-hover:bg-white/20 group-hover:text-white
+            transition
+          ">
+            {card.icon}
+          </div>
+
+          {/* TITLE */}
+          <h3 className="text-xl font-semibold mb-2 
+          group-hover:text-white transition">
+            {card.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-slate-500 text-sm 
+          group-hover:text-white/90 transition">
+            {card.desc}
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+      {/* INTELLIGENCE FRONTIERS */}
+{/* INTELLIGENCE FRONTIERS */}
+
 
 
       {/* STATS */}
@@ -374,9 +410,9 @@ export default function AboutPage() {
 
     {/* HEADING */}
     <div className="text-center mb-16">
-     <h2 className="text-4xl font-bold mb-3">
-  AI <span className="text-orange-500">Innovation</span> Lab
-</h2>
+      <h2 className="text-4xl font-bold mb-3">
+        AI <span className="text-orange-500">Innovation</span> Lab
+      </h2>
       <p className="text-slate-500">
         Next-generation artificial intelligence research and development
       </p>
@@ -417,25 +453,39 @@ export default function AboutPage() {
           icon: "🔐",
         },
       ].map((item, i) => (
+
         <div
           key={i}
-          className="group p-8 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+          className="group p-8 rounded-3xl 
+          
+          bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#020617]
+          
+          border border-white/10
+          
+          hover:from-orange-500 hover:via-pink-500 hover:to-purple-600
+          
+          hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]
+          
+          transition-all duration-500"
         >
 
           {/* ICON */}
-          <div className="text-3xl mb-4">{item.icon}</div>
+          <div className="text-3xl mb-4 group-hover:scale-110 transition">
+            {item.icon}
+          </div>
 
           {/* TITLE */}
-          <h3 className="font-bold text-lg mb-3 group-hover:text-orange-500 transition">
+          <h3 className="font-bold text-lg mb-3 text-white group-hover:text-white transition">
             {item.title}
           </h3>
 
           {/* DESC */}
-          <p className="text-slate-500 text-sm leading-relaxed">
+          <p className="text-slate-300 text-sm leading-relaxed group-hover:text-white/90 transition">
             {item.desc}
           </p>
 
         </div>
+
       ))}
 
     </div>
@@ -495,44 +545,35 @@ export default function AboutPage() {
     </section>
       {/* CTA */}
       {/* PREMIUM CTA */}
-<section className="py-32 bg-white">
+<section className="py-6 bg-white">
   <div className="max-w-[1200px] mx-auto px-6">
 
-    <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-16 md:p-24 text-center shadow-2xl">
+    <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-6 md:p-8 text-center shadow-2xl">
 
       {/* LIGHT GLOW */}
-      <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/10 blur-3xl"></div>
+      <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-white/10 blur-3xl"></div>
 
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-2xl mx-auto">
 
         {/* HEADING */}
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
           Architect your{" "}
           <span className="text-white/80">AI future</span> today.
         </h2>
 
         {/* SUBTEXT */}
-        <p className="text-white/90 text-lg md:text-xl mb-12">
+        <p className="text-white/90 text-base md:text-lg mb-6">
           Join the elite institutions leading the autonomous revolution with AIxpets Labs.
         </p>
 
-        {/* BUTTONS */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-
-                <Link
-                  to="/contact"
-                  className="px-10 py-4 bg-white text-black rounded-2xl font-semibold hover:scale-105 transition shadow-xl"
-                >
-                Book Consultation
-                </Link>
-                          
-            
-
-
-          {/* <button className="px-10 py-4 border border-white/30 text-white rounded-2xl font-semibold hover:bg-white/10 transition">
-            Contact Strategy
-          </button> */}
-
+        {/* BUTTON */}
+        <div className="flex justify-center">
+          <Link
+            to="/contact"
+            className="px-8 py-3 bg-white text-black rounded-xl font-semibold hover:scale-105 transition shadow-lg"
+          >
+            Book Consultation
+          </Link>
         </div>
 
       </div>
