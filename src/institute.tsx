@@ -35,84 +35,145 @@ export default function Institute() {
     <div className="bg-white text-slate-900 overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
-        {/* LEFT */}
-        <motion.div initial={{ x: -80, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-          <h1 className="text-6xl font-bold leading-tight">
-            Launch Your Career in{" "}
-            <span className="text-orange-500">Artificial Intelligence</span>
-          </h1>
-
-          <p className="text-slate-500 mt-6 text-lg max-w-xl">
-            Learn AI from industry experts with real-world projects, certifications,
-            and career support.
-          </p>
-
-          <div className="flex gap-4 mt-8">
-            <Link to="/services">
-  <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
-    View Programs
-  </button>
-</Link>
-
-<Link to="/contact">
-  <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
-    Contact sales
-  </button>
-</Link>
-          </div>
-
-          {/* TRUST */}
-          <div className="flex gap-6 mt-10 text-sm text-slate-500">
-            <span>⭐ 4.9 Rating</span>
-            <span>50K+ Students</span>
-            <span>Job Ready</span>
-          </div>
-        </motion.div>
-
-        {/* RIGHT */}
-       {/* RIGHT VIDEO */}
-<motion.div
-  initial={{ x: 80, opacity: 0 }}
-  animate={{ x: 0, opacity: 1 }}
-  className="relative rounded-3xl overflow-hidden"
->
-
+  {/* 🎥 VIDEO BACKGROUND */}
   <video
     autoPlay
     loop
     muted
     playsInline
-    className="w-full h-[350px] md:h-[420px] object-cover rounded-3xl"
+    className="absolute inset-0 w-full h-full object-cover"
   >
     <source src="/video/institute.mp4" type="video/mp4" />
   </video>
 
-  {/* OPTIONAL: light overlay (remove if want full clarity) */}
-  <div className="absolute inset-0 bg-black/10"></div>
+  {/* 🔥 DARK OVERLAY */}
+  <div className="absolute inset-0 bg-[#020617]/80"></div>
 
-</motion.div>
+  {/* 🔥 GRADIENT GLOW */}
+  <div className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] bg-orange-500/20 blur-[120px]"></div>
+  <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-blue-500/20 blur-[120px]"></div>
 
-      </section>
+  {/* MAIN CONTENT */}
+  <div className="relative z-20 max-w-7xl mx-auto px-6">
+
+    {/* 🔥 TOP GRID */}
+    <div className="grid lg:grid-cols-2 gap-40 items-center">
+
+      {/* LEFT TEXT */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+
+        <span className="px-5 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-xl font-bold">
+          AI Institute
+        </span>
+
+        <h1 className="text-6xl md:text-6xl font-extrabold mt-6 leading-tight text-white">
+          Launch Your Career in{" "}
+          <span className="text-orange-500">Artificial Intelligence</span>
+        </h1>
+
+        <p className="text-slate-200 mt-6 text-2xl max-w-xl">
+          Learn AI from industry experts with real-world projects, certifications, and career support.
+        </p>
+
+        {/* CTA */}
+        <div className="flex gap-4 mt-8 flex-wrap">
+
+          <Link to="/services">
+            <button className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:scale-105 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transition">
+              View Programs
+            </button>
+          </Link>
+
+          <Link to="/contact">
+            <button className="border border-white/30 text-white px-8 py-4 rounded-full hover:bg-white/10 transition">
+              Contact Sales
+            </button>
+          </Link>
+
+        </div>
+
+      </motion.div>
+
+      {/* RIGHT VIDEO */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+
+        <div className="rounded-3xl overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl">
+
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-[300px] md:h-[420px] object-cover"
+          >
+            <source src="/video/institute.mp4" type="video/mp4" />
+          </video>
+
+        </div>
+
+        <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10"></div>
+
+      </motion.div>
+
+    </div>
+
+    {/* 🔥 FULL WIDTH STATS */}
+    <div className="mt-16 border-y border-slate-500">
+
+      <div className="grid grid-cols-2 md:grid-cols-4">
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">1000+</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Learners
+          </p>
+        </div>
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-pink-500 mb-2">50+</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Courses
+          </p>
+        </div>
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-green-500 mb-2">90%</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Placement Rate
+          </p>
+        </div>
+
+        <div className="p-6 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">95%</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Success
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     
-      {/* ================= STATS ================= */}
-      <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 mb-24">
-
-        {["1000+ Learners","50+ Courses","95% Success"].map((item, i) => (
-          <div key={i} className="text-center">
-            <h3 className="text-4xl font-bold text-orange-500">{item}</h3>
-          </div>
-        ))}
-
-      </section>
-      
 
       {/* ================= COURSES ================= */}
       <section className="max-w-7xl mx-auto px-6 py-20">
 
-        <h2 className="text-4xl font-bold text-center mb-14">
+        <h2 className="text-6xl font-bold text-center mb-14">
           Explore <span className="text-orange-500">Programs</span>
         </h2>
 

@@ -125,13 +125,13 @@ const Portfolio = () => {
   <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
     {/* TAG (same as services) */}
-    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-8 shadow-lg backdrop-blur-md">
+    <span className="inline-flex items-center gap-4 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xl font-bold uppercase tracking-widest mb-8 shadow-lg backdrop-blur-md">
   <Sparkles className="w-4 h-4" />
   OUR PORTFOLIO
 </span>
 
     {/* HEADING (bigger like services) */}
-    <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
+    <h1 className="text-8xl md:text-8xl font-bold text-white leading-tight mb-12">
       Showcasing Our{" "}
       <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
         AI Projects
@@ -164,43 +164,53 @@ const Portfolio = () => {
     </div>
 
     {/* STATS (same style as services strip) */}
-    <div className="max-w-8xl mx-auto border-y border-white/10">
+   <div className="max-w-7xl mx-auto mt-16 border-y border-slate-500">
 
   <div className="grid grid-cols-2 md:grid-cols-5">
 
-    <div className="p-6 border-r border-white/10 text-center">
-      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+    <div className="p-6 border-r border-slate-500 text-center">
+      <p className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">
+        50+
+      </p>
+      <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
         Projects Completed
       </p>
-      <p className="text-2xl font-bold text-white">50+</p>
     </div>
 
-    <div className="p-6 border-r border-white/10 text-center">
-      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+    <div className="p-6 border-r border-slate-500 text-center">
+      <p className="text-4xl md:text-5xl font-bold text-pink-500 mb-2">
+        20+
+      </p>
+      <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
         AI Solutions
       </p>
-      <p className="text-2xl font-bold text-white">20+</p>
     </div>
 
-    <div className="p-6 border-r border-white/10 text-center">
-      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+    <div className="p-6 border-r border-slate-500 text-center">
+      <p className="text-4xl md:text-5xl font-bold text-blue-500 mb-2">
+        100+
+      </p>
+      <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
         Clients
       </p>
-      <p className="text-2xl font-bold text-white">100+</p>
     </div>
 
-    <div className="p-6 border-r border-white/10 text-center">
-      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+    <div className="p-6 border-r border-slate-500 text-center">
+      <p className="text-4xl md:text-5xl font-bold text-green-500 mb-2">
+        75+
+      </p>
+      <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
         Automations
       </p>
-      <p className="text-2xl font-bold text-white">75+</p>
     </div>
 
     <div className="p-6 text-center">
-      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">
+      <p className="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">
+        100%
+      </p>
+      <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
         Satisfaction
       </p>
-      <p className="text-2xl font-bold text-white">100%</p>
     </div>
 
   </div>
@@ -305,88 +315,153 @@ const Portfolio = () => {
 
 {/* VALUE SECTION */}
 <div className="max-w-6xl mx-auto px-6 mt-32 text-center">
-  <h2 className="text-4xl font-bold mb-6">
-  <span className="text-orange-500">Delivering Measurable</span>{" "}
-  <span className="text-black">AI Impact</span>
-</h2>
 
-  <p className="text-slate-600 max-w-3xl mx-auto mb-12">
+  <h2 className="text-6xl font-bold mb-12">
+    <span className="text-orange-500">Delivering Measurable</span>{" "}
+    <span className="text-black">AI Impact</span>
+  </h2>
+
+  <p className="text-slate-800 text-xl max-w-2xl mx-auto mb-12">
     We don’t just build AI solutions — we deliver real business outcomes. 
     Our portfolio reflects innovation, scalability, and performance across industries.
   </p>
 
   <div className="grid md:grid-cols-3 gap-8">
 
-    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
-      <h3 className="text-xl font-bold mb-2">⚡ Faster Operations</h3>
-      <p className="text-slate-600">
-        Automation-driven workflows that significantly reduce manual effort 
-        and increase efficiency.
-      </p>
-    </div>
+    {[
+      {
+        title: "⚡ Faster Operations",
+        desc: "Automation-driven workflows that significantly reduce manual effort and increase efficiency.",
+        gradient: "from-orange-500 via-pink-500 to-purple-500"
+      },
+      {
+        title: "📈 Revenue Growth",
+        desc: "AI-powered insights and personalization that boost conversions and maximize ROI.",
+        gradient: "from-blue-500 via-cyan-400 to-indigo-500"
+      },
+      {
+        title: "🔐 Enterprise Security",
+        desc: "Advanced AI models ensuring high-level security, accuracy, and reliability.",
+        gradient: "from-green-400 via-emerald-500 to-lime-400"
+      }
+    ].map((item, i) => (
 
-    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
-      <h3 className="text-xl font-bold mb-2">📈 Revenue Growth</h3>
-      <p className="text-slate-600">
-        AI-powered insights and personalization that boost conversions 
-        and maximize ROI.
-      </p>
-    </div>
+      <div
+        key={i}
+        className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105"
+      >
 
-    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
-      <h3 className="text-xl font-bold mb-2">🔐 Enterprise Security</h3>
-      <p className="text-slate-600">
-        Advanced AI models ensuring high-level security, accuracy, 
-        and reliability.
-      </p>
-    </div>
+        {/* 🔥 GRADIENT BG */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition duration-500`}
+        ></div>
+
+        {/* 🔥 GLOW */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${item.gradient} blur-2xl opacity-0 group-hover:opacity-60 transition duration-500`}
+        ></div>
+
+        {/* CARD */}
+        <div className="relative bg-slate-50 group-hover:bg-transparent border border-slate-200 group-hover:border-transparent rounded-2xl p-8 transition duration-500">
+
+          <h3 className="text-xl font-bold mb-3 text-black group-hover:text-white transition">
+            {item.title}
+          </h3>
+
+          <p className="text-slate-600 group-hover:text-white/90 transition">
+            {item.desc}
+          </p>
+
+        </div>
+
+      </div>
+
+    ))}
 
   </div>
+
 </div>
 
 {/* PROCESS */}
-<div className="max-w-6xl mx-auto px-6 mt-32 text-center">
-  <h2 className="text-4xl font-bold mb-6">
-  <span className="text-black"> Our </span>
-  <span className="text-orange-500">Proven Process</span>{" "}
+<div className="max-w-7xl text-xl mx-auto px-6 mt-24 text-center">
+
+  <h2 className="text-6xl font-bold mb-6">
+    <span className="text-black"> Our </span>
+    <span className="text-orange-500">Proven Process</span>
   </h2>
 
-  <p className="text-slate-600 max-w-2xl mx-auto mb-12">
+  <p className="text-slate-800 max-w-3xl mx-auto mb-16">
     From idea to deployment, we follow a structured AI development lifecycle 
     that ensures performance, scalability, and success.
   </p>
 
-  <div className="grid md:grid-cols-4 gap-6">
+  <div className="grid md:grid-cols-4 gap-8">
 
-    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
-      🔍 <br /> Discovery
-      <p className="text-xs text-slate-500 mt-2">
-        Understanding your business needs and challenges
-      </p>
-    </div>
+    {[
+      {
+        icon: "🔍",
+        title: "Discovery",
+        desc: "Understanding your business needs and challenges",
+        gradient: "from-orange-500 via-pink-500 to-purple-500"
+      },
+      {
+        icon: "📊",
+        title: "Strategy",
+        desc: "Designing scalable AI solutions tailored to you",
+        gradient: "from-blue-500 via-cyan-400 to-indigo-500"
+      },
+      {
+        icon: "⚙️",
+        title: "Development",
+        desc: "Building robust, high-performance AI systems",
+        gradient: "from-green-400 via-emerald-500 to-lime-400"
+      },
+      {
+        icon: "🚀",
+        title: "Deployment",
+        desc: "Launching & optimizing for real-world impact",
+        gradient: "from-yellow-400 via-orange-500 to-red-500"
+      }
+    ].map((item, i) => (
 
-    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
-      📊 <br /> Strategy
-      <p className="text-xs text-slate-500 mt-2">
-        Designing scalable AI solutions tailored to you
-      </p>
-    </div>
+      <div
+        key={i}
+        className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105"
+      >
 
-    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
-      ⚙️ <br /> Development
-      <p className="text-xs text-slate-500 mt-2">
-        Building robust, high-performance AI systems
-      </p>
-    </div>
+        {/* GRADIENT */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition duration-500`}
+        ></div>
 
-    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
-      🚀 <br /> Deployment
-      <p className="text-xs text-slate-500 mt-2">
-        Launching & optimizing for real-world impact
-      </p>
-    </div>
+        {/* GLOW */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${item.gradient} blur-2xl opacity-0 group-hover:opacity-60 transition duration-500`}
+        ></div>
+
+        {/* CARD */}
+        <div className="relative bg-slate-50 group-hover:bg-transparent border border-slate-200 group-hover:border-transparent rounded-2xl p-10 md:p-12 h-[260px] flex flex-col justify-center transition duration-500">
+
+          <div className="text-4xl mb-4 group-hover:scale-125 transition duration-300">
+            {item.icon}
+          </div>
+
+          <h3 className="text-lg font-bold text-black group-hover:text-white transition">
+            {item.title}
+          </h3>
+
+          <p className="text-sm text-slate-500 mt-3 group-hover:text-white/90 transition">
+            {item.desc}
+          </p>
+
+        </div>
+
+      </div>
+
+    ))}
 
   </div>
+
 </div>
 
 
@@ -399,11 +474,11 @@ const Portfolio = () => {
 
       {/* CTA */}
       <div className="max-w-4xl mx-auto px-6 mt-32 mb-24 text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white py-12 rounded-3xl">
-        <h2 className="text-3xl font-bold mb-4">
+        <h2 className="text-5xl font-bold mb-4">
           Want Similar Results?
         </h2>
 
-        <p className="mb-6">
+        <p className="mb-6 text-xl">
           Let’s build your next AI solution together.
         </p>
 

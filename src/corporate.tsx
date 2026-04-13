@@ -14,86 +14,145 @@ export default function Corporate() {
     <div className="bg-white text-slate-900 overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+<section className="relative min-h-[91vh] flex items-center justify-center overflow-hidden">
 
-        <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-          <span className="px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-xs font-bold">
-            AI Transformation
-          </span>
-
-          <h1 className="text-6xl font-extrabold mt-6 leading-tight">
-            Workforce
-Transformation for the{" "}
-            <span className="text-orange-500">AI Workforce</span>
-          </h1>
-
-          <p className="text-slate-500 mt-6 text-lg max-w-xl">
-            Empower your teams with cutting-edge AI skills and automation.
-          </p>
-
-          <div className="flex gap-4 mt-8">
-           
-
-<Link to="/services">
-  <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
-    View Programs
-  </button>
-</Link>
-
-<Link to="/contact">
-  <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
-    Contact sales
-  </button>
-</Link>
-          </div>
-        </motion.div>
-
-        <motion.div
-  initial={{ x: 100, opacity: 0 }}
-  animate={{ x: 0, opacity: 1 }}
-  className="relative rounded-3xl overflow-hidden"
->
-
-  {/* VIDEO */}
+  {/* 🎥 VIDEO BACKGROUND */}
   <video
     autoPlay
     loop
     muted
     playsInline
-    className="w-full h-[350px] md:h-[420px] object-cover rounded-3xl"
+    className="absolute inset-0 w-full h-full object-cover"
   >
     <source src="/video/corporate.mp4" type="video/mp4" />
   </video>
 
-  {/* LIGHT OVERLAY (very subtle) */}
-  <div className="absolute inset-0 bg-black/10"></div>
+  {/* 🔥 DARK OVERLAY */}
+  <div className="absolute inset-0 bg-[#020617]/80"></div>
 
-  {/* OPTIONAL GLOW BORDER */}
-  <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10"></div>
+  {/* 🔥 GRADIENT GLOW */}
+  <div className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] bg-orange-500/20 blur-[120px]"></div>
+  <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-blue-500/20 blur-[120px]"></div>
 
-</motion.div>
-      </section>
+  {/* MAIN CONTENT */}
+  <div className="relative z-20 max-w-7xl mx-auto px-6">
 
-      {/* ================= COUNTERS ================= */}
-      <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-24">
-        {[
-          { num: "1000+", label: "Professionals" },
-          { num: "50+", label: "Companies" },
-          { num: "95%", label: "Success Rate" },
-          { num: "4.9★", label: "Rating" },
-        ].map((item, i) => (
-          <div key={i} data-aos="fade-up" className="text-center">
-            <h3 className="text-4xl font-bold text-orange-500">{item.num}</h3>
-            <p className="text-slate-500">{item.label}</p>
-          </div>
-        ))}
-      </section>
+    {/* 🔥 TOP GRID */}
+    <div className="grid lg:grid-cols-2 gap-40 items-center">
+
+      {/* LEFT TEXT */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+
+        <span className="px-5 py-3 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full text-xl font-bold">
+          AI Transformation
+        </span>
+
+        <h1 className="text-6xl md:text-6xl font-extrabold mt-6 leading-tight text-white">
+          Workforce Transformation for the{" "}
+          <span className="text-orange-500">AI Workforce</span>
+        </h1>
+
+        <p className="text-slate-200 mt-6 text-2xl max-w-xl">
+          Empower your teams with cutting-edge AI skills and automation.
+        </p>
+
+        {/* CTA */}
+        <div className="flex gap-4 mt-8 flex-wrap">
+
+          <Link to="/services">
+            <button className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:scale-105 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transition">
+              View Programs
+            </button>
+          </Link>
+
+          <Link to="/contact">
+            <button className="border border-white/30 text-white px-8 py-4 rounded-full hover:bg-white/10 transition">
+              Contact Sales
+            </button>
+          </Link>
+
+        </div>
+
+      </motion.div>
+
+      {/* RIGHT VIDEO */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+
+        <div className="rounded-3xl overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl">
+
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-[300px] md:h-[420px] object-cover"
+          >
+            <source src="/video/corporate.mp4" type="video/mp4" />
+          </video>
+
+        </div>
+
+        <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10"></div>
+
+      </motion.div>
+
+    </div>
+
+    {/* 🔥 FULL WIDTH STATS (NOW BELOW BOTH) */}
+    <div className="mt-16 border-y border-slate-500">
+
+      <div className="grid grid-cols-2 md:grid-cols-4">
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">1000+</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Professionals
+          </p>
+        </div>
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-pink-500 mb-2">50+</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Companies
+          </p>
+        </div>
+
+        <div className="p-6 border-r border-slate-500 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-green-500 mb-2">95%</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Success Rate
+          </p>
+        </div>
+
+        <div className="p-6 text-center">
+          <p className="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">4.9★</p>
+          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
+            Rating
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+  
 
      {/* ================= PROCESS ================= */}
-<section className="bg-slate-50 py-24">
+<section className="bg-slate-50 py-18">
   <div className="max-w-6xl mx-auto px-6 text-center">
 
-    <h2 className="text-4xl font-bold mb-16">
+    <h2 className="text-6xl font-bold mb-16">
       How We{" "}
       <span className="text-orange-500">Transform Your Team</span>
     </h2>
@@ -153,42 +212,87 @@ Transformation for the{" "}
 </section>
 
       {/* ================= SPECIALIZATIONS ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+     <section className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black">
+  {/* HEADING */}
+  <div className="text-center mb-16">
+    <h2 className="text-6xl font-bold text-black">
       Our <span className="text-orange-500">Specializations</span>
-          </h2>
+    </h2>
 
-          <p className="text-slate-500 mt-6 max-w-2xl mx-auto">
-            We focus on high-impact AI transformation domains.
+    <p className="text-slate-500 mt-6 text-2xl max-w-4xl mx-auto">
+      We focus on high-impact AI transformation domains.
+    </p>
+  </div>
+
+  {/* CARDS */}
+  <div className="grid md:grid-cols-3 gap-8">
+
+    {[
+      {
+        title: "Leadership Strategy",
+        desc: "Executive-level roadmap development and strategic planning for sustainable AI adoption.",
+        icon: "📊",
+        gradient: "from-orange-500 via-pink-500 to-purple-500"
+      },
+      {
+        title: "Workflow Automation",
+        desc: "Integration of GenAI tools across marketing, sales, operations, and engineering.",
+        icon: "⚙️",
+        gradient: "from-blue-500 via-cyan-400 to-indigo-500"
+      },
+      {
+        title: "Ethical AI Governance",
+        desc: "Risk management frameworks and compliance strategies for ethical AI deployment.",
+        icon: "🛡️",
+        gradient: "from-green-400 via-emerald-500 to-lime-400"
+      },
+    ].map((item, i) => (
+
+      <div
+        key={i}
+        className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105"
+      >
+
+        {/* 🔥 Animated Gradient BG */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition duration-500 animate-gradient`}
+        ></div>
+
+        {/* 🔥 Glow */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-r ${item.gradient} blur-2xl opacity-0 group-hover:opacity-70 transition duration-500`}
+        ></div>
+
+        {/* CARD CONTENT */}
+        <div className="relative bg-[#020617] group-hover:bg-transparent border border-white/10 group-hover:border-transparent rounded-2xl p-10 h-full transition duration-500">
+
+          {/* ICON */}
+          <div className="text-4xl mb-5 group-hover:scale-125 transition duration-300">
+            {item.icon}
+          </div>
+
+          {/* TITLE */}
+          <h3 className="text-2xl font-bold mb-3 text-white">
+            {item.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-slate-400 group-hover:text-white/90 transition">
+            {item.desc}
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
-          {[
-            { title: "Leadership Strategy", desc: "Executive level roadman develonment and strategic planning tor sustainableAl adoption across global teams.", icon: "📊" },
-            { title: "Workflow Automation", desc: "Practical integration of GenAl tools fordepartments ranging trom marketingand sales to operations and engineering.", icon: "⚙️" },
-            { title: "Ethical AI Governance", desc: "Robust risk management trameworksana comnllance strategles to enctresate and ethical Al deployment at scale.", icon: "🛡️" },
-          ].map((item, i) => (
-            <div key={i} className="relative p-10 rounded-2xl text-white shadow-xl overflow-hidden">
-
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500"></div>
-              <div className="relative z-10">
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-
-            </div>
-          ))}
 
         </div>
-      </section>
+
+      </div>
+
+    ))}
+
+  </div>
+</section>
 
       {/* ================= FEATURES ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-24 items-center">
 
         <motion.img
           src="https://media.licdn.com/dms/image/v2/D4E12AQFBpmtTnuNgYQ/article-cover_image-shrink_720_1280/B4EZldeMxnGUAI-/0/1758209826023?e=2147483647&v=beta&t=41EjJrvnFareKNdWfJADfFE-fBeOMkH3kDGdbbD12S4"
@@ -196,11 +300,11 @@ Transformation for the{" "}
         />
 
         <div>
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-6xl font-bold mb-6">
             Enterprise <span className="text-orange-500">AI Capabilities</span>
           </h2>
 
-          <ul className="space-y-4 text-slate-600">
+          <ul className="space-y-4  text-xl text-slate-900">
             <li>✔ AI Strategy & Consulting</li>
             <li>✔ Workflow Automation</li>
             <li>✔ GenAI Tools Integration</li>
@@ -210,7 +314,7 @@ Transformation for the{" "}
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-5xl mx-auto px-6">
 
           <div className="relative rounded-[30px] p-16 text-center shadow-2xl overflow-hidden">
