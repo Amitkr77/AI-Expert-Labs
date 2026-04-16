@@ -275,18 +275,44 @@ export default function Institute() {
       </section>
 
       {/* ================= MODAL ================= */}
-      {showForm && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-2xl w-80">
-            <h2 className="font-bold mb-4">Enroll</h2>
-            <input className="w-full mb-2 border p-2" placeholder="Name" />
-            <input className="w-full mb-2 border p-2" placeholder="Email" />
-            <button className="w-full bg-orange-500 text-white py-2">
-              Submit
-            </button>
-          </div>
-        </div>
-      )}
+     {/* ================= MODAL ================= */}
+{showForm && (
+  <div
+    className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+    onClick={() => setShowForm(false)} // 👈 outside click se close
+  >
+    <div
+      className="bg-white p-8 rounded-2xl w-80 relative"
+      onClick={(e) => e.stopPropagation()} // 👈 andar click pe band na ho
+    >
+
+      {/* ❌ CLOSE BUTTON */}
+      <button
+        onClick={() => setShowForm(false)}
+        className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl font-bold"
+      >
+        ✕
+      </button>
+
+      <h2 className="font-bold mb-4 text-lg">Enroll</h2>
+
+      <input
+        className="w-full mb-3 border p-2 rounded"
+        placeholder="Name"
+      />
+
+      <input
+        className="w-full mb-3 border p-2 rounded"
+        placeholder="Email"
+      />
+
+      <button className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
+        Submit
+      </button>
+
+    </div>
+  </div>
+)}
 
     </div>
   );

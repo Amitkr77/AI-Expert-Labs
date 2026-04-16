@@ -149,6 +149,7 @@ export default function Corporate() {
   
 
      {/* ================= PROCESS ================= */}
+{/* ================= PROCESS ================= */}
 <section className="bg-slate-50 py-18">
   <div className="max-w-6xl mx-auto px-6 text-center">
 
@@ -161,19 +162,27 @@ export default function Corporate() {
 
       {[
         {
+          id: "01",
           title: "Assessment",
+          desc: "We deeply analyze your current workflow, team structure, and bottlenecks to identify growth opportunities.",
           gradient: "from-blue-500 via-cyan-500 to-teal-400",
         },
         {
+          id: "02",
           title: "Strategy",
+          desc: "We design a tailored roadmap with clear goals, timelines, and scalable solutions aligned to your business.",
           gradient: "from-purple-500 via-pink-500 to-rose-400",
         },
         {
+          id: "03",
           title: "Implementation",
+          desc: "We execute the plan using modern tools and best practices, ensuring smooth integration.",
           gradient: "from-orange-500 via-red-500 to-pink-500",
         },
         {
+          id: "04",
           title: "Scaling",
+          desc: "We optimize and scale your system for long-term growth and performance.",
           gradient: "from-green-500 via-emerald-500 to-lime-400",
         },
       ].map((item, i) => (
@@ -181,7 +190,7 @@ export default function Corporate() {
           key={i}
           whileHover={{ scale: 1.07, rotate: 1 }}
           transition={{ type: "spring", stiffness: 200 }}
-          className="relative p-6 rounded-2xl text-white shadow-xl overflow-hidden cursor-pointer"
+          className="relative p-6 rounded-2xl text-white shadow-xl overflow-hidden cursor-pointer group"
         >
 
           {/* 🔥 Gradient Background */}
@@ -193,13 +202,20 @@ export default function Corporate() {
           {/* 💎 Content */}
           <div className="relative z-10 text-center">
 
+            {/* NUMBER */}
             <div className="text-3xl font-bold mb-2 opacity-90">
-              0{i + 1}
+              {item.id}
             </div>
 
-            <h3 className="font-semibold text-lg tracking-wide">
+            {/* TITLE */}
+            <h3 className="font-semibold text-2xl tracking-wide mb-3">
               {item.title}
             </h3>
+
+            {/* DESC */}
+            <p className="text-sm text-white/90 opacity-80 group-hover:opacity-100 transition duration-300">
+              {item.desc}
+            </p>
 
           </div>
 

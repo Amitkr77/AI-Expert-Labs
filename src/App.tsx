@@ -55,6 +55,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showConsultation, setShowConsultation] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +67,7 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300
       ${
@@ -138,12 +140,12 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
 
   {/* Free Consultation */}
-  <Link
-    to="/consultation"
-    className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100"
+ <button
+    onClick={() => setShowConsultation(!showConsultation)}
+    className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold"
   >
     Free Consultation
-  </Link>
+  </button>
 
   {/* WhatsApp Button */}
 
@@ -201,19 +203,77 @@ const Navbar = () => {
             Contact
           </Link>
 
-          <Link
-            to="/consultation"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
+          <button
+            onClick={() => {
+              setShowConsultation(true);
+              setIsMobileMenuOpen(false);
+            }}
+            className="block w-full text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
           >
             Free Consultation
-          </Link>
+          </button>
 
         </div>
       )}
     </nav>
-  );
-};
+{showConsultation && (
+  <div className="fixed top-[96px] right-6 z-50 w-[420px]">
+
+    <div className="bg-white rounded-2xl shadow-[0_20px_80px_rgba(0,0,0,0.2)] border p-6 animate-slideDown">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-xl font-bold text-slate-800">
+          Free Consultation
+        </h3>
+
+        <button
+          onClick={() => setShowConsultation(false)}
+          className="text-gray-400 hover:text-black text-lg"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* FORM */}
+      <form className="space-y-4">
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
+        />
+
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
+        />
+
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
+        />
+
+        <textarea
+          rows={5}
+          placeholder="Tell us about your requirement..."
+          className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
+        />
+
+        <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-500 transition">
+          Submit Request
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+)}
+  </>
+);
+}; 
 const Hero = () => {
 
   const companies = [
@@ -1412,4 +1472,5 @@ export default function App() {
       </div>
     </Router>
   );
+  
 }
