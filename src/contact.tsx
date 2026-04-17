@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
+import emailjs from "@emailjs/browser";
 import "aos/dist/aos.css";
 import {
   FaMapMarkerAlt,
@@ -184,11 +185,11 @@ const AnimatedContactSection: React.FC<{
 
   const unitXRef = useRef(-700);
   const rafRef = useRef<number>(0);
-  const speechTimerRef = useRef<ReturnType<typeof setTimeout>>();
+ const speechTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const confPiecesRef = useRef<any[]>([]);
   const confRunningRef = useRef(false);
   const confRAFRef = useRef<number>(0);
-  const idleTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* ── helpers ── */
   const setUnitLeft = (px: number) => {
@@ -206,12 +207,18 @@ const AnimatedContactSection: React.FC<{
     return vw / 2 - formCenterInUnit + 10;
   };
 
-  const speak = (text: string, ms = 3000) => {
+const speak = (text: string, ms = 3000) => {
+  if (speechTimerRef.current) {
     clearTimeout(speechTimerRef.current);
-    setSpeechText(text);
-    setSpeechVisible(true);
-    speechTimerRef.current = setTimeout(() => setSpeechVisible(false), ms);
-  };
+  }
+
+  setSpeechText(text);
+  setSpeechVisible(true);
+
+  speechTimerRef.current = setTimeout(() => {
+    setSpeechVisible(false);
+  }, ms);
+};
 
   const changeMouth = (t: MouthType) => setMouthD(mouths[t]);
 
@@ -258,7 +265,7 @@ const AnimatedContactSection: React.FC<{
   let idleIdx = 0;
 
   const startIdleTimer = () => {
-    clearTimeout(idleTimerRef.current);
+    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     idleTimerRef.current = setTimeout(() => {
       if (!sent) speak(idleLines[idleIdx++ % idleLines.length], 3000);
       startIdleTimer();
@@ -322,8 +329,8 @@ const AnimatedContactSection: React.FC<{
     const t = setTimeout(() => runIntro(), 400);
     return () => {
       clearTimeout(t);
-      clearTimeout(speechTimerRef.current);
-      clearTimeout(idleTimerRef.current);
+      if (speechTimerRef.current) clearTimeout(speechTimerRef.current);
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
       cancelAnimationFrame(rafRef.current);
       stopConfetti();
     };
@@ -382,35 +389,61 @@ const AnimatedContactSection: React.FC<{
   };
 
   /* ── SUBMIT ── */
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const invalids = Object.keys(validators).filter(k => !validators[k](form[k as keyof FormState]));
-    if (invalids.length) {
-      speak(`Fix ${invalids.length} field${invalids.length > 1 ? "s" : ""} first 😬`, 3000);
-      changeMouth("sad");
-      setTimeout(() => changeMouth("happy"), 2000);
-      return;
-    }
+/* ── SUBMIT ── */
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    setLoading(true);
-    speak("On my way! Delivering now! 🚀", 2500);
-    changeMouth("excited");
-    await wait(1800);
+  const invalids = Object.keys(validators).filter(
+    (k) => !validators[k](form[k as keyof FormState])
+  );
 
-    setSpeechVisible(false);
-    setCharState("push");
-    changeMouth("open");
+  if (invalids.length) {
+    speak(`Fix ${invalids.length} field first 😬`, 3000);
+    changeMouth("sad");
+    setTimeout(() => changeMouth("happy"), 2000);
+    return;
+  }
 
-    const curX = unitXRef.current;
-    const uw = getUnitWidth();
-    await animateUnit(-uw - 150, 900, easeIn);
+  setLoading(true);
+  speak("On my way! Delivering now! 🚀", 2500);
+  changeMouth("excited");
 
-    await wait(150);
+  try {
+    await emailjs.send(
+      "service_gvce89f",
+      "template_sq3zmnr",
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        subject: form.subject,
+        message: form.message,
+      },
+      "dG7Zxv0JLjxY3J5iQ"
+    );
+  } catch (err) {
+    console.error(err);
+    speak("Failed to send 😢 Try again!", 3000);
     setLoading(false);
-    setSent(true);
-    spawnConfetti();
-    onSubmitSuccess();
-  };
+    changeMouth("sad");
+    return;
+  }
+
+  setSpeechVisible(false);
+  setCharState("push");
+
+  const vw = window.innerWidth;
+  const uw = getUnitWidth();
+
+  await animateUnit(vw + uw, 900, easeIn);
+
+  await wait(150);
+
+  setLoading(false);
+  setSent(true);
+  spawnConfetti();
+  onSubmitSuccess();
+};
 
   /* ── character click ── */
   const clickLines = ["Hehe, that tickles! 😄", "Eyes on the form! 😜", "I'm the delivery guy! 📦", "You've got this! 💪", "Fill it all in! ✍️"];
@@ -887,7 +920,12 @@ const Contact: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 700, once: true });
     window.scrollTo(0, 0);
+
+
+  emailjs.init("dG7Zxv0JLjxY3J5iQ");
+
   }, []);
+  
 
   return (
     <div className="bg-white pt-0 pb-30">
