@@ -84,7 +84,7 @@ const Navbar = () => {
   <img
     src={logo}
     alt="AIxperts Labs Logo"
-    className="h-16" // 🔥 increased from h-12 → h-16
+    className="h-18" // 🔥 increased from h-12 → h-16
   />
 </Link>
 
