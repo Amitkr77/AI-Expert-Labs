@@ -475,7 +475,7 @@ const Portfolio = () => {
       {/* CTA */}
       <div className="max-w-4xl mx-auto px-6 mt-32 mb-24 text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white py-12 rounded-3xl">
         <h2 className="text-5xl font-bold mb-4">
-          Want Similar Results?
+          Your Success Starts Here
         </h2>
 
         <p className="mb-6 text-xl">
