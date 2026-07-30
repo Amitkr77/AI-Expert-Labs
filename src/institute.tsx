@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { submitForm } from "./lib/api";
 
 import { motion } from "framer-motion";
 import {
@@ -248,10 +249,43 @@ function CampasTransformation() {
 
 export default function Institute() {
   const [showForm, setShowForm] = useState(false);
+  const [enrollForm, setEnrollForm] = useState({ name: "", email: "" });
+  const [enrollStatus, setEnrollStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
+
+  const handleEnrollChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEnrollForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleEnrollSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!enrollForm.name || !enrollForm.email) return;
+
+    setEnrollStatus("sending");
+    try {
+      await submitForm({
+        formType: "enrollment",
+        name: enrollForm.name,
+        email: enrollForm.email,
+        subject: "Institute Enrollment Request",
+        message: `${enrollForm.name} (${enrollForm.email}) requested enrollment info via the Institute page.`,
+        source: "institute-page",
+      });
+      setEnrollStatus("sent");
+      setEnrollForm({ name: "", email: "" });
+      setTimeout(() => {
+        setEnrollStatus("idle");
+        setShowForm(false);
+      }, 2000);
+    } catch (err) {
+      console.error("EMAIL ERROR:", err);
+      setEnrollStatus("error");
+    }
+  };
 
   const students = [
   {
@@ -652,19 +686,42 @@ export default function Institute() {
 
       <h2 className="font-bold mb-4 text-lg">Enroll</h2>
 
-      <input
-        className="w-full mb-3 border p-2 rounded"
-        placeholder="Name"
-      />
+      {enrollStatus === "sent" ? (
+        <p className="text-emerald-600 font-semibold text-center py-4">Thanks! We'll be in touch. ✓</p>
+      ) : (
+        <form onSubmit={handleEnrollSubmit}>
+          <input
+            name="name"
+            value={enrollForm.name}
+            onChange={handleEnrollChange}
+            required
+            className="w-full mb-3 border p-2 rounded"
+            placeholder="Name"
+          />
 
-      <input
-        className="w-full mb-3 border p-2 rounded"
-        placeholder="Email"
-      />
+          <input
+            type="email"
+            name="email"
+            value={enrollForm.email}
+            onChange={handleEnrollChange}
+            required
+            className="w-full mb-3 border p-2 rounded"
+            placeholder="Email"
+          />
 
-      <button className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition">
-        Submit
-      </button>
+          <button
+            type="submit"
+            disabled={enrollStatus === "sending"}
+            className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition disabled:opacity-60"
+          >
+            {enrollStatus === "sending" ? "Sending..." : "Submit"}
+          </button>
+
+          {enrollStatus === "error" && (
+            <p className="text-red-500 text-xs text-center mt-2">Failed to send. Please try again.</p>
+          )}
+        </form>
+      )}
 
     </div>
   </div>

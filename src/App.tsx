@@ -49,6 +49,7 @@ import {
   User
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { submitForm } from "./lib/api";
 
 // --- Components ---
 
@@ -56,6 +57,40 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showConsultation, setShowConsultation] = useState(false);
+  const [consultForm, setConsultForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [consultStatus, setConsultStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleConsultChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setConsultForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleConsultSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!consultForm.name || !consultForm.email) return;
+
+    setConsultStatus("sending");
+    try {
+      await submitForm({
+        formType: "free-consultation",
+        name: consultForm.name,
+        email: consultForm.email,
+        phone: consultForm.phone,
+        subject: "Free Consultation Request",
+        message: consultForm.message,
+        source: "navbar-popup",
+      });
+      setConsultStatus("sent");
+      setConsultForm({ name: "", email: "", phone: "", message: "" });
+      setTimeout(() => {
+        setConsultStatus("idle");
+        setShowConsultation(false);
+      }, 2000);
+    } catch (err) {
+      console.error("EMAIL ERROR:", err);
+      setConsultStatus("error");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -236,35 +271,57 @@ const Navbar = () => {
       </div>
 
       {/* FORM */}
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleConsultSubmit}>
 
         <input
           type="text"
+          name="name"
           placeholder="Full Name"
+          value={consultForm.name}
+          onChange={handleConsultChange}
+          required
           className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
         />
 
         <input
           type="email"
+          name="email"
           placeholder="Email Address"
+          value={consultForm.email}
+          onChange={handleConsultChange}
+          required
           className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
         />
 
         <input
           type="tel"
+          name="phone"
           placeholder="Phone Number"
+          value={consultForm.phone}
+          onChange={handleConsultChange}
           className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
         />
 
         <textarea
           rows={5}
+          name="message"
           placeholder="Tell us about your requirement..."
+          value={consultForm.message}
+          onChange={handleConsultChange}
           className="w-full border px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500"
         />
 
-        <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-500 transition">
-          Submit Request
+        <button
+          type="submit"
+          disabled={consultStatus === "sending"}
+          className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-500 transition disabled:opacity-60"
+        >
+          {consultStatus === "sending" ? "Sending..." : consultStatus === "sent" ? "Sent! ✓" : "Submit Request"}
         </button>
+
+        {consultStatus === "error" && (
+          <p className="text-red-500 text-sm text-center">Failed to send. Please try again.</p>
+        )}
 
       </form>
 
@@ -1295,6 +1352,30 @@ const Terms = () => {
 };
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+
+    setNewsletterStatus("sending");
+    try {
+      await submitForm({
+        formType: "newsletter",
+        name: "Newsletter Subscriber",
+        email: newsletterEmail,
+        source: "footer-newsletter",
+      });
+      setNewsletterStatus("sent");
+      setNewsletterEmail("");
+      setTimeout(() => setNewsletterStatus("idle"), 3000);
+    } catch (err) {
+      console.error("NEWSLETTER ERROR:", err);
+      setNewsletterStatus("error");
+    }
+  };
+
   return (
     <footer className="bg-white pt-6 pb-6 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
@@ -1396,16 +1477,27 @@ const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Intelligence Feed</h4>
             <p className="text-slate-500 mb-8 text-sm">Get the latest AI breakthroughs delivered to your inbox.</p>
-            <div className="relative">
-              <input 
-                type="email" 
-                placeholder="Enter email" 
-                className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:outline-none focus:border-orange-500 transition-all"
+            <form onSubmit={handleNewsletterSubmit} className="relative">
+              <input
+                type="email"
+                placeholder={newsletterStatus === "sent" ? "Subscribed! ✓" : "Enter email"}
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
+                disabled={newsletterStatus === "sending" || newsletterStatus === "sent"}
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:outline-none focus:border-orange-500 transition-all disabled:opacity-60"
               />
-              <button className="absolute right-2 top-2 bottom-2 bg-slate-900 text-white px-4 rounded-xl hover:bg-slate-800 transition-all">
+              <button
+                type="submit"
+                disabled={newsletterStatus === "sending" || newsletterStatus === "sent"}
+                className="absolute right-2 top-2 bottom-2 bg-slate-900 text-white px-4 rounded-xl hover:bg-slate-800 transition-all disabled:opacity-60"
+              >
                 <ArrowRight className="w-5 h-5" />
               </button>
-            </div>
+            </form>
+            {newsletterStatus === "error" && (
+              <p className="text-red-500 text-xs mt-2">Failed to subscribe. Please try again.</p>
+            )}
           </div>
         </div>
 

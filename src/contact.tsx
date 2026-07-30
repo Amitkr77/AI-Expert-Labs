@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
-import emailjs from "@emailjs/browser";
 import "aos/dist/aos.css";
 import {
   FaMapMarkerAlt,
@@ -8,6 +7,7 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from "react-icons/fa";
+import { submitForm } from "./lib/api";
 
 /* ═══════════════════════════════════════════════
    TYPES
@@ -409,18 +409,15 @@ const handleSubmit = async (e: React.FormEvent) => {
   changeMouth("excited");
 
   try {
-    await emailjs.send(
-      "service_gvce89f",
-      "template_sq3zmnr",
-      {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        subject: form.subject,
-        message: form.message,
-      },
-      "dG7Zxv0JLjxY3J5iQ"
-    );
+    await submitForm({
+      formType: "contact",
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      subject: form.subject,
+      message: form.message,
+      source: "contact-page",
+    });
   } catch (err) {
     console.error(err);
     speak("Failed to send 😢 Try again!", 3000);
@@ -920,10 +917,6 @@ const Contact: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 700, once: true });
     window.scrollTo(0, 0);
-
-
-  emailjs.init("dG7Zxv0JLjxY3J5iQ");
-
   }, []);
   
 

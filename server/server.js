@@ -1,27 +1,29 @@
-import emailjs from "@emailjs/browser";
+import app from "./src/app.js";
+import env from "./src/config/env.js";
+import connectDB from "./src/config/db.js";
+import { verifyTransporter } from "./src/config/mailer.js";
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+const start = async () => {
+  try {
+    await connectDB();
 
-  setLoading(true);
+    try {
+      await verifyTransporter();
+    } catch (err) {
+      console.warn(
+        "[mailer] SMTP verification failed — check SMTP_HOST/SMTP_USER/SMTP_PASS in server/.env. " +
+          "The server will still start, but emails will fail until this is fixed."
+      );
+      console.warn("[mailer]", err.message);
+    }
 
-try {
-  const res = await emailjs.send(
-    "service_gvce89f",
-    "template_sq3zmnr",
-    {
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      subject: form.subject,
-      message: form.message,
-    },
-    "dG7Zxv0JLjxY3J5iQ"
-  );
-
-  console.log("SUCCESS:", res);
-
-} catch (err) {
-  console.error("EMAIL ERROR:", err);
-}
+    app.listen(env.port, () => {
+      console.log(`[server] Listening on port ${env.port} (${env.nodeEnv})`);
+    });
+  } catch (err) {
+    console.error("[server] Failed to start:", err.message);
+    process.exit(1);
+  }
 };
+
+start();

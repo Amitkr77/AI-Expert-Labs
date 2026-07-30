@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { submitForm } from "./lib/api";
 
 const Consultation: React.FC = () => {
+  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email) return;
+
+    setStatus("sending");
+    try {
+      await submitForm({
+        formType: "consultation",
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        subject: "Free AI Consultation Booking",
+        message: form.message,
+        source: "consultation-page",
+      });
+      setStatus("sent");
+      setForm({ name: "", email: "", company: "", message: "" });
+    } catch (err) {
+      console.error("EMAIL ERROR:", err);
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="bg-white text-slate-900 pt-28 pb-20 px-6">
       
@@ -38,16 +72,60 @@ const Consultation: React.FC = () => {
           Book Your Free Session
         </h2>
 
-        <form className="space-y-6">
-          <input type="text" placeholder="Full Name" className="w-full px-5 py-4 rounded-xl border" />
-          <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl border" />
-          <input type="text" placeholder="Company / Project" className="w-full px-5 py-4 rounded-xl border" />
-          <textarea placeholder="Tell us..." rows={4} className="w-full px-5 py-4 rounded-xl border" />
+        {status === "sent" ? (
+          <p className="text-center text-emerald-600 font-semibold py-8">
+            Thanks! We've received your request and will reach out shortly. ✓
+          </p>
+        ) : (
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              className="w-full px-5 py-4 rounded-xl border"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="w-full px-5 py-4 rounded-xl border"
+            />
+            <input
+              type="text"
+              name="company"
+              placeholder="Company / Project"
+              value={form.company}
+              onChange={handleChange}
+              className="w-full px-5 py-4 rounded-xl border"
+            />
+            <textarea
+              name="message"
+              placeholder="Tell us..."
+              rows={4}
+              value={form.message}
+              onChange={handleChange}
+              className="w-full px-5 py-4 rounded-xl border"
+            />
 
-          <button className="w-full bg-orange-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
-            Submit <ArrowRight className="w-5 h-5" />
-          </button>
-        </form>
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="w-full bg-orange-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-60"
+            >
+              {status === "sending" ? "Sending..." : "Submit"} <ArrowRight className="w-5 h-5" />
+            </button>
+
+            {status === "error" && (
+              <p className="text-red-500 text-sm text-center">Failed to send. Please try again.</p>
+            )}
+          </form>
+        )}
       </div>
 
     </div>

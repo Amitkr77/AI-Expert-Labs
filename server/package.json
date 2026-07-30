@@ -1,18 +1,21 @@
 {
-  "name": "server",
+  "name": "ai-expert-labs-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend API for AIxperts Labs — stores form submissions in MongoDB and sends emails via Nodemailer.",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
     "express": "^4.22.1",
-    "nodemailer": "^8.0.5"
+    "mongoose": "^8.9.5",
+    "nodemailer": "^7.0.3"
   }
 }
