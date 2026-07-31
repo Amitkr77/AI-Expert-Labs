@@ -11,7 +11,7 @@ export interface SubmissionPayload {
   source?: string;
 }
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/+$/, "");
 
 export async function submitForm(payload: SubmissionPayload) {
   const res = await fetch(`${API_URL}/api/submissions`, {
