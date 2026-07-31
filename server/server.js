@@ -4,8 +4,8 @@ import connectDB from "./src/config/db.js";
 import { verifyTransporter } from "./src/config/mailer.js";
 
 // Open the port first so Render's port scanner detects it immediately.
-// MongoDB / SMTP are connected afterward in the background — if either is
-// slow or misconfigured, it no longer delays the port binding.
+// MongoDB / Resend are connected afterward in the background — if either
+// is slow or misconfigured, it no longer delays the port binding.
 app.listen(env.port, "0.0.0.0", () => {
   console.log(`[server] Listening on port ${env.port} (${env.nodeEnv})`);
 });
@@ -19,7 +19,7 @@ connectDB().catch((err) => {
 
 verifyTransporter().catch((err) => {
   console.warn(
-    "[mailer] SMTP verification failed — check SMTP_HOST/SMTP_USER/SMTP_PASS. " +
+    "[mailer] Resend verification failed — check RESEND_API_KEY. " +
       "The server is still running, but emails will fail until this is fixed."
   );
   console.warn("[mailer]", err.message);

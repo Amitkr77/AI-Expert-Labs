@@ -1,44 +1,35 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import env from "./env.js";
 
-let transporter = null;
+let resendClient = null;
 
 /**
- * Lazily creates (and caches) the Nodemailer transporter using SMTP
- * credentials from environment variables. Works with Gmail (App Password),
- * Outlook, Zoho, SendGrid SMTP, or any standard SMTP provider.
+ * Lazily creates (and caches) the Resend client. Resend sends email over
+ * HTTPS (not raw SMTP), which avoids the outbound SMTP port
+ * blocking/timeouts some hosts (e.g. Render) apply to providers like Gmail.
  */
-export const getTransporter = () => {
-  if (transporter) return transporter;
+export const getResendClient = () => {
+  if (resendClient) return resendClient;
 
-  if (!env.smtp.host || !env.smtp.user || !env.smtp.pass) {
+  if (!env.resendApiKey) {
     throw new Error(
-      "SMTP credentials are not configured. Set SMTP_HOST, SMTP_USER and SMTP_PASS in server/.env."
+      "RESEND_API_KEY is not configured. Set it in server/.env (get a free key at https://resend.com)."
     );
   }
 
-  transporter = nodemailer.createTransport({
-    host: env.smtp.host,
-    port: env.smtp.port,
-    secure: env.smtp.secure, // true for port 465, false for 587/25 (STARTTLS)
-    auth: {
-      user: env.smtp.user,
-      pass: env.smtp.pass,
-    },
-  });
-
-  return transporter;
+  resendClient = new Resend(env.resendApiKey);
+  return resendClient;
 };
 
 /**
- * Verifies the SMTP connection/credentials. Call this on server startup
- * so misconfiguration is caught early instead of failing silently on the
- * first form submission.
+ * Verifies the Resend API key works by making a lightweight authenticated
+ * call. Runs once at server startup so misconfiguration is caught early.
  */
 export const verifyTransporter = async () => {
-  const t = getTransporter();
-  await t.verify();
-  console.log("[mailer] SMTP connection verified");
+  const client = getResendClient();
+  const { error } = await client.apiKeys.list();
+  if (error) throw new Error(error.message || "Resend API key verification failed");
+  console.log("[mailer] Resend API key verified");
 };
 
-export default getTransporter;
+export default getResendClient;

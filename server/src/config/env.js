@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const required = ["MONGODB_URI", "SMTP_HOST", "SMTP_USER", "SMTP_PASS", "MAIL_TO"];
+const required = ["MONGODB_URI", "RESEND_API_KEY", "MAIL_TO"];
 
 const missing = required.filter((key) => !process.env[key]);
 
@@ -23,15 +23,9 @@ export const env = {
 
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:3000",
 
-  smtp: {
-    host: process.env.SMTP_HOST || "",
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_SECURE === "true",
-    user: process.env.SMTP_USER || "",
-    pass: process.env.SMTP_PASS || "",
-  },
+  resendApiKey: process.env.RESEND_API_KEY || "",
 
-  mailFrom: process.env.MAIL_FROM || process.env.SMTP_USER || "",
+  mailFrom: process.env.MAIL_FROM || "AIxperts Labs <onboarding@resend.dev>",
   mailTo: process.env.MAIL_TO || "",
 
   sendAutoReply: process.env.SEND_AUTO_REPLY !== "false",

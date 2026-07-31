@@ -16,6 +16,6 @@
     "dotenv": "^17.2.3",
     "express": "^4.22.1",
     "mongoose": "^8.9.5",
-    "nodemailer": "^7.0.3"
+    "resend": "^6.18.1"
   }
 }

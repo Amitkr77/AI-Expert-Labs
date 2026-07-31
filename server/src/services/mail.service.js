@@ -1,4 +1,4 @@
-import { getTransporter } from "../config/mailer.js";
+import { getResendClient } from "../config/mailer.js";
 import env from "../config/env.js";
 
 const FORM_TYPE_LABELS = {
@@ -98,19 +98,23 @@ const buildUserAutoReplyEmail = (submission) => {
 
 /**
  * Sends the admin notification email, and (if enabled) an auto-reply to the
- * person who submitted the form. Returns true only if the admin
- * notification succeeded — the auto-reply failing is not treated as fatal.
+ * person who submitted the form. Throws if the admin notification fails —
+ * the auto-reply failing is not treated as fatal.
  */
 export const sendSubmissionEmails = async (submission) => {
-  const transporter = getTransporter();
+  const client = getResendClient();
 
-  await transporter.sendMail(buildAdminEmail(submission));
+  const { error } = await client.emails.send(buildAdminEmail(submission));
+  if (error) {
+    throw new Error(error.message || "Failed to send notification email via Resend");
+  }
 
   if (env.sendAutoReply) {
-    try {
-      await transporter.sendMail(buildUserAutoReplyEmail(submission));
-    } catch (err) {
-      console.error("[mailer] Auto-reply failed (non-fatal):", err.message);
+    const { error: autoReplyError } = await client.emails.send(
+      buildUserAutoReplyEmail(submission)
+    );
+    if (autoReplyError) {
+      console.error("[mailer] Auto-reply failed (non-fatal):", autoReplyError.message);
     }
   }
 

@@ -1,19 +1,17 @@
 # AIxperts Labs — Backend API
 
-Express + MongoDB (Mongoose) + Nodemailer backend for all website forms
+Express + MongoDB (Mongoose) + Resend backend for all website forms
 (Contact, Consultation, Free Consultation popup, Institute Enrollment, Newsletter).
 
 Every form submits to a single endpoint, which:
 1. Saves the submission to MongoDB
-2. Emails you (the business) a notification via Nodemailer/SMTP
+2. Emails you (the business) a notification via Resend
 3. Sends the visitor an auto-reply confirmation (optional, on by default)
 
-> **Heads up:** some hosts (Render's free tier included) block outbound SMTP
-> connections to providers like Gmail — the connection just times out even
-> with correct credentials. This is a platform network restriction, not a
-> bug in this code. It'll work locally but may fail once deployed; if it
-> does, the fix is either testing a different SMTP provider or switching
-> to an HTTP-based email API (e.g. Resend, SendGrid) instead of raw SMTP.
+> **Why Resend instead of raw SMTP/Nodemailer?** Some hosts (Render's free
+> tier included) can't reliably reach SMTP ports (587/465) to providers like
+> Gmail — connections just time out regardless of correct credentials.
+> Resend sends email over standard HTTPS, which is never blocked.
 
 ## Setup
 
@@ -26,9 +24,8 @@ cp .env.example .env
 Fill in `.env`:
 
 - `MONGODB_URI` — your MongoDB connection string (Atlas or self-hosted)
-- `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` — your email provider's SMTP credentials
-  - **Gmail**: host `smtp.gmail.com`, port `587`, and an [App Password](https://myaccount.google.com/apppasswords) (not your normal password — requires 2FA enabled)
-  - Any other provider (Outlook, Zoho, SendGrid, etc.) works too — just use their SMTP host/port/credentials
+- `RESEND_API_KEY` — sign up free at [resend.com](https://resend.com), then Dashboard → API Keys → Create API Key
+- `MAIL_FROM` — leave as `onboarding@resend.dev` until you verify your own domain in Resend (Dashboard → Domains); a custom From address will fail to send until then
 - `MAIL_TO` — the inbox that should receive new leads
 - `FRONTEND_URL` — your frontend's URL, for CORS (e.g. `http://localhost:3000` in dev)
 - `ADMIN_API_KEY` — any random string; required to use `GET /api/submissions`
@@ -42,7 +39,7 @@ npm start
 ```
 
 The server starts on `http://localhost:5000` by default and logs whether
-MongoDB and SMTP connected successfully.
+MongoDB connected and the Resend API key verified successfully.
 
 ## API
 
@@ -84,7 +81,7 @@ server/
     config/
       env.js                 # loads & validates .env
       db.js                  # mongoose connection
-      mailer.js               # nodemailer transporter
+      mailer.js               # resend client
     models/
       Submission.js          # mongoose schema
     services/
