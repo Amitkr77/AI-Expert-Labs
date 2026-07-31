@@ -179,7 +179,7 @@ const Navbar = () => {
     onClick={() => setShowConsultation(!showConsultation)}
     className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold"
   >
-    Free Consultation
+    Free Consultations
   </button>
 
   {/* WhatsApp Button */}
