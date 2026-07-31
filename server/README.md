@@ -1,12 +1,19 @@
 # AIxperts Labs — Backend API
 
 Express + MongoDB (Mongoose) + Nodemailer backend for all website forms
-(Contact, Consultation, Free Consultation popup, Institute Enrollment).
+(Contact, Consultation, Free Consultation popup, Institute Enrollment, Newsletter).
 
 Every form submits to a single endpoint, which:
 1. Saves the submission to MongoDB
 2. Emails you (the business) a notification via Nodemailer/SMTP
 3. Sends the visitor an auto-reply confirmation (optional, on by default)
+
+> **Heads up:** some hosts (Render's free tier included) block outbound SMTP
+> connections to providers like Gmail — the connection just times out even
+> with correct credentials. This is a platform network restriction, not a
+> bug in this code. It'll work locally but may fail once deployed; if it
+> does, the fix is either testing a different SMTP provider or switching
+> to an HTTP-based email API (e.g. Resend, SendGrid) instead of raw SMTP.
 
 ## Setup
 
