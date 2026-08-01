@@ -172,19 +172,16 @@ const Navbar = () => {
             Contact
           </Link>
 
-          <div className="flex items-center gap-4">
-
-  {/* Free Consultation */}
- <button
-    onClick={() => setShowConsultation(!showConsultation)}
-    className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold"
-  >
-    Free Consultation
-  </button>
-
-  {/* WhatsApp Button */}
-
-</div>
+        <div className="flex items-center gap-4">
+        {/* Free Consultation */}
+        <button
+            onClick={() => setShowConsultation(!showConsultation)}
+            className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold"
+          >
+            Free Consultation
+        </button>
+          {/* WhatsApp Button */}
+        </div>
 
         </div>
 
